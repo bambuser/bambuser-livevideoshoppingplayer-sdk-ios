@@ -1,0 +1,11 @@
+framework module LiveShoppingPlayer {
+  umbrella header "LiveShoppingPlayer.h"
+
+  export *
+  module * { export * }
+}
+
+module LiveShoppingPlayer.Swift {
+    header "LiveShoppingPlayer-Swift.h"
+    requires objc
+}
