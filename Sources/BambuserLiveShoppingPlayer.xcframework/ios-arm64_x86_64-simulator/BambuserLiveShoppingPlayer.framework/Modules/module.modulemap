@@ -1,0 +1,11 @@
+framework module BambuserLiveShoppingPlayer {
+  umbrella header "BambuserLiveShoppingPlayer.h"
+
+  export *
+  module * { export * }
+}
+
+module BambuserLiveShoppingPlayer.Swift {
+    header "BambuserLiveShoppingPlayer-Swift.h"
+    requires objc
+}
