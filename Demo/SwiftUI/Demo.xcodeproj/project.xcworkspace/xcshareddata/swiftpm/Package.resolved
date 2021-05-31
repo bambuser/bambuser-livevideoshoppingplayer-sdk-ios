@@ -5,9 +5,9 @@
         "package": "BambuserLiveShoppingPlayer",
         "repositoryURL": "git@github.com:bambuser/bambuser-liveshopping-player-sdk-ios.git",
         "state": {
-          "branch": "master",
-          "revision": "b41d0fa299d2584399148b56f617f06c124f9acb",
-          "version": null
+          "branch": null,
+          "revision": "ae2e4537dd4ca7d947db3baa303db5b7d256875c",
+          "version": "0.0.1"
         }
       }
     ]
