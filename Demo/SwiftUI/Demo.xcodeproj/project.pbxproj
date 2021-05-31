@@ -10,7 +10,7 @@
 		A98E913726552BA900B93678 /* PlayerSettingsListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98E913626552BA900B93678 /* PlayerSettingsListSection.swift */; };
 		A98E913926552BBE00B93678 /* DemoContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98E913826552BBE00B93678 /* DemoContext.swift */; };
 		A98E913B26552EDE00B93678 /* ListIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98E913A26552EDE00B93678 /* ListIcon.swift */; };
-		A9973E1126612CC900F52B6A /* BambuserLiveShoppingPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = A9973E1026612CC900F52B6A /* BambuserLiveShoppingPlayer */; };
+		A9973F652664E61A00F52B6A /* BambuserLiveShoppingPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = A9973F642664E61A00F52B6A /* BambuserLiveShoppingPlayer */; };
 		A99F28892653D5AC0015B9D2 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F28882653D5AC0015B9D2 /* DemoApp.swift */; };
 		A99F288B2653D5AC0015B9D2 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F288A2653D5AC0015B9D2 /* HomeScreen.swift */; };
 		A99F288D2653D5AE0015B9D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A99F288C2653D5AE0015B9D2 /* Assets.xcassets */; };
@@ -24,6 +24,7 @@
 		A98E913626552BA900B93678 /* PlayerSettingsListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSettingsListSection.swift; sourceTree = "<group>"; };
 		A98E913826552BBE00B93678 /* DemoContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoContext.swift; sourceTree = "<group>"; };
 		A98E913A26552EDE00B93678 /* ListIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIcon.swift; sourceTree = "<group>"; };
+		A9973F3E2664AD7B00F52B6A /* Combine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Combine.framework; path = System/Library/Frameworks/Combine.framework; sourceTree = SDKROOT; };
 		A99F28852653D5AC0015B9D2 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99F28882653D5AC0015B9D2 /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
 		A99F288A2653D5AC0015B9D2 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -40,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9973E1126612CC900F52B6A /* BambuserLiveShoppingPlayer in Frameworks */,
+				A9973F652664E61A00F52B6A /* BambuserLiveShoppingPlayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,11 +57,20 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		A9973F3D2664AD7B00F52B6A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9973F3E2664AD7B00F52B6A /* Combine.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A99F287C2653D5AC0015B9D2 = {
 			isa = PBXGroup;
 			children = (
 				A99F28872653D5AC0015B9D2 /* Demo */,
 				A99F28862653D5AC0015B9D2 /* Products */,
+				A9973F3D2664AD7B00F52B6A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,7 +148,7 @@
 			);
 			name = Demo;
 			packageProductDependencies = (
-				A9973E1026612CC900F52B6A /* BambuserLiveShoppingPlayer */,
+				A9973F642664E61A00F52B6A /* BambuserLiveShoppingPlayer */,
 			);
 			productName = Demo;
 			productReference = A99F28852653D5AC0015B9D2 /* Demo.app */;
@@ -169,7 +179,7 @@
 			);
 			mainGroup = A99F287C2653D5AC0015B9D2;
 			packageReferences = (
-				A9973E0F26612CC900F52B6A /* XCRemoteSwiftPackageReference "bambuser-liveshopping-player-sdk-ios" */,
+				A9973F632664E61A00F52B6A /* XCRemoteSwiftPackageReference "bambuser-liveshopping-player-sdk-ios" */,
 			);
 			productRefGroup = A99F28862653D5AC0015B9D2 /* Products */;
 			projectDirPath = "";
@@ -393,20 +403,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A9973E0F26612CC900F52B6A /* XCRemoteSwiftPackageReference "bambuser-liveshopping-player-sdk-ios" */ = {
+		A9973F632664E61A00F52B6A /* XCRemoteSwiftPackageReference "bambuser-liveshopping-player-sdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:bambuser/bambuser-liveshopping-player-sdk-ios.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.1;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A9973E1026612CC900F52B6A /* BambuserLiveShoppingPlayer */ = {
+		A9973F642664E61A00F52B6A /* BambuserLiveShoppingPlayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A9973E0F26612CC900F52B6A /* XCRemoteSwiftPackageReference "bambuser-liveshopping-player-sdk-ios" */;
+			package = A9973F632664E61A00F52B6A /* XCRemoteSwiftPackageReference "bambuser-liveshopping-player-sdk-ios" */;
 			productName = BambuserLiveShoppingPlayer;
 		};
 /* End XCSwiftPackageProductDependency section */
