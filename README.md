@@ -9,9 +9,9 @@
 </div>
 
 
-# Bambuser LiveShopping Player
+# Bambuser Live Video Shopping Player
 
-`BambuserLiveShoppingPlayer` simplies adding a Bambuser live shopping player to any iOS app.
+`BambuserLiveShoppingPlayer` simplifes the integration of the Bambuser Live Video Shopping player in any iOS app.
 
 
 ## Installation
@@ -24,7 +24,7 @@ You can install `BambuserLiveShoppingPlayer` with SPM:
 https://github.com/bambuser/bambuser-liveshopping-player-sdk-ios
 ```
 
-After installing the library to your app, remember to import `BambuserLiveShoppingPlayer` it in every file where you want to use it.
+After installing the library in your app, remember to import `BambuserLiveShoppingPlayer` in every file where you want to use it.
 
 
 ## Platform Support
@@ -56,7 +56,7 @@ let player = LiveShoppingPlayer(
     configuration: playerConfiguration)
 ```
 
-You can then add the player anywhere in your app, resize it to fit your needs etc. Read more about configuration the player further down.
+You can then add the player anywhere in your app, resize it to fit your needs etc. Read more about configuring the player further down.
 
 
 ## Player Configuration
