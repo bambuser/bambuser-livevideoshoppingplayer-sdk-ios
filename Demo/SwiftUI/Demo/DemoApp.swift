@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import BambuserLiveShoppingPlayer
+import BambuserLiveVideoShoppingPlayer
 
 @main
 struct DemoApp: App {

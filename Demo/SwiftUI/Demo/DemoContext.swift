@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import BambuserLiveShoppingPlayer
+import BambuserLiveVideoShoppingPlayer
 
 /**
  This is a demo-specific class that can be used to configure
