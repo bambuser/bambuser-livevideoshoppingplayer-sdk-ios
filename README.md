@@ -11,22 +11,22 @@
 
 # Bambuser Live Video Shopping Player
 
-`BambuserLiveShoppingPlayer` simplifes the integration of the Bambuser Live Video Shopping player in any iOS app.
+`BambuserLiveVideoShoppingPlayer` simplifes the integration of the Bambuser Live Video Shopping player in any iOS app.
 
-**NOTE!** This project is in early stages of development. Feel free to experiment with it but refrain from using it in production for now. See the [release notes](./RELEASE_NOTES.md) for status and progress.
+**NOTE!** This project is in early stages of development. Feel free to experiment with it but refrain from using it in production for now. See the [release notes][ReleaseNotes] for status and progress.
 
 
 ## Installation
 
 ### Swift Package Manager
 
-You can install `BambuserLiveShoppingPlayer` with SPM:
+You can install `BambuserLiveVideoShoppingPlayer` with SPM:
 
 ```
-https://github.com/bambuser/bambuser-liveshopping-player-sdk-ios
+https://github.com/bambuser/bambuser-livevideoshoppingplayer-sdk-ios
 ```
 
-After installing the library in your app, remember to import `BambuserLiveShoppingPlayer` in every file where you want to use it.
+After installing the library in your app, remember to import `BambuserVideoLiveShoppingPlayer` in every file where you want to use it.
 
 
 ## Platform Support
@@ -39,13 +39,13 @@ The library supports iOS 13+ and can be used with `UIKit` and `SwiftUI`.
 When using `UIKit`, you can create a player like this:
 
 ```
-let player = LiveShoppingPlayerView(
+let player = LiveVideoShoppingPlayerView(
     configuration: playerConfiguration)
 ```
 
 You can then add the player anywhere in your app, resize it to fit your needs etc. Read more about configuration the player further down.
 
-You can also use the `LiveShoppingPlayerViewController` if you want to wrap the view.
+You can also use the `LiveVideoShoppingPlayerViewController` if you want to wrap the view.
 
 
 ### SwiftUI
@@ -53,7 +53,7 @@ You can also use the `LiveShoppingPlayerViewController` if you want to wrap the 
 When using `SwiftUI`, you can create a player like this:
 
 ```
-let player = LiveShoppingPlayer(
+let player = LiveVideoShoppingPlayer(
     showId: "The ID of the show to watch",
     configuration: playerConfiguration)
 ```
@@ -73,3 +73,6 @@ The configuration specifies things like theme, UI element, button configuration,
 The `Demo` folder contains a `SwiftUI` demo app. 
 
 Have a look at it for examples on how to add a live shopping player to your app.
+
+
+[ReleaseNotes]: ./RELEASE_NOTES.md
