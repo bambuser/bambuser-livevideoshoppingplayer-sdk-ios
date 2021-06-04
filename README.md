@@ -9,11 +9,16 @@
 </div>
 
 
-# Bambuser Live Video Shopping Player
+# Bambuser Live Video Shopping Player (Beta)
 
 `BambuserLiveVideoShoppingPlayer` simplifes the integration of the Bambuser Live Video Shopping player in any iOS app.
 
-**NOTE!** This project is in early stages of development. Feel free to experiment with it but refrain from using it in production for now. See the [release notes][ReleaseNotes] for status and progress.
+
+## Beta Version
+
+**NOTE!** This project is in early stages of development. Feel free to experiment with it but refrain from using it in production for now. 
+
+See the [release notes][ReleaseNotes] for status and progress.
 
 
 ## Installation
