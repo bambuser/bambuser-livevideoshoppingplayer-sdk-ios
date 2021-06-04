@@ -1,6 +1,6 @@
 //
 //  PlayerScreen.swift
-//  LiveShoppingPlayer
+//  LiveVideoShoppingPlayer
 //
 //  Copyright © 2021 Bambuser AB. All rights reserved.
 //
@@ -12,7 +12,7 @@ struct PlayerScreen: View {
     
     @State private var isPipEnabled = false
     
-    @StateObject private var playerContext = LiveShoppingPlayerContext()
+    @StateObject private var playerContext = LiveVideoShoppingPlayerContext()
     
     @EnvironmentObject private var demoContext: DemoContext
     
@@ -45,7 +45,7 @@ private extension PlayerScreen {
     }
     
     var player: some View {
-        LiveShoppingPlayer(
+        LiveVideoShoppingPlayer(
             showId: demoContext.showId,
             configuration: demoContext.playerConfiguration { event, data in
                 switch event {
@@ -74,7 +74,7 @@ private extension PlayerScreen {
 
 
 
-// MARK: - LiveShoppingPlayer Extensions
+// MARK: - LiveVideoShoppingPlayer Extensions
 
 private extension View {
     
@@ -91,7 +91,7 @@ private extension View {
 
 private extension PlayerScreen {
     
-    var playerInterface: LiveShoppingPlayerInterface? {
+    var playerInterface: LiveVideoShoppingPlayerInterface? {
         playerContext.interface
     }
     
