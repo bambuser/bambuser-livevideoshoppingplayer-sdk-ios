@@ -3,7 +3,7 @@
     "pins": [
       {
         "package": "BambuserLiveVideoShoppingPlayer",
-        "repositoryURL": "git@github.com:bambuser/bambuser-livevideoshoppingplayer-sdk-ios.git",
+        "repositoryURL": "https://github.com/bambuser/bambuser-livevideoshoppingplayer-sdk-ios.git",
         "state": {
           "branch": null,
           "revision": "9fd697491fa65eca07975ae0b06e18fc345129e6",

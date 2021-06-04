@@ -17,7 +17,7 @@
 		A99F289E2653D6B50015B9D2 /* PlayerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F289D2653D6B50015B9D2 /* PlayerScreen.swift */; };
 		A99F28A62653E5C40015B9D2 /* Image+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F28A52653E5C40015B9D2 /* Image+Demo.swift */; };
 		A99F28AA2653E6110015B9D2 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F28A92653E6110015B9D2 /* ListItem.swift */; };
-		A99F86F5266A2F2100E4EFF7 /* BambuserLiveVideoShoppingPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = A99F86F4266A2F2100E4EFF7 /* BambuserLiveVideoShoppingPlayer */; };
+		A99F86F8266A67C900E4EFF7 /* BambuserLiveVideoShoppingPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = A99F86F7266A67C900E4EFF7 /* BambuserLiveVideoShoppingPlayer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A99F86F5266A2F2100E4EFF7 /* BambuserLiveVideoShoppingPlayer in Frameworks */,
+				A99F86F8266A67C900E4EFF7 /* BambuserLiveVideoShoppingPlayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +148,7 @@
 			);
 			name = Demo;
 			packageProductDependencies = (
-				A99F86F4266A2F2100E4EFF7 /* BambuserLiveVideoShoppingPlayer */,
+				A99F86F7266A67C900E4EFF7 /* BambuserLiveVideoShoppingPlayer */,
 			);
 			productName = Demo;
 			productReference = A99F28852653D5AC0015B9D2 /* Demo.app */;
@@ -179,7 +179,7 @@
 			);
 			mainGroup = A99F287C2653D5AC0015B9D2;
 			packageReferences = (
-				A99F86F3266A2F2100E4EFF7 /* XCRemoteSwiftPackageReference "bambuser-livevideoshoppingplayer-sdk-ios" */,
+				A99F86F6266A67C900E4EFF7 /* XCRemoteSwiftPackageReference "bambuser-livevideoshoppingplayer-sdk-ios" */,
 			);
 			productRefGroup = A99F28862653D5AC0015B9D2 /* Products */;
 			projectDirPath = "";
@@ -403,9 +403,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A99F86F3266A2F2100E4EFF7 /* XCRemoteSwiftPackageReference "bambuser-livevideoshoppingplayer-sdk-ios" */ = {
+		A99F86F6266A67C900E4EFF7 /* XCRemoteSwiftPackageReference "bambuser-livevideoshoppingplayer-sdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:bambuser/bambuser-livevideoshoppingplayer-sdk-ios.git";
+			repositoryURL = "https://github.com/bambuser/bambuser-livevideoshoppingplayer-sdk-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.1.0;
@@ -414,9 +414,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A99F86F4266A2F2100E4EFF7 /* BambuserLiveVideoShoppingPlayer */ = {
+		A99F86F7266A67C900E4EFF7 /* BambuserLiveVideoShoppingPlayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A99F86F3266A2F2100E4EFF7 /* XCRemoteSwiftPackageReference "bambuser-livevideoshoppingplayer-sdk-ios" */;
+			package = A99F86F6266A67C900E4EFF7 /* XCRemoteSwiftPackageReference "bambuser-livevideoshoppingplayer-sdk-ios" */;
 			productName = BambuserLiveVideoShoppingPlayer;
 		};
 /* End XCSwiftPackageProductDependency section */
