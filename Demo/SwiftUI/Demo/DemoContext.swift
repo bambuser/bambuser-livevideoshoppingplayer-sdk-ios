@@ -52,7 +52,7 @@ class DemoContext: ObservableObject {
         PlayerConfiguration(
             theme: theme,
             buttons: PlayerConfiguration.Buttons(
-                dismiss: .minimize),
+                dismiss: .none),
             ui: PlayerConfiguration.UI(
                 cartView: .state(for: cartView),
                 cartButton: .state(for: cartButton),
