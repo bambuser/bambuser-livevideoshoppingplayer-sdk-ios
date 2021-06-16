@@ -10,6 +10,7 @@ import SwiftUI
 
 extension Image {
     
+    static let calendar = Image(systemName: "calendar")
     static let cart = Image(systemName: "cart")
     static let chat = Image(systemName: "bubble.right")
     static let close = Image(systemName: "xmark.circle")

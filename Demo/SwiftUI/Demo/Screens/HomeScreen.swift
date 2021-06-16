@@ -16,7 +16,7 @@ struct HomeScreen: View {
         NavigationView {
             List {
                 playerSection
-                PlayerSettingsListSection()
+                SettingsSection()
             }
             .navigationTitle("Live Shopping Player")
             .buttonStyle(PlainButtonStyle())

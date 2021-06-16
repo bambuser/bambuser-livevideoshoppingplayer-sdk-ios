@@ -19,20 +19,35 @@ class DemoContext: ObservableObject {
     }
     
     @Published var showId: String
+
     
-    @AppStorage("themeName") var themeName: String = ""
+    // Demo settings
     
-    @AppStorage("cartView") var cartView: Bool = true
-    @AppStorage("cartButton") var cartButton: Bool = true
-    @AppStorage("chatOverlay") var chatOverlay: Bool = true
-    @AppStorage("productList") var productList: Bool = true
-    @AppStorage("productView") var productView: Bool = true
-    @AppStorage("shareButton") var shareButton: Bool = true
-    @AppStorage("shareMenuButton") var shareMenuButton: Bool = true
-    @AppStorage("subscribeButton") var subscribeButton: Bool = true
+    @AppStorage("themeName") var themeName = ""
+    @AppStorage("nativeAddToCalendarSheet") var nativeAddToCalendarSheet = false
     
-    private static let firstShowId: String = "vAtJH3xevpYTLnf1oHao"
-    private static let secondShowId: String = "xB4a9LpDq5mU0CdCZa3k"
+    public var loadUpcomingShow: Binding<Bool> {
+        .init(get: { self.showId == Self.upcomingShowId },
+              set: { self.showId = $0 ? Self.upcomingShowId : Self.firstShowId }
+        )
+    }
+    
+    
+    // UI overlays
+    
+    @AppStorage("addToCalendarSheet") var addToCalendarSheet = true
+    @AppStorage("cartView") var cartView = true
+    @AppStorage("cartButton") var cartButton = true
+    @AppStorage("chatOverlay") var chatOverlay = true
+    @AppStorage("productList") var productList = true
+    @AppStorage("productView") var productView = true
+    @AppStorage("shareButton") var shareButton = true
+    @AppStorage("shareMenuButton") var shareMenuButton = true
+    @AppStorage("subscribeButton") var subscribeButton = true
+    
+    private static let firstShowId = "vAtJH3xevpYTLnf1oHao"
+    private static let secondShowId = "xB4a9LpDq5mU0CdCZa3k"
+    private static let upcomingShowId = "64HtFC21MpBGEx6RSynn"
     
     var theme: PlayerTheme {
         let name = themeName.trimmingCharacters(in: .whitespaces)
@@ -51,9 +66,9 @@ class DemoContext: ObservableObject {
     func playerConfiguration(for eventHandler: @escaping PlayerConfiguration.EventHandler = { _, _ in }) -> PlayerConfiguration {
         PlayerConfiguration(
             theme: theme,
-            buttons: PlayerConfiguration.Buttons(
-                dismiss: .none),
+            buttons: PlayerConfiguration.Buttons(),
             ui: PlayerConfiguration.UI(
+                addToCalendarSheet: .state(for: addToCalendarSheet),
                 cartView: .state(for: cartView),
                 cartButton: .state(for: cartButton),
                 chatOverlay: .state(for: chatOverlay),

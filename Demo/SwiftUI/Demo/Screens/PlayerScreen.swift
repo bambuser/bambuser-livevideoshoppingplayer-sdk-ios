@@ -10,6 +10,8 @@ import BambuserLiveVideoShoppingPlayer
 
 struct PlayerScreen: View {
     
+    @State private var addToCalendarUrl: URL?
+    @State private var isAddToCalendarSheetActive = false
     @State private var isPipEnabled = false
     
     @StateObject private var playerContext = LiveVideoShoppingPlayerContext()
@@ -49,6 +51,7 @@ private extension PlayerScreen {
             showId: demoContext.showId,
             configuration: demoContext.playerConfiguration { event, data in
                 switch event {
+                case .addShowToCalendar: handleAddToCalendarEvent(data: data)
                 case .playerClosed: dismiss()
                 default: print("event: \(event), data: \(data)")
                 }
@@ -56,6 +59,13 @@ private extension PlayerScreen {
             context: playerContext
         )
         .cornerRadius(5)
+        .sheet(isPresented: $isAddToCalendarSheetActive) {
+            if let url = addToCalendarUrl {
+                ShareSheet(activityItems: [url])
+            } else {
+                Text("Missing share url")
+            }
+        }
         // .overlay(Color.red.opacity(0.2))
     }
     
@@ -73,20 +83,6 @@ private extension PlayerScreen {
 }
 
 
-
-// MARK: - LiveVideoShoppingPlayer Extensions
-
-private extension View {
-    
-    func playerFrame(isPipEnabled pip: Bool) -> some View {
-        self.frame(
-            width: pip ? 150 : nil,
-            height: pip ? 250 : nil,
-            alignment: .bottomTrailing)
-    }
-}
-
-
 // MARK: - Private Functions
 
 private extension PlayerScreen {
@@ -97,6 +93,16 @@ private extension PlayerScreen {
     
     func dismiss() {
         presentationMode.wrappedValue.dismiss()
+    }
+    
+    func handleAddToCalendarEvent(data: [String: Any]) {
+        guard
+            demoContext.nativeAddToCalendarSheet,
+            let urlString = data["url"] as? String,
+            let url = URL(string: urlString)
+        else { return }
+        self.addToCalendarUrl = url
+        self.isAddToCalendarSheetActive = true
     }
     
     func enterPip() {
@@ -120,6 +126,20 @@ private extension PlayerScreen {
         }
     }
 }
+
+
+// MARK: - LiveVideoShoppingPlayer Extensions
+
+private extension View {
+    
+    func playerFrame(isPipEnabled pip: Bool) -> some View {
+        self.frame(
+            width: pip ? 150 : nil,
+            height: pip ? 250 : nil,
+            alignment: .bottomTrailing)
+    }
+}
+
 
 struct PlayerScreen_Previews: PreviewProvider {
     static var previews: some View {
