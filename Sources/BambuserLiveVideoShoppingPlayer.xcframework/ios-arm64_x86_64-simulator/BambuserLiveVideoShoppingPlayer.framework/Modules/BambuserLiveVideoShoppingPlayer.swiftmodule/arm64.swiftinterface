@@ -24,7 +24,8 @@ extension LiveVideoShoppingPlayerViewController {
 }
 extension PlayerConfiguration {
   public struct UI {
-    public init(cartView: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState = .visible, cartButton: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState = .visible, chatOverlay: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState = .visible, productList: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState = .visible, productView: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState = .visible, shareButton: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState = .hidden, subscribeButton: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState = .hidden)
+    public init(addToCalendarSheet: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState = .visible, cartView: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState = .visible, cartButton: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState = .visible, chatOverlay: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState = .visible, productList: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState = .visible, productView: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState = .visible, shareButton: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState = .hidden, subscribeButton: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState = .hidden)
+    public let addToCalendarSheet: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState
     public let cartView: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState
     public let cartButton: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState
     public let chatOverlay: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.UIState
@@ -36,6 +37,7 @@ extension PlayerConfiguration {
 }
 public enum PlayerEvent : Swift.CaseIterable {
   case addProductToCart
+  case addShowToCalendar
   case checkoutCart
   case playerClosed
   case playerLoaded
@@ -134,7 +136,7 @@ extension PlayerConfiguration {
 }
 extension PlayerConfiguration {
   public struct Buttons {
-    public init(checkout: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.Buttons.LinkConfig = .auto, dismiss: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.Buttons.DismissConfig = .auto, product: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.Buttons.LinkConfig = .auto)
+    public init(checkout: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.Buttons.LinkConfig = .auto, dismiss: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.Buttons.DismissConfig = .none, product: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.Buttons.LinkConfig = .auto)
     public let checkout: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.Buttons.LinkConfig
     public let dismiss: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.Buttons.DismissConfig
     public let product: BambuserLiveVideoShoppingPlayer.PlayerConfiguration.Buttons.LinkConfig
