@@ -5,6 +5,19 @@
 Until then, the SDK is considered beta and may have breaking changes between minor versions.
 
 
+## 0.1.1
+
+### ✨ New features
+
+* The embedded player will now ignore the safe areas when needed  
+* `PlayerConfiguration.UI` has a new `addToCalendarSheet` option
+* `PlayerEvent` has a new `addShowToCalendar` event
+
+### 💡 Behavior changes
+
+* The top-right close button in the player is now hidden by default.
+
+
 ## 0.1.0
 
 This is the first beta release of `BambuserLiveVideoShoppingPlayer`.
