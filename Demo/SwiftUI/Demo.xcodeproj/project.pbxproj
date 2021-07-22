@@ -35,6 +35,7 @@
 		A99F289D2653D6B50015B9D2 /* PlayerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScreen.swift; sourceTree = "<group>"; };
 		A99F28A52653E5C40015B9D2 /* Image+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Demo.swift"; sourceTree = "<group>"; };
 		A99F28A92653E6110015B9D2 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		A9AB8E9026A9711A008C0B76 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		A9B34345267A0D6E00578D75 /* ShareSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +110,7 @@
 		A99F289C2653D6930015B9D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A9AB8E9026A9711A008C0B76 /* .swiftlint.yml */,
 				A99F28912653D5AE0015B9D2 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -149,6 +151,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A99F28942653D5AE0015B9D2 /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
+				A9AB8E9126A97130008C0B76 /* [SwiftLint] */,
 				A99F28812653D5AC0015B9D2 /* Sources */,
 				A99F28822653D5AC0015B9D2 /* Frameworks */,
 				A99F28832653D5AC0015B9D2 /* Resources */,
@@ -212,6 +215,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A9AB8E9126A97130008C0B76 /* [SwiftLint] */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[SwiftLint]";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A99F28812653D5AC0015B9D2 /* Sources */ = {
