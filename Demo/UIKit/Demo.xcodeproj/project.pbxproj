@@ -1,0 +1,494 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6119D2D0267A934D006382F0 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6119D2CF267A934D006382F0 /* PlayerViewController.swift */; };
+		6119D2D2267A945F006382F0 /* BambuserWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6119D2D1267A945F006382F0 /* BambuserWindow.swift */; };
+		6119D2D5267AA79E006382F0 /* UIImage+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6119D2D4267AA79E006382F0 /* UIImage+Demo.swift */; };
+		61610DBF2678A2F7007A2FF9 /* DemoContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61610DBE2678A2F7007A2FF9 /* DemoContext.swift */; };
+		61610DC12678A95C007A2FF9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61610DC02678A95C007A2FF9 /* HomeViewController.swift */; };
+		61610DC42678CBAA007A2FF9 /* HomeTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61610DC32678CBAA007A2FF9 /* HomeTextFieldCell.swift */; };
+		619979C52684C65D002FF6A7 /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619979C42684C65D002FF6A7 /* HomeCellViewModel.swift */; };
+		619979CA2684C72C002FF6A7 /* HomeToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619979C92684C72C002FF6A7 /* HomeToggleCell.swift */; };
+		619979CC2684C749002FF6A7 /* HomeNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619979CB2684C749002FF6A7 /* HomeNormalCell.swift */; };
+		61A223F32696E8A9003244C3 /* Playerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A223F22696E8A9003244C3 /* Playerable.swift */; };
+		A9AB8E9426A9719D008C0B76 /* BambuserLiveVideoShoppingPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = A9AB8E9326A9719D008C0B76 /* BambuserLiveVideoShoppingPlayer */; };
+		A9C328592654105E003B356A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C328582654105E003B356A /* AppDelegate.swift */; };
+		A9C3285B2654105E003B356A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C3285A2654105E003B356A /* SceneDelegate.swift */; };
+		A9C328622654105F003B356A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9C328612654105F003B356A /* Assets.xcassets */; };
+		A9C328652654105F003B356A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C328632654105F003B356A /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6119D2CF267A934D006382F0 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		6119D2D1267A945F006382F0 /* BambuserWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BambuserWindow.swift; sourceTree = "<group>"; };
+		6119D2D4267AA79E006382F0 /* UIImage+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Demo.swift"; sourceTree = "<group>"; };
+		61610DBE2678A2F7007A2FF9 /* DemoContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoContext.swift; sourceTree = "<group>"; };
+		61610DC02678A95C007A2FF9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		61610DC32678CBAA007A2FF9 /* HomeTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTextFieldCell.swift; sourceTree = "<group>"; };
+		619979C42684C65D002FF6A7 /* HomeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModel.swift; sourceTree = "<group>"; };
+		619979C92684C72C002FF6A7 /* HomeToggleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeToggleCell.swift; sourceTree = "<group>"; };
+		619979CB2684C749002FF6A7 /* HomeNormalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNormalCell.swift; sourceTree = "<group>"; };
+		61A223F22696E8A9003244C3 /* Playerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playerable.swift; sourceTree = "<group>"; };
+		A9AB8E8926A95B89008C0B76 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		A9C328552654105E003B356A /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9C328582654105E003B356A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A9C3285A2654105E003B356A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A9C328612654105F003B356A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A9C328642654105F003B356A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A9C328662654105F003B356A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9C328522654105E003B356A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9AB8E9426A9719D008C0B76 /* BambuserLiveVideoShoppingPlayer in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		61610DBD2678A193007A2FF9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				61610DC02678A95C007A2FF9 /* HomeViewController.swift */,
+				6119D2CF267A934D006382F0 /* PlayerViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		61610DC22678CB9B007A2FF9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				619979CD2684C877002FF6A7 /* Windows */,
+				619979C22684C636002FF6A7 /* Cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		619979C22684C636002FF6A7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				619979CB2684C749002FF6A7 /* HomeNormalCell.swift */,
+				61610DC32678CBAA007A2FF9 /* HomeTextFieldCell.swift */,
+				619979C92684C72C002FF6A7 /* HomeToggleCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		619979C32684C63F002FF6A7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				61610DBE2678A2F7007A2FF9 /* DemoContext.swift */,
+				619979C42684C65D002FF6A7 /* HomeCellViewModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		619979CD2684C877002FF6A7 /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				6119D2D1267A945F006382F0 /* BambuserWindow.swift */,
+			);
+			name = Windows;
+			sourceTree = "<group>";
+		};
+		61A223F12696E885003244C3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				61A223F22696E8A9003244C3 /* Playerable.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		A9AB8E8F26A95DED008C0B76 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A9C328612654105F003B356A /* Assets.xcassets */,
+				6119D2D4267AA79E006382F0 /* UIImage+Demo.swift */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A9C3284C2654105E003B356A = {
+			isa = PBXGroup;
+			children = (
+				A9C328572654105E003B356A /* Demo */,
+				A9C328562654105E003B356A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A9C328562654105E003B356A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9C328552654105E003B356A /* Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9C328572654105E003B356A /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				A9C3287026541094003B356A /* App */,
+				619979C32684C63F002FF6A7 /* Models */,
+				61A223F12696E885003244C3 /* Protocols */,
+				A9AB8E8F26A95DED008C0B76 /* Resources */,
+				A9C3286F26541089003B356A /* Supporting Files */,
+				61610DBD2678A193007A2FF9 /* View Controllers */,
+				61610DC22678CB9B007A2FF9 /* Views */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		A9C3286F26541089003B356A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9AB8E8926A95B89008C0B76 /* .swiftlint.yml */,
+				A9C328632654105F003B356A /* LaunchScreen.storyboard */,
+				A9C328662654105F003B356A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9C3287026541094003B356A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A9C328582654105E003B356A /* AppDelegate.swift */,
+				A9C3285A2654105E003B356A /* SceneDelegate.swift */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9C328542654105E003B356A /* Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9C328692654105F003B356A /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildPhases = (
+				A9AB8E8826A95AD8008C0B76 /* [SwiftLint] */,
+				A9C328512654105E003B356A /* Sources */,
+				A9C328522654105E003B356A /* Frameworks */,
+				A9C328532654105E003B356A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Demo;
+			packageProductDependencies = (
+				A9AB8E9326A9719D008C0B76 /* BambuserLiveVideoShoppingPlayer */,
+			);
+			productName = Demo;
+			productReference = A9C328552654105E003B356A /* Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9C3284D2654105E003B356A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				ORGANIZATIONNAME = "Bambuser AB";
+				TargetAttributes = {
+					A9C328542654105E003B356A = {
+						CreatedOnToolsVersion = 12.5;
+					};
+				};
+			};
+			buildConfigurationList = A9C328502654105E003B356A /* Build configuration list for PBXProject "Demo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A9C3284C2654105E003B356A;
+			packageReferences = (
+				A9AB8E9226A9719D008C0B76 /* XCRemoteSwiftPackageReference "bambuser-livevideoshoppingplayer-sdk-ios" */,
+			);
+			productRefGroup = A9C328562654105E003B356A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9C328542654105E003B356A /* Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9C328532654105E003B356A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9C328652654105F003B356A /* LaunchScreen.storyboard in Resources */,
+				A9C328622654105F003B356A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A9AB8E8826A95AD8008C0B76 /* [SwiftLint] */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[SwiftLint]";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9C328512654105E003B356A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61A223F32696E8A9003244C3 /* Playerable.swift in Sources */,
+				61610DBF2678A2F7007A2FF9 /* DemoContext.swift in Sources */,
+				61610DC42678CBAA007A2FF9 /* HomeTextFieldCell.swift in Sources */,
+				619979CC2684C749002FF6A7 /* HomeNormalCell.swift in Sources */,
+				A9C328592654105E003B356A /* AppDelegate.swift in Sources */,
+				619979C52684C65D002FF6A7 /* HomeCellViewModel.swift in Sources */,
+				6119D2D2267A945F006382F0 /* BambuserWindow.swift in Sources */,
+				A9C3285B2654105E003B356A /* SceneDelegate.swift in Sources */,
+				619979CA2684C72C002FF6A7 /* HomeToggleCell.swift in Sources */,
+				61610DC12678A95C007A2FF9 /* HomeViewController.swift in Sources */,
+				6119D2D5267AA79E006382F0 /* UIImage+Demo.swift in Sources */,
+				6119D2D0267A934D006382F0 /* PlayerViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A9C328632654105F003B356A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9C328642654105F003B356A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9C328672654105F003B356A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A9C328682654105F003B356A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9C3286A2654105F003B356A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U39FKA38DT;
+				INFOPLIST_FILE = Demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bambuser.liveshopping-player-sdk-ios.demo.uikit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A9C3286B2654105F003B356A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U39FKA38DT;
+				INFOPLIST_FILE = Demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bambuser.liveshopping-player-sdk-ios.demo.uikit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9C328502654105E003B356A /* Build configuration list for PBXProject "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9C328672654105F003B356A /* Debug */,
+				A9C328682654105F003B356A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9C328692654105F003B356A /* Build configuration list for PBXNativeTarget "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9C3286A2654105F003B356A /* Debug */,
+				A9C3286B2654105F003B356A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A9AB8E9226A9719D008C0B76 /* XCRemoteSwiftPackageReference "bambuser-livevideoshoppingplayer-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bambuser/bambuser-livevideoshoppingplayer-sdk-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A9AB8E9326A9719D008C0B76 /* BambuserLiveVideoShoppingPlayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9AB8E9226A9719D008C0B76 /* XCRemoteSwiftPackageReference "bambuser-livevideoshoppingplayer-sdk-ios" */;
+			productName = BambuserLiveVideoShoppingPlayer;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = A9C3284D2654105E003B356A /* Project object */;
+}
