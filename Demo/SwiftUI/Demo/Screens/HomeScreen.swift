@@ -22,6 +22,8 @@ struct HomeScreen: View {
             .buttonStyle(PlainButtonStyle())
             .listStyle(InsetGroupedListStyle())
         }
+        .navigationViewStyle(
+            StackNavigationViewStyle())
         .fullScreenCover(
             isPresented: $isCoverActive,
             content: playerScreen)
