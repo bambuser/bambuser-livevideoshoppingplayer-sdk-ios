@@ -39,7 +39,9 @@ class PlayerViewController: UIViewController, Playerable {
         BambuserWindow.removeMiniPlayer()
         
         if playerView == nil {
-            playerView = LiveVideoShoppingPlayerView(configuration: demoContext.playerConfiguration())
+            playerView = LiveVideoShoppingPlayerView(
+                showId: demoContext.showId,
+                configuration: demoContext.playerConfiguration())
             playerView.loadShow(demoContext.showId)
             UIView.animate(withDuration: 0.3) {
                 self.view.layoutIfNeeded()

@@ -96,7 +96,7 @@ final class DemoContext: ObservableObject {
         return showId
     }
     
-    func playerConfiguration(for eventHandler: @escaping PlayerConfiguration.EventHandler = { _, _ in }) -> PlayerConfiguration {
+    func playerConfiguration(for eventHandler: @escaping PlayerConfiguration.EventHandler = { _ in }) -> PlayerConfiguration {
         PlayerConfiguration(
             theme: theme,
             buttons: PlayerConfiguration.Buttons(),
