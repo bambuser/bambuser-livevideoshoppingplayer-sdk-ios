@@ -1,13 +1,16 @@
 //
 //  ListButton.swift
-//  LiveVideoShoppingPlayer
+//  BambuserLiveVideoShoppingPlayer
 //
 //  Copyright © 2021 Bambuser AB. All rights reserved.
 //
 
 import SwiftUI
 
-struct ListButton: View {
+/**
+ This view is used as a menu list item in the demo app.
+ */
+struct ListItem: View {
     
     let icon: Image
     let text: String
@@ -20,8 +23,9 @@ struct ListButton: View {
     }
 }
 
-struct ListButton_Previews: PreviewProvider {
+struct ListItem_Previews: PreviewProvider {
+    
     static var previews: some View {
-        ListButton(icon: .cover, text: "Open as cover")
+        ListItem(icon: .cover, text: "Open as cover")
     }
 }

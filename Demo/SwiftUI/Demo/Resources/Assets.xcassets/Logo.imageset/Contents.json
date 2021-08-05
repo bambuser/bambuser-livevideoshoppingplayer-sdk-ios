@@ -1,10 +1,7 @@
 {
-  "colors" : [
+  "images" : [
     {
-      "color" : {
-        "platform" : "ios",
-        "reference" : "labelColor"
-      },
+      "filename" : "logo-157.pdf",
       "idiom" : "universal"
     },
     {
@@ -14,10 +11,7 @@
           "value" : "dark"
         }
       ],
-      "color" : {
-        "platform" : "ios",
-        "reference" : "labelColor"
-      },
+      "filename" : "logo-white-157.pdf",
       "idiom" : "universal"
     }
   ],

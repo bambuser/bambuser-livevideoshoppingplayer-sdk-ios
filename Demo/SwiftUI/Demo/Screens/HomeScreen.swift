@@ -1,6 +1,6 @@
 //
 //  HomeScreen.swift
-//  LiveVideoShoppingPlayer
+//  BambuserLiveVideoShoppingPlayer
 //
 //  Copyright © 2021 Bambuser AB. All rights reserved.
 //
@@ -11,25 +11,24 @@ struct HomeScreen: View {
     
     @State private var isCoverActive = false
     @State private var isSheetActive = false
-        
+            
     var body: some View {
         NavigationView {
             List {
                 playerSection
-                SettingsSection()
+                SettingsListSection()
             }
             .navigationTitle("Live Shopping Player")
-            .buttonStyle(PlainButtonStyle())
             .listStyle(InsetGroupedListStyle())
         }
         .navigationViewStyle(
             StackNavigationViewStyle())
         .fullScreenCover(
             isPresented: $isCoverActive,
-            content: playerScreen)
+            content: playerScreenForModal)
         .sheet(
             isPresented: $isSheetActive,
-            content: playerScreen)
+            content: playerScreenForModal)
     }
 }
 
@@ -41,19 +40,23 @@ private extension HomeScreen {
     var playerSection: some View {
         Section(header: Text("Player")) {
             NavigationLink(destination: playerScreen()) {
-                ListButton(icon: .player, text: "Show player")
+                ListItem(icon: .player, text: "Show player")
             }
             Button(action: showAsSheet) {
-                ListButton(icon: .sheet, text: "Show player as sheet")
+                ListItem(icon: .sheet, text: "Show player as sheet")
             }
             Button(action: showAsCover) {
-                ListButton(icon: .cover, text: "Show player as full screen cover")
+                ListItem(icon: .cover, text: "Show player as full screen cover")
             }
         }
     }
     
     func playerScreen() -> some View {
-        PlayerScreen()
+        PlayerScreen(showCloseButton: false)
+    }
+    
+    func playerScreenForModal() -> some View {
+        PlayerScreen(showCloseButton: true)
     }
 }
 

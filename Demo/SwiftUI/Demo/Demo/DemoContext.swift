@@ -1,6 +1,6 @@
 //
 //  DemoContext.swift
-//  LiveVideoShoppingPlayer
+//  BambuserLiveVideoShoppingPlayer
 //
 //  Copyright © 2021 Bambuser AB. All rights reserved.
 //
@@ -18,43 +18,58 @@ class DemoContext: ObservableObject {
         showId = Self.firstShowId
     }
     
+    
+    // MARK: - Shows
+    
     @Published var showId: String
+    
+    private static let firstShowId = "vAtJH3xevpYTLnf1oHao"
+    private static let secondShowId = "xB4a9LpDq5mU0CdCZa3k"
+    private static let upcomingShowId = "64HtFC21MpBGEx6RSynn"
 
     
-    // Demo settings
+    // MARK: - Demo settings
     
+    @AppStorage("baseUrl") var baseUrl = "http://www.example.com/SHOWID"
     @AppStorage("themeName") var themeName = ""
-    @AppStorage("nativeAddToCalendarSheet") var nativeAddToCalendarSheet = false
     
-    public var loadUpcomingShow: Binding<Bool> {
+    /**
+     This binding is used to update the `showId` property as
+     a bool binding, using a toggle control.
+     */
+    var loadUpcomingShow: Binding<Bool> {
         .init(get: { self.showId == Self.upcomingShowId },
               set: { self.showId = $0 ? Self.upcomingShowId : Self.firstShowId }
         )
     }
     
-    
-    // UI overlays
-    
-    @AppStorage("addToCalendarSheet") var addToCalendarSheet = true
-    @AppStorage("cartView") var cartView = true
-    @AppStorage("cartButton") var cartButton = true
-    @AppStorage("chatOverlay") var chatOverlay = true
-    @AppStorage("productList") var productList = true
-    @AppStorage("productView") var productView = true
-    @AppStorage("shareButton") var shareButton = true
-    @AppStorage("shareMenuButton") var shareMenuButton = true
-    @AppStorage("subscribeButton") var subscribeButton = true
-    
-    private static let firstShowId = "vAtJH3xevpYTLnf1oHao"
-    private static let secondShowId = "xB4a9LpDq5mU0CdCZa3k"
-    private static let upcomingShowId = "64HtFC21MpBGEx6RSynn"
-    
+    /**
+     This property uses `themeName` to resove a player theme.
+     */
     var theme: PlayerTheme {
         let name = themeName.trimmingCharacters(in: .whitespaces)
         if name.isEmpty { return .standard }
         return .name(name)
     }
     
+    
+    // MARK: - UI overlays
+    
+    @AppStorage("cartView") var cartView = true
+    @AppStorage("cartButton") var cartButton = true
+    @AppStorage("chatOverlay") var chatOverlay = true
+    @AppStorage("productList") var productList = true
+    @AppStorage("productView") var productView = true
+    @AppStorage("shareButton") var shareButton = true
+    @AppStorage("subscribeButton") var subscribeButton = true
+    
+    
+    // MARK: - Functions
+    
+    /**
+     Load the "next" show, which in the demo toggles between
+     the `firstShowId` and `secondShowId`
+     */
     func loadNextShow() -> String {
         let first = Self.firstShowId
         let second = Self.secondShowId
@@ -63,28 +78,34 @@ class DemoContext: ObservableObject {
         return showId
     }
     
-    func playerConfiguration(for eventHandler: @escaping PlayerConfiguration.EventHandler = { _, _ in }) -> PlayerConfiguration {
+    /**
+     Create a player configuration, given the current config.
+     */
+    func playerConfiguration(for eventHandler: @escaping PlayerConfiguration.EventHandler) -> PlayerConfiguration {
         PlayerConfiguration(
             theme: theme,
+            shareBaseUrl: baseUrl,
             buttons: PlayerConfiguration.Buttons(),
             ui: PlayerConfiguration.UI(
-                addToCalendarSheet: .state(for: addToCalendarSheet),
-                cartView: .state(for: cartView),
-                cartButton: .state(for: cartButton),
-                chatOverlay: .state(for: chatOverlay),
-                productList: .state(for: productList),
-                productView: .state(for: productView),
-                shareButton: .state(for: shareButton),
-                subscribeButton: .state(for: subscribeButton)
+                cartView: cartView.uiState,
+                cartButton: cartButton.uiState,
+                chatOverlay: chatOverlay.uiState,
+                productList: productList.uiState,
+                productView: productView.uiState,
+                shareButton: shareButton.uiState,
+                subscribeButton: subscribeButton.uiState
             ),
             eventHandler: eventHandler
         )
     }
 }
 
-private extension PlayerConfiguration.UIState {
+private extension Bool {
     
-    static func state(for bool: Bool) -> Self {
-        bool ? .visible : .hidden
+    /**
+     Get a `UIState` for the current bool value.
+     */
+    var uiState: PlayerConfiguration.UIState {
+        self ? .visible : .hidden
     }
 }

@@ -10,18 +10,25 @@ import SwiftUI
 
 extension Image {
     
-    static let calendar = Image(systemName: "calendar")
-    static let cart = Image(systemName: "cart")
-    static let chat = Image(systemName: "bubble.right")
-    static let close = Image(systemName: "xmark.circle")
-    static let cover = Image(systemName: "rectangle.inset.fill")
-    static let next = Image(systemName: "shuffle.circle")
-    static let pipEnter = Image(systemName: "pip.enter")
-    static let pipExit = Image(systemName: "pip.exit")
-    static let player = Image(systemName: "iphone.badge.play")
-    static let product = Image(systemName: "tag")
-    static let share = Image(systemName: "square.and.arrow.up")
-    static let sheet = Image(systemName: "rectangle.bottomthird.inset.fill")
-    static let subscribe = Image(systemName: "bell")
-    static let theme = Image(systemName: "paintpalette")
+    static let logo = Image("Logo")
+    
+    static let calendar = symbol("calendar")
+    static let cart = symbol("cart")
+    static let chat = symbol("bubble.right")
+    static let close = symbol("xmark.circle")
+    static let cover = symbol("rectangle.inset.fill")
+    static let link = symbol("link")
+    static let next = symbol("shuffle.circle")
+    static let pipEnter = symbol("pip.enter")
+    static let pipExit = symbol("pip.exit")
+    static let player = symbol("iphone.badge.play")
+    static let product = symbol("tag")
+    static let share = symbol("square.and.arrow.up")
+    static let sheet = symbol("rectangle.bottomthird.inset.fill")
+    static let subscribe = symbol("bell")
+    static let theme = symbol("paintpalette")
+    
+    static func symbol(_ name: String) -> Image {
+        Image(systemName: name)
+    }
 }
