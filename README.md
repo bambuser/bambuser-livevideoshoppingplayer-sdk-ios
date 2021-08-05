@@ -83,17 +83,17 @@ You can use a `PlayerConfiguration` to configure the player instance.
 
 The configuration specifies things like base url, theme, UI elements, button configuration, event handling etc.
 
-[Read more here][Configuration]
-
 
 
 ## Player Events
 
 The player emits `PlayerEventInfo` to an event handler that you can inject to listen for the events.
 
-Some events regard the player lifecycle, product information, ui events etc.
+The player event info contains a reference to the player, the triggered event as well as a raw, event-specific data dictionary.
 
-[Read more here][Events]
+The event info provides convenience functions for accessing typed data from the raw data dictionary.
+
+The event info also provides more logic, like saving events to the calendar, sharing shows etc.
 
 
 
@@ -104,7 +104,5 @@ The `Demo` folder contains a `SwiftUI` demo app.
 Have a look at it for examples on how to add a live shopping player to your app.
 
 
-[Configuration]: ./Readmes/Configuration.md
-[Events]: ./Readmes/Configuration.md
+
 [ReleaseNotes]: ./RELEASE_NOTES.md
-[WebDoc]: https://www.notion.so/bambuser/Player-API-Reference-b4f08158b5fc4e3ab892375b1a742e84
