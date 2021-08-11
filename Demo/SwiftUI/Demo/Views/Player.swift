@@ -55,7 +55,7 @@ private extension Player {
             configuration: demoContext.playerConfiguration { info in
                 switch info.event {
                 case .addShowToCalendar: saveCalendarEvent(in: info)
-                case .playerClosed: dismiss()
+                case .playerDidClose: dismiss()
                 case .shareShow: shareUrl(in: info)
                 default: print("Unhandled Event: \(info.event), data: \(info.data)")
                 }

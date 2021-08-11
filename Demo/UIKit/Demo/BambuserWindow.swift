@@ -69,7 +69,7 @@ class BambuserWindow: UIWindow {
             let playerView = playerable.playerView
         else { return }
         
-        playerView.callFunction(.hideUI) { _ in }
+        playerView.hideUI()
         
         window.playerable = playerable
         window.appearStyle = style
@@ -127,7 +127,7 @@ private extension BambuserWindow {
         else { return }
         
         playerable.showFullScreen(playerView: playerable.playerView)
-        playerable.playerView.callFunction(.showUI) { _ in }
+        playerable.playerView.showUI()
         
         switch option {
         case .navigationController:

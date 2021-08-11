@@ -80,8 +80,9 @@ private extension PlayerMenu {
     func togglePip() {
         withAnimation {
             isPipEnabled.toggle()
-            let function: PlayerFunction = isPipEnabled ? .hideUI : .showUI
-            playerInterface?.callFunction(function) { _ in }
+            isPipEnabled ?
+                playerInterface?.hideUI() :
+                playerInterface?.showUI()
         }
     }
 }
