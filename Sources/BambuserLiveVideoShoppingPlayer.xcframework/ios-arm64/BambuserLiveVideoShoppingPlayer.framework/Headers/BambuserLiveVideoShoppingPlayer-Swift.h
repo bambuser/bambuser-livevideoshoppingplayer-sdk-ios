@@ -219,18 +219,18 @@ SWIFT_CLASS("_TtC31BambuserLiveVideoShoppingPlayer27LiveVideoShoppingPlayerView"
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
-@class WKUserContentController;
-@class WKScriptMessage;
-
-@interface LiveVideoShoppingPlayerView (SWIFT_EXTENSION(BambuserLiveVideoShoppingPlayer)) <WKScriptMessageHandler>
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
-@end
-
 @class WKWebView;
 @class WKNavigation;
 
 @interface LiveVideoShoppingPlayerView (SWIFT_EXTENSION(BambuserLiveVideoShoppingPlayer)) <WKNavigationDelegate>
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+@end
+
+@class WKUserContentController;
+@class WKScriptMessage;
+
+@interface LiveVideoShoppingPlayerView (SWIFT_EXTENSION(BambuserLiveVideoShoppingPlayer)) <WKScriptMessageHandler>
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 @end
 
 
