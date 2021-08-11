@@ -1,8 +1,28 @@
 # Release Notes
 
-This library will follow semver after the first major release.
+This SDK is currently an experimental beta.
 
-Until then, the library is an experimental beta that may have breaking changes between minor versions.
+It will follow semver only after the first major release. Until then, it may (and most probably will) have breaking changes between minor versions.
+
+
+## 0.3
+
+### ✨ New features
+
+* `LiveVideoShoppingPlayerInterface` has new `hideUI` and `showUI` functions.
+* `PlayerEvent` has new `hide/showCart` events.
+* `PlayerEvent` has new `hide/showChatOverlay` events.
+* `PlayerEvent` has new `hide/showProductList` events.
+* `PlayerEvent` has new `playerDidSwipe` events.
+* `PlayerEvent` has new `subscribe/unsubscribe` events.
+* `PlayerEvent` has a new `updateShowStatus` event.
+
+### 💥 Breaking changes
+
+* `LiveVideoShoppingPlayerInterface` `callFunction` has been removed. Use the new functions instead.
+* `PlayerEvent.playerClosed` has been renamed to `playerDidClose`
+* `PlayerEvent.playerLoaded` has been renamed to `playerDidLoad`
+
 
 
 ## 0.2
