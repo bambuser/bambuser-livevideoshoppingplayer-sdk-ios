@@ -1,6 +1,6 @@
 //
 //  PlayerMenu.swift
-//  BambuserLiveVideoShoppingPlayer
+//  LiveVideoShoppingPlayer
 //
 //  Copyright © 2021 Bambuser AB. All rights reserved.
 //
@@ -16,10 +16,9 @@ struct PlayerMenu: View {
     
     let playerContext: LiveVideoShoppingPlayerContext
     let showCloseButton: Bool
-    @Binding var isPipEnabled: Bool
     
     @Environment(\.presentationMode) private var presentationMode
-    @EnvironmentObject private var demoContext: DemoContext
+    @EnvironmentObject private var settings: DemoSettings
     
     var body: some View {
         HStack {
@@ -56,6 +55,10 @@ extension PlayerMenu {
 
 private extension PlayerMenu {
     
+    var isPipEnabled: Bool {
+        playerContext.interface?.isPictureInPictureActive ?? false
+    }
+    
     var pipImage: Image {
         isPipEnabled ? .pipExit : .pipEnter
     }
@@ -73,16 +76,13 @@ private extension PlayerMenu {
     }
     
     func loadNextShow() {
-        let showId = demoContext.loadNextShow()
+        let showId = settings.loadNextShow()
         playerInterface?.loadShow(showId)
     }
     
     func togglePip() {
         withAnimation {
-            isPipEnabled.toggle()
-            isPipEnabled ?
-                playerInterface?.hideUI() :
-                playerInterface?.showUI()
+            playerInterface?.togglePictureInPicture()
         }
     }
 }
@@ -92,8 +92,7 @@ struct PlayerMenu_Previews: PreviewProvider {
     static var previews: some View {
         PlayerMenu(
             playerContext: .shared,
-            showCloseButton: true,
-            isPipEnabled: .constant(true))
-            .environmentObject(DemoContext())
+            showCloseButton: true)
+            .environmentObject(DemoSettings())
     }
 }

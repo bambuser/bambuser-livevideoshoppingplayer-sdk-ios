@@ -12,20 +12,34 @@
 		A91E5C0326BABBE7008D9931 /* BambuserLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91E5C0226BABBE7008D9931 /* BambuserLogo.swift */; };
 		A91E5C1D26BBDC76008D9931 /* URL+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91E5C1C26BBDC76008D9931 /* URL+Identifiable.swift */; };
 		A91E5C1F26BBDCAE008D9931 /* String+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91E5C1E26BBDCAE008D9931 /* String+Identifiable.swift */; };
-		A91E5C2226BC0A7F008D9931 /* BambuserLiveVideoShoppingPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = A91E5C2126BC0A7F008D9931 /* BambuserLiveVideoShoppingPlayer */; };
+		A96BC12826E6371000DC2319 /* DemoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96BC12626E6371000DC2319 /* DemoSettings.swift */; };
+		A96BC12A26E637B200DC2319 /* Image+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96BC12926E637B200DC2319 /* Image+Demo.swift */; };
+		A96BC13826E6387900DC2319 /* UIImage+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96BC13726E6387900DC2319 /* UIImage+Demo.swift */; };
 		A981B5E12678D90C0049969E /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A981B5E02678D90C0049969E /* ShareSheet.swift */; };
 		A98E913726552BA900B93678 /* SettingsListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98E913626552BA900B93678 /* SettingsListSection.swift */; };
-		A98E913926552BBE00B93678 /* DemoContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98E913826552BBE00B93678 /* DemoContext.swift */; };
 		A98E913B26552EDE00B93678 /* ListIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98E913A26552EDE00B93678 /* ListIcon.swift */; };
 		A99F28892653D5AC0015B9D2 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F28882653D5AC0015B9D2 /* DemoApp.swift */; };
 		A99F288B2653D5AC0015B9D2 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F288A2653D5AC0015B9D2 /* HomeScreen.swift */; };
 		A99F288D2653D5AE0015B9D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A99F288C2653D5AE0015B9D2 /* Assets.xcassets */; };
 		A99F28902653D5AE0015B9D2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A99F288F2653D5AE0015B9D2 /* Preview Assets.xcassets */; };
 		A99F289E2653D6B50015B9D2 /* PlayerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F289D2653D6B50015B9D2 /* PlayerScreen.swift */; };
-		A99F28A62653E5C40015B9D2 /* Image+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F28A52653E5C40015B9D2 /* Image+Demo.swift */; };
 		A99F28AA2653E6110015B9D2 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F28A92653E6110015B9D2 /* ListItem.swift */; };
 		A9AB8E8E26A95D1F008C0B76 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A9AB8E8D26A95D1F008C0B76 /* .swiftlint.yml */; };
+		A9C2309A26F2133D00961998 /* BambuserLiveVideoShoppingPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = A9C2309926F2133D00961998 /* BambuserLiveVideoShoppingPlayer */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A9C7F3DA26E6168300EE9FE2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A91E5BFE26BAA458008D9931 /* PlayerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMenu.swift; sourceTree = "<group>"; };
@@ -33,9 +47,11 @@
 		A91E5C0226BABBE7008D9931 /* BambuserLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BambuserLogo.swift; sourceTree = "<group>"; };
 		A91E5C1C26BBDC76008D9931 /* URL+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Identifiable.swift"; sourceTree = "<group>"; };
 		A91E5C1E26BBDCAE008D9931 /* String+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Identifiable.swift"; sourceTree = "<group>"; };
+		A96BC12626E6371000DC2319 /* DemoSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoSettings.swift; sourceTree = "<group>"; };
+		A96BC12926E637B200DC2319 /* Image+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Demo.swift"; sourceTree = "<group>"; };
+		A96BC13726E6387900DC2319 /* UIImage+Demo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Demo.swift"; sourceTree = "<group>"; };
 		A981B5E02678D90C0049969E /* ShareSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		A98E913626552BA900B93678 /* SettingsListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListSection.swift; sourceTree = "<group>"; };
-		A98E913826552BBE00B93678 /* DemoContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoContext.swift; sourceTree = "<group>"; };
 		A98E913A26552EDE00B93678 /* ListIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIcon.swift; sourceTree = "<group>"; };
 		A99F28852653D5AC0015B9D2 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99F28882653D5AC0015B9D2 /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
@@ -44,7 +60,6 @@
 		A99F288F2653D5AE0015B9D2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A99F28912653D5AE0015B9D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A99F289D2653D6B50015B9D2 /* PlayerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScreen.swift; sourceTree = "<group>"; };
-		A99F28A52653E5C40015B9D2 /* Image+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Demo.swift"; sourceTree = "<group>"; };
 		A99F28A92653E6110015B9D2 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		A9AB8E8D26A95D1F008C0B76 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -54,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A91E5C2226BC0A7F008D9931 /* BambuserLiveVideoShoppingPlayer in Frameworks */,
+				A9C2309A26F2133D00961998 /* BambuserLiveVideoShoppingPlayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +83,17 @@
 				A91E5C1E26BBDCAE008D9931 /* String+Identifiable.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A96BC12526E6371000DC2319 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A96BC12626E6371000DC2319 /* DemoSettings.swift */,
+				A96BC12926E637B200DC2319 /* Image+Demo.swift */,
+				A96BC13726E6387900DC2319 /* UIImage+Demo.swift */,
+			);
+			name = Shared;
+			path = ../../Shared;
 			sourceTree = "<group>";
 		};
 		A98E913526552B7200B93678 /* Screens */ = {
@@ -85,6 +111,7 @@
 			children = (
 				A99F28872653D5AC0015B9D2 /* Demo */,
 				A99F28862653D5AC0015B9D2 /* Products */,
+				A9C7F3D626E6168300EE9FE2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,11 +126,12 @@
 		A99F28872653D5AC0015B9D2 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				A9AB8E8B26A95CCB008C0B76 /* Demo */,
+				A9AB8E8B26A95CCB008C0B76 /* App */,
+				A99F288C2653D5AE0015B9D2 /* Assets.xcassets */,
 				A91E5C1B26BBDC6A008D9931 /* Extensions */,
 				A99F288E2653D5AE0015B9D2 /* Preview Content */,
-				A99F28A72653E5E30015B9D2 /* Resources */,
 				A98E913526552B7200B93678 /* Screens */,
+				A96BC12526E6371000DC2319 /* Shared */,
 				A99F289C2653D6930015B9D2 /* Supporting Files */,
 				A99F28A82653E6040015B9D2 /* Views */,
 			);
@@ -127,15 +155,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A99F28A72653E5E30015B9D2 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				A99F288C2653D5AE0015B9D2 /* Assets.xcassets */,
-				A99F28A52653E5C40015B9D2 /* Image+Demo.swift */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		A99F28A82653E6040015B9D2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,13 +168,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		A9AB8E8B26A95CCB008C0B76 /* Demo */ = {
+		A9AB8E8B26A95CCB008C0B76 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				A99F28882653D5AC0015B9D2 /* DemoApp.swift */,
-				A98E913826552BBE00B93678 /* DemoContext.swift */,
 			);
-			path = Demo;
+			path = App;
+			sourceTree = "<group>";
+		};
+		A9C7F3D626E6168300EE9FE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +194,7 @@
 				A99F28812653D5AC0015B9D2 /* Sources */,
 				A99F28822653D5AC0015B9D2 /* Frameworks */,
 				A99F28832653D5AC0015B9D2 /* Resources */,
+				A9C7F3DA26E6168300EE9FE2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,7 +202,7 @@
 			);
 			name = Demo;
 			packageProductDependencies = (
-				A91E5C2126BC0A7F008D9931 /* BambuserLiveVideoShoppingPlayer */,
+				A9C2309926F2133D00961998 /* BambuserLiveVideoShoppingPlayer */,
 			);
 			productName = Demo;
 			productReference = A99F28852653D5AC0015B9D2 /* Demo.app */;
@@ -207,7 +233,7 @@
 			);
 			mainGroup = A99F287C2653D5AC0015B9D2;
 			packageReferences = (
-				A91E5C2026BC0A7F008D9931 /* XCRemoteSwiftPackageReference "bambuser-livevideoshoppingplayer-sdk-ios" */,
+				A9C2309826F2133D00961998 /* XCRemoteSwiftPackageReference "bambuser-livevideoshoppingplayer-sdk-ios" */,
 			);
 			productRefGroup = A99F28862653D5AC0015B9D2 /* Products */;
 			projectDirPath = "";
@@ -259,16 +285,17 @@
 			files = (
 				A91E5C0126BAB6CF008D9931 /* Player.swift in Sources */,
 				A91E5C1D26BBDC76008D9931 /* URL+Identifiable.swift in Sources */,
-				A99F28A62653E5C40015B9D2 /* Image+Demo.swift in Sources */,
 				A91E5BFF26BAA458008D9931 /* PlayerMenu.swift in Sources */,
 				A91E5C0326BABBE7008D9931 /* BambuserLogo.swift in Sources */,
+				A96BC12A26E637B200DC2319 /* Image+Demo.swift in Sources */,
 				A99F289E2653D6B50015B9D2 /* PlayerScreen.swift in Sources */,
 				A99F288B2653D5AC0015B9D2 /* HomeScreen.swift in Sources */,
+				A96BC13826E6387900DC2319 /* UIImage+Demo.swift in Sources */,
 				A98E913B26552EDE00B93678 /* ListIcon.swift in Sources */,
+				A96BC12826E6371000DC2319 /* DemoSettings.swift in Sources */,
 				A91E5C1F26BBDCAE008D9931 /* String+Identifiable.swift in Sources */,
 				A99F28AA2653E6110015B9D2 /* ListItem.swift in Sources */,
 				A98E913726552BA900B93678 /* SettingsListSection.swift in Sources */,
-				A98E913926552BBE00B93678 /* DemoContext.swift in Sources */,
 				A981B5E12678D90C0049969E /* ShareSheet.swift in Sources */,
 				A99F28892653D5AC0015B9D2 /* DemoApp.swift in Sources */,
 			);
@@ -459,20 +486,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A91E5C2026BC0A7F008D9931 /* XCRemoteSwiftPackageReference "bambuser-livevideoshoppingplayer-sdk-ios" */ = {
+		A9C2309826F2133D00961998 /* XCRemoteSwiftPackageReference "bambuser-livevideoshoppingplayer-sdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bambuser/bambuser-livevideoshoppingplayer-sdk-ios.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.0;
+				branch = v0.4;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A91E5C2126BC0A7F008D9931 /* BambuserLiveVideoShoppingPlayer */ = {
+		A9C2309926F2133D00961998 /* BambuserLiveVideoShoppingPlayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A91E5C2026BC0A7F008D9931 /* XCRemoteSwiftPackageReference "bambuser-livevideoshoppingplayer-sdk-ios" */;
+			package = A9C2309826F2133D00961998 /* XCRemoteSwiftPackageReference "bambuser-livevideoshoppingplayer-sdk-ios" */;
 			productName = BambuserLiveVideoShoppingPlayer;
 		};
 /* End XCSwiftPackageProductDependency section */

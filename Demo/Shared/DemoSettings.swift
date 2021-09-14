@@ -1,18 +1,18 @@
 //
-//  DemoContext.swift
-//  BambuserLiveVideoShoppingPlayer
+//  DemoSettings.swift
+//  LiveVideoShoppingPlayer
 //
 //  Copyright © 2021 Bambuser AB. All rights reserved.
 //
 
-import SwiftUI
 import BambuserLiveVideoShoppingPlayer
+import SwiftUI
 
 /**
  This is a demo-specific class that can be used to configure
  the demo app and handle its state.
  */
-class DemoContext: ObservableObject {
+class DemoSettings: ObservableObject {
     
     init() {
         showId = Self.firstShowId
@@ -26,12 +26,32 @@ class DemoContext: ObservableObject {
     private static let firstShowId = "vAtJH3xevpYTLnf1oHao"
     private static let secondShowId = "xB4a9LpDq5mU0CdCZa3k"
     private static let upcomingShowId = "64HtFC21MpBGEx6RSynn"
+    
+    
+    // MARK: - Settings
+    
+    @AppStorage("baseUrl") var baseUrl = "http://www.example.com/SHOWID"
+    @AppStorage("themeName") var themeName = ""
+    
+    @AppStorage("cartView") var cartView = true
+    @AppStorage("cartButton") var cartButton = true
+    @AppStorage("chatOverlay") var chatOverlay = true
+    @AppStorage("productList") var productList = true
+    @AppStorage("productView") var productView = true
+    @AppStorage("shareButton") var shareButton = true
+    @AppStorage("subscribeButton") var subscribeButton = true
 
     
     // MARK: - Demo settings
     
-    @AppStorage("baseUrl") var baseUrl = "http://www.example.com/SHOWID"
-    @AppStorage("themeName") var themeName = ""
+    /**
+     This property uses `themeName` to resove a player theme.
+     */
+    var engine: PlayerEngine {
+        let name = themeName.trimmingCharacters(in: .whitespaces)
+        if name.isEmpty { return .standard }
+        return .client(name)
+    }
     
     /**
      This binding is used to update the `showId` property as
@@ -42,26 +62,6 @@ class DemoContext: ObservableObject {
               set: { self.showId = $0 ? Self.upcomingShowId : Self.firstShowId }
         )
     }
-    
-    /**
-     This property uses `themeName` to resove a player theme.
-     */
-    var theme: PlayerTheme {
-        let name = themeName.trimmingCharacters(in: .whitespaces)
-        if name.isEmpty { return .standard }
-        return .name(name)
-    }
-    
-    
-    // MARK: - UI overlays
-    
-    @AppStorage("cartView") var cartView = true
-    @AppStorage("cartButton") var cartButton = true
-    @AppStorage("chatOverlay") var chatOverlay = true
-    @AppStorage("productList") var productList = true
-    @AppStorage("productView") var productView = true
-    @AppStorage("shareButton") var shareButton = true
-    @AppStorage("subscribeButton") var subscribeButton = true
     
     
     // MARK: - Functions
@@ -83,10 +83,10 @@ class DemoContext: ObservableObject {
      */
     func playerConfiguration(for eventHandler: @escaping PlayerConfiguration.EventHandler) -> PlayerConfiguration {
         PlayerConfiguration(
-            theme: theme,
+            engine: engine,
+            buttonConfig: .standard,
             shareBaseUrl: baseUrl,
-            buttons: PlayerConfiguration.Buttons(),
-            ui: PlayerConfiguration.UI(
+            uiConfig: PlayerConfiguration.UIConfiguration(
                 cartView: cartView.uiState,
                 cartButton: cartButton.uiState,
                 chatOverlay: chatOverlay.uiState,

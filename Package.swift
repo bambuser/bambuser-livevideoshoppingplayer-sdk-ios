@@ -15,6 +15,6 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "BambuserLiveVideoShoppingPlayer",
-            path: "Sources/BambuserLiveVideoShoppingPlayer.xcframework"),
+            path: "Sources/BambuserLiveVideoShoppingPlayer.xcframework")
     ]
 )

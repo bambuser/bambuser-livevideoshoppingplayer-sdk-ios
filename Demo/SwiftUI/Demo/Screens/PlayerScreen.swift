@@ -1,6 +1,6 @@
 //
 //  PlayerScreen.swift
-//  BambuserLiveVideoShoppingPlayer
+//  LiveVideoShoppingPlayer
 //
 //  Copyright © 2021 Bambuser AB. All rights reserved.
 //
@@ -11,8 +11,6 @@ import BambuserLiveVideoShoppingPlayer
 struct PlayerScreen: View {
     
     let showCloseButton: Bool
-    
-    @State private var isPipEnabled = false
     
     @StateObject private var playerContext = LiveVideoShoppingPlayerContext.shared
     
@@ -36,16 +34,13 @@ private extension PlayerScreen {
     var menu: some View {
         PlayerMenu(
             playerContext: playerContext,
-            showCloseButton: showCloseButton,
-            isPipEnabled: $isPipEnabled)
+            showCloseButton: showCloseButton)
             .asOverlay()
             .padding(5)
     }
     
     var player: some View {
-        Player(
-            playerContext: playerContext,
-            isPipEnabled: $isPipEnabled)
+        Player(playerContext: playerContext)
             .cornerRadius(7)
             .shadow(color: .black.opacity(0.3), radius: 3, x: 0, y: 2)
     }

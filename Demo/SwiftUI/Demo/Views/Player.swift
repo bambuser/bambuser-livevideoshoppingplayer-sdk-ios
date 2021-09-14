@@ -1,6 +1,6 @@
 //
 //  Player.swift
-//  BambuserLiveVideoShoppingPlayer
+//  LiveVideoShoppingPlayer
 //
 //  Copyright © 2021 Bambuser AB. All rights reserved.
 //
@@ -15,7 +15,6 @@ import SwiftUI
 struct Player: View {
     
     let playerContext: LiveVideoShoppingPlayerContext
-    @Binding var isPipEnabled: Bool
     
     /**
      This is needed, since @State properties can't be nil.
@@ -28,11 +27,11 @@ struct Player: View {
     }
 
     @StateObject private var context = Context()
-    @EnvironmentObject private var demoContext: DemoContext
+    @EnvironmentObject private var settings: DemoSettings
     @Environment(\.presentationMode) private var presentationMode
     
     var body: some View {
-        pipWrapper
+        player
             .alert(item: $context.alertMessage) { _ in alert }
             .sheet(item: $context.shareUrl) { _ in sheet }
     }
@@ -52,7 +51,7 @@ private extension Player {
     var player: some View {
         LiveVideoShoppingPlayer(
             showId: showId,
-            configuration: demoContext.playerConfiguration { info in
+            configuration: settings.playerConfiguration { info in
                 switch info.event {
                 case .addShowToCalendar: saveCalendarEvent(in: info)
                 case .playerDidClose: dismiss()
@@ -61,13 +60,6 @@ private extension Player {
                 }
             },
             context: playerContext)
-    }
-    
-    var pipWrapper: some View {
-        Color.clear.overlay(
-            player.playerFrame(isPipEnabled: isPipEnabled),
-            alignment: .bottomTrailing
-        )
     }
     
     var sheet: some View {
@@ -82,7 +74,7 @@ private extension Player {
 private extension Player {
     
     var showId: String {
-        demoContext.showId
+        settings.showId
     }
     
     func dismiss() {
@@ -110,25 +102,11 @@ private extension Player {
 }
 
 
-// MARK: - View Extensions
-
-private extension View {
-    
-    func playerFrame(isPipEnabled pip: Bool) -> some View {
-        self.frame(
-            width: pip ? 150 : nil,
-            height: pip ? 250 : nil,
-            alignment: .bottomTrailing)
-    }
-}
-
-
 // MARK: - Previews
 
 struct Player_Previews: PreviewProvider {
+    
     static var previews: some View {
-        Player(
-            playerContext: .shared,
-            isPipEnabled: .constant(true))
+        Player(playerContext: .shared)
     }
 }

@@ -1,6 +1,6 @@
 //
 //  DemoApp.swift
-//  BambuserLiveVideoShoppingPlayer
+//  LiveVideoShoppingPlayer
 //
 //  Copyright © 2021 Bambuser AB. All rights reserved.
 //
@@ -14,7 +14,7 @@ struct DemoApp: App {
     var body: some Scene {
         WindowGroup {
             HomeScreen()
-                .environmentObject(DemoContext())
+                .environmentObject(DemoSettings())
         }
     }
 }

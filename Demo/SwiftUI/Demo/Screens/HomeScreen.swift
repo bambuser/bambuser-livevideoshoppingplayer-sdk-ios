@@ -1,6 +1,6 @@
 //
 //  HomeScreen.swift
-//  BambuserLiveVideoShoppingPlayer
+//  LiveVideoShoppingPlayer
 //
 //  Copyright © 2021 Bambuser AB. All rights reserved.
 //
@@ -18,7 +18,7 @@ struct HomeScreen: View {
                 playerSection
                 SettingsListSection()
             }
-            .navigationTitle("Live Shopping Player")
+            .navigationTitle("Demo")
             .listStyle(InsetGroupedListStyle())
         }
         .navigationViewStyle(

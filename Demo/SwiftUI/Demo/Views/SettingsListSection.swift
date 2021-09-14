@@ -1,6 +1,6 @@
 //
 //  SettingsListSection.swift
-//  BambuserLiveVideoShoppingPlayer
+//  LiveVideoShoppingPlayer
 //
 //  Copyright © 2021 Bambuser AB. All rights reserved.
 //
@@ -13,25 +13,25 @@ import SwiftUI
  */
 struct SettingsListSection: View {
     
-    @EnvironmentObject private var demoContext: DemoContext
+    @EnvironmentObject private var settings: DemoSettings
     
     var body: some View {
         Group {
             Section(header: Text("Configuration")) {
-                text(.link, "Base URL", $demoContext.baseUrl)
-                text(.theme, "Custom Theme Name", $demoContext.themeName)
+                text(.link, "Base URL", $settings.baseUrl)
+                text(.theme, "Custom Theme Name", $settings.themeName)
             }
             Section(header: Text("Shows")) {
-                toggle(.calendar, "Load upcoming show", demoContext.loadUpcomingShow)
+                toggle(.calendar, "Load upcoming show", settings.loadUpcomingShow)
             }
             Section(header: Text("UI Overlays")) {
-                toggle(.cart, "Cart View", $demoContext.cartView)
-                toggle(.cart, "Cart Button", $demoContext.cartButton)
-                toggle(.chat, "Chat Overlay", $demoContext.chatOverlay)
-                toggle(.product, "Product List", $demoContext.productList)
-                toggle(.product, "Product View", $demoContext.productView)
-                toggle(.share, "Share Button", $demoContext.shareButton)
-                toggle(.subscribe, "Subscribe Button", $demoContext.subscribeButton)
+                toggle(.cart, "Cart View", $settings.cartView)
+                toggle(.cart, "Cart Button", $settings.cartButton)
+                toggle(.chat, "Chat Overlay", $settings.chatOverlay)
+                toggle(.product, "Product List", $settings.productList)
+                toggle(.product, "Product View", $settings.productView)
+                toggle(.share, "Share Button", $settings.shareButton)
+                toggle(.subscribe, "Subscribe Button", $settings.subscribeButton)
             }
         }
     }
