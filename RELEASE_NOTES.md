@@ -5,6 +5,35 @@ This SDK is currently an experimental beta.
 It will follow semver only after the first major release. Until then, it may (and most probably will) have breaking changes between minor versions.
 
 
+## 0.4
+
+This version adds native picture-in-picture support.
+
+### ✨ New features
+
+* More structs and enums now implement `Codable` and `CaseIterable`.
+* `LiveVideoShoppingPlayerInterface` now implements `PictureInPictureController`. 
+* `PictureInPictureController` is a new protocol that describes how to handle PiP.
+* `PlayerConfiguration.ButtonConfiguration` has a new `.standard` builder.
+* `PlayerConfiguration.LocaleInfo` has a new `.standard` builder.
+* `PlayerConfiguration.Streamer` has a new `.standard` builder.
+* `PlayerConfiguration.UIConfiguration` has a new `.standard` builder.
+* `PlayerUIPresenter` is a new protocol that describes how to show and hide the player UI overlay.
+* `ShowPresenter` is a new protocol that describes how to present shows in a video player.
+
+### 💥 Breaking changes
+
+* `PlayerConfiguration` has renamed `theme` to `engine`, `buttons` to `buttonConfig` and `ui` to `uiConfig`.
+* `PlayerConfiguration` now requires you to provide an explicit event handler.
+* `PlayerConfiguration.Buttons` has been renamed to `ButtonConfiguration`.
+* `PlayerConfiguration.Streamer` has been renamed to `StreamerInfo`.
+* `PlayerConfiguration.UI` has been renamed to `UIConfiguration`.
+* `PlayerTheme` has been renamed to `PlayerEngine`.
+* `PlayerTheme.name` has been renamed to `PlayerEngine.client`.
+* `ShowStatus` is a new enum that can be used to identify the current state of a show.
+
+
+
 ## 0.3
 
 ### ✨ New features
