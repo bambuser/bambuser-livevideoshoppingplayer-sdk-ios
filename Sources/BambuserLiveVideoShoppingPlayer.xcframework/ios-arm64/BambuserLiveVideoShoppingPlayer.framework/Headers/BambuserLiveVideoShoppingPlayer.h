@@ -1,8 +1,8 @@
 //
-//  BambuserLiveVideoShoppingPlayer.h
-//  BambuserLiveVideoShoppingPlayer
+//  LiveVideoShoppingPlayer.h
+//  LiveVideoShoppingPlayer
 //
-//  Created by Daniel Saidi on 2021-06-04.
+//  Copyright © 2021 Bambuser. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

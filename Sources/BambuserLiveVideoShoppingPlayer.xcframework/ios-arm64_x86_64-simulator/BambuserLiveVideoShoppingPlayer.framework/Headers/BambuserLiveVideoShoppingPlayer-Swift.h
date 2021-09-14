@@ -213,12 +213,17 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class NSCoder;
 
 /// This view can be used to present a live shopping show.
-/// After creating an instance of this player, you must apply a
-/// <code>frame</code> to it and then call ``
 SWIFT_CLASS("_TtC31BambuserLiveVideoShoppingPlayer27LiveVideoShoppingPlayerView")
 @interface LiveVideoShoppingPlayerView : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+@class WKUserContentController;
+@class WKScriptMessage;
+
+@interface LiveVideoShoppingPlayerView (SWIFT_EXTENSION(BambuserLiveVideoShoppingPlayer)) <WKScriptMessageHandler>
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 @end
 
 @class WKWebView;
@@ -228,12 +233,7 @@ SWIFT_CLASS("_TtC31BambuserLiveVideoShoppingPlayer27LiveVideoShoppingPlayerView"
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
 @end
 
-@class WKUserContentController;
-@class WKScriptMessage;
 
-@interface LiveVideoShoppingPlayerView (SWIFT_EXTENSION(BambuserLiveVideoShoppingPlayer)) <WKScriptMessageHandler>
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
-@end
 
 
 
@@ -250,6 +250,8 @@ SWIFT_CLASS("_TtC31BambuserLiveVideoShoppingPlayer37LiveVideoShoppingPlayerViewC
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
+
+
 
 
 
@@ -473,12 +475,17 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class NSCoder;
 
 /// This view can be used to present a live shopping show.
-/// After creating an instance of this player, you must apply a
-/// <code>frame</code> to it and then call ``
 SWIFT_CLASS("_TtC31BambuserLiveVideoShoppingPlayer27LiveVideoShoppingPlayerView")
 @interface LiveVideoShoppingPlayerView : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+@class WKUserContentController;
+@class WKScriptMessage;
+
+@interface LiveVideoShoppingPlayerView (SWIFT_EXTENSION(BambuserLiveVideoShoppingPlayer)) <WKScriptMessageHandler>
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 @end
 
 @class WKWebView;
@@ -488,12 +495,7 @@ SWIFT_CLASS("_TtC31BambuserLiveVideoShoppingPlayer27LiveVideoShoppingPlayerView"
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
 @end
 
-@class WKUserContentController;
-@class WKScriptMessage;
 
-@interface LiveVideoShoppingPlayerView (SWIFT_EXTENSION(BambuserLiveVideoShoppingPlayer)) <WKScriptMessageHandler>
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
-@end
 
 
 
@@ -510,6 +512,8 @@ SWIFT_CLASS("_TtC31BambuserLiveVideoShoppingPlayer37LiveVideoShoppingPlayerViewC
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
+
+
 
 
 
