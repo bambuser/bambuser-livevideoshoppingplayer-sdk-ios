@@ -24,9 +24,11 @@ The SDK supports iOS 13+ and can be used with `UIKit` and `SwiftUI`.
 
 ## Beta Version
 
-This project is in early stages of development. Feel free to experiment with it, but refrain from using it in production for now. Although, the SDK will follow semver after the first major release, it will have breaking changes between minor versions until then.
+This project is in early stages of development. Feel free to experiment with it, but refrain from using it in production for now. 
 
-Some current limitations are that it's not possible to use native PiP (read more further down) or listen to all available events. 
+Although the SDK will follow semver after the first major release, it will have breaking changes between minor versions until then.
+
+Some current limitations are that it's not currently possible to listen to all available events. 
 
 See the [release notes][ReleaseNotes] for status and progress.
 
@@ -81,44 +83,45 @@ Read more about configuration the player further down and have a look at the Swi
 
 You can use a `PlayerConfiguration` to configure the player instance. 
 
-This configuration specifies the following configuration parameters, of which most are optional:
+The player configuration specifies the following configuration parameters, of which most are optional:
 
-* `buttons` - Button configuration
-* `eventHandler` - A block that receives player events  
-* `isViewerSubscribed` - Whether or not the viewer is subscribed 
-* `localeInfo` - Locale information that should be passed to the player
-* `theme` - The client-specific theme to use for the player, if any 
-* `shareAutoplay` - Whether or not a shared show should autoplay 
-* `shareBaseUrl` - The base URL to apply when sharing a show
-* `streamer` - Information about the current streamer
-* `ui` - UI configuration
+* `engine` - The engine to use, by default `.standard`.
+* `audioConfig` - The audio configuration to use, by default `.standard`.
+* `buttonConfig` - The button configuration to use, by default `.standard`.
+* `isViewerSubscribed` - Whether or not the viewer is subscribed, by default `false`.
+* `localeInfo` - The locale info to use, by default `.standard`.
+* `shareAutoplay` - Whether or not to use autoplay when sharing shows, by default `.enabled`.
+* `shareBaseUrl` - The base URL to apply to share URLs, by default `nil`.
+* `streamerInfo` - The streamer info to use, by default `.standard`.
+* `uiConfig` - The UI configuration to use, by default `.standard`.
+* `eventHandler` - The event handler to use for listening to player events.
 
-### PlayerConfiguration.Buttons
+### PlayerConfiguration.Button
 
-This configuration specifies the following button configurations:
+This type specifies the following button configurations:
 
 * `checkout` - The behavior of the checkout button 
 * `dismiss` - The behavior of the dismiss button
-* `product` - The behavior of product links
+* `product` - The behavior of product buttons
 
 ### PlayerConfiguration.LocaleInfo
 
-This configuration specifies the following locale configurations:
+This type specifies the following locale information:
 
-* `currency` - An optional string that describes the current currency 
 * `locale` - An optional string that describes the current locale
+* `currency` - An optional string that describes the current currency 
 * `trimPriceTrailingZeros` - Whether or not to trim trailing zeros in product prices
 
-### PlayerConfiguration.Streamer
+### PlayerConfiguration.StreamerInfo
 
-This configuration specifies the following streamer configurations:
+This type specifies the following streamer information:
 
 * `name` - An optional string that describes the streamer name 
 * `avatar` - An optional string that describes the streamer avatar
 
-### PlayerConfiguration.UI
+### PlayerConfiguration.UIConfiguration
 
-This configuration specifies the following UI configurations:
+This type specifies the following UI configurations:
 
 * `cartView` - The enabled state of the cart view 
 * `cartButton` - The enabled state of the cart button
@@ -167,14 +170,29 @@ The following player events are currently supported:
 
 ## Picture-in-Picture
 
-The library currently doesn't provide native PiP support.
+Bambuser Live Video Shopping Player supports native picture-in-picture (referred to as `PiP` in the text below).
 
-The demo apps shows you rough ways how to implement PiP in your own app.
+### Manual PiP
 
-* The `UIKit` demo creates a separate window in which it places the minimized player.
-* The `SwiftUI` demo just minimizes the player, but never moves it around. 
+The `LiveVideoShoppingPlayerInterface` has functionality that can be called to enter and exit PiP mode manually.
 
-These demos are not meant to be taken as production ready solutions, but rather meant to share experimental approaches for handling an in-app minip player.
+The interface can also tell you whether or not the player is currently in PiP mode.
+
+### Automatic PiP enabling
+
+Bambuser Live Video Shopping Player will automatically enable PiP mode when the user leaves the app.
+
+This automatic behavior will be configurable in a future version of the SDK.
+
+### Automatic PiP disposal
+
+Bambuser Live Video Shopping Player will automatically dispose itself together with the parent screen.
+
+While this is a feature in most cases, this may get in the way of any in-app PiP navigation you may want to have in your app, since entering PiP and then back away from the video player screen, will cause the PiP player to be disposed.
+
+This automatic disposal will be configurable in a future version of the SDK, to make it easy to keep a PiP player alive. 
+
+Until this feature is implemented, you could try holding on to the player or screen instance and manage the disposal and restoration manually. 
 
 
 ## Demo apps
