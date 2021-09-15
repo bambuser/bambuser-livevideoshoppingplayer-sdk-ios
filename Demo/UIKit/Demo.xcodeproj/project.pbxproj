@@ -465,8 +465,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bambuser/bambuser-livevideoshoppingplayer-sdk-ios.git";
 			requirement = {
-				branch = v0.4;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
