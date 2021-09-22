@@ -14,21 +14,19 @@
 
 ## About
 
-`BambuserLiveVideoShoppingPlayer` is a Swift-based SDK for iOS, that aims to simplify adding a Bambuser Live Video Shopping Player to your app.
+`BambuserLiveVideoShoppingPlayer` lets you add a Bambuser Live Video Shopping (LVS) Player to your app.
 
-The SDK lets you add a player to your app, applying a configuration that controls how it looks and behaves. Once the player is loaded, you can listen for events that are emitted by the player. 
+The LVS player can be used to watch live and recorded shows, with UI overlays to let you interact with the show.
 
-The SDK supports iOS 13+ and can be used with `UIKit` and `SwiftUI`.
+The LVS player can be configured to great extent. Once a player is loaded, you can listen for events that are emitted by the player and perform player-specific functions. 
+
+`BambuserLiveVideoShoppingPlayer` supports iOS 13+ and can be used with `UIKit` and `SwiftUI`.
 
 
 
 ## Beta Version
 
-This project is in early stages of development. Feel free to experiment with it, but refrain from using it in production for now. 
-
-Although the SDK will follow semver after the first major release, it will have breaking changes between minor versions until then.
-
-Some current limitations are that it's not currently possible to listen to all available events. 
+This project is in an early stage of development. Feel free to experiment with it, but refrain from using it in production.  
 
 See the [release notes][ReleaseNotes] for status and progress.
 
@@ -60,7 +58,7 @@ let player = LiveVideoShoppingPlayerView(
 
 You can then add the player anywhere in your app, resize it to fit your needs etc.
 
-Read more about configuration the player further down and have a look at the UIKit demo for examples.
+Read more about configuration the player further down and have a look at the `UIKit` demo for examples.
 
 
 ### SwiftUI
@@ -73,9 +71,11 @@ let player = LiveVideoShoppingPlayer(
     configuration: playerConfiguration)
 ```
 
-You can then add the player anywhere in your app, resize it to fit your needs etc. 
+You can then add the player anywhere in your app, resize it to fit your needs etc.
 
-Read more about configuration the player further down and have a look at the SwiftUI demo for examples.
+You can provide a custom `context` if you want more players active at the same time. 
+
+Read more about configuration the player further down and have a look at the `SwiftUI` demo for examples.
 
 
 
@@ -83,53 +83,73 @@ Read more about configuration the player further down and have a look at the Swi
 
 You can use a `PlayerConfiguration` to configure the player instance. 
 
-The player configuration specifies the following configuration parameters, of which most are optional:
+The player configuration specifies the following configuration parameters, most optional:
 
-* `engine` - The engine to use, by default `.standard`.
+* `engine` - The player engine to use, by default `.standard`.
 * `audioConfig` - The audio configuration to use, by default `.standard`.
-* `buttonConfig` - The button configuration to use, by default `.standard`.
-* `isViewerSubscribed` - Whether or not the viewer is subscribed, by default `false`.
 * `localeInfo` - The locale info to use, by default `.standard`.
-* `shareAutoplay` - Whether or not to use autoplay when sharing shows, by default `.enabled`.
-* `shareBaseUrl` - The base URL to apply to share URLs, by default `nil`.
-* `streamerInfo` - The streamer info to use, by default `.standard`.
+* `pipConfig` - The picture-in-picture configuration to use, by default `.standard`.
+* `shareConfig` - The share configuration info to use, by default `.standard`.
+* `streamerInfo` - Information about the streamer, by default `.standard`.
 * `uiConfig` - The UI configuration to use, by default `.standard`.
+* `viewerInfo` - Information about the viewer, by default `.standard`.
 * `eventHandler` - The event handler to use for listening to player events.
 
-### PlayerConfiguration.Button
 
-This type specifies the following button configurations:
-
-* `checkout` - The behavior of the checkout button 
-* `dismiss` - The behavior of the dismiss button
-* `product` - The behavior of product buttons
-
-### PlayerConfiguration.LocaleInfo
+### PlayerLocaleInfo
 
 This type specifies the following locale information:
 
-* `locale` - An optional string that describes the current locale
-* `currency` - An optional string that describes the current currency 
-* `trimPriceTrailingZeros` - Whether or not to trim trailing zeros in product prices
+* `locale` - The local currency, by default `nil`.
+* `currency` - The locale identifier, by default `nil`. 
+* `trimPriceTrailingZeros` - Whether or not to trim trailing zeros in the price, by default `false`.
 
-### PlayerConfiguration.StreamerInfo
+
+### PictureInPictureConfiguration
+
+This type specifies the following PiP configurations:
+
+* `isEnabled` - Whether or not picture-in-picture is enabled, by default `true`.
+* `isAutomatic` - Whether or not picture-in-picture should autostart, by default `true`.
+
+`isAutomatic` is only supported from iOS 14.2 and later.
+
+
+### PlayerShareConfiguration
+
+This type specifies the following share configurations:
+
+* `autoplay` - Whether or not to use autoplay when sharing, by default `.enabled`.
+* `baseUrl` - The base URL, if any, to apply to share URLs, by default `nil`.
+
+
+### PlayerStreamerInfo
 
 This type specifies the following streamer information:
 
-* `name` - An optional string that describes the streamer name 
-* `avatar` - An optional string that describes the streamer avatar
+* `name` - The streamer's name, by default `nil` 
+* `avatar` - The streamer's avatar, by default `nil`
 
-### PlayerConfiguration.UIConfiguration
+
+### PlayerUIConfiguration
 
 This type specifies the following UI configurations:
 
-* `cartView` - The enabled state of the cart view 
-* `cartButton` - The enabled state of the cart button
-* `chatOverlay` - The enabled state of the chat overlay
-* `productList` - The enabled state of the product list
-* `productView` - The enabled state of the product view
-* `shareButton` - The enabled state of the share button
-* `subscribeButton` - The enabled state of the subscribe button
+* `cartView` - The visibility of the cart view, by default `.visible`. 
+* `cartButton` - The visibility of the cart button, by default `.visible`.
+* `chatOverlay` - The visibility of the chat overlay, by default `.visible`.
+* `productList` - The visibility of the product list, by default `.visible`.
+* `productView` - The visibility of the product view, by default `.visible`.
+* `shareButton` - The visibility of the share button, by default `.hidden`.
+* `subscribeButton` - The visibility of the subscribe button, by default `.hidden`.
+
+
+### PlayerViewerInfo
+
+This type specifies the following streamer information:
+
+* `isSubscribed` - Whether or not the viewer is subscribed, by default `false`.
+
 
 
 ## Player Events
@@ -168,9 +188,11 @@ The following player events are currently supported:
 * `updateShowStatus`- Emitted whenever the show status updates (e.g. pending, ready).
 
 
+
 ## Picture-in-Picture
 
 Bambuser Live Video Shopping Player supports native picture-in-picture (referred to as `PiP` in the text below).
+
 
 ### Manual PiP
 
@@ -178,28 +200,35 @@ The `LiveVideoShoppingPlayerInterface` has functionality that can be called to e
 
 The interface can also tell you whether or not the player is currently in PiP mode.
 
+
 ### Automatic PiP enabling
 
-Bambuser Live Video Shopping Player will automatically enable PiP mode when the user leaves the app.
+`BambuserLiveVideoShoppingPlayer` will automatically enable PiP mode when the user leaves the app.
 
-This automatic behavior will be configurable in a future version of the SDK.
+This behavior is only supported in iOS 14.2 and later, and can be configured with the player configuration's `pipConfig`.
 
-### Automatic PiP disposal
 
-Bambuser Live Video Shopping Player will automatically dispose itself together with the parent screen.
+### Automatic PiP restore
 
-While this is a feature in most cases, this may get in the way of any in-app PiP navigation you may want to have in your app, since entering PiP and then back away from the video player screen, will cause the PiP player to be disposed.
+`BambuserLiveVideoShoppingPlayer` will keep a PiP player alive even if the user leaves the video screen.
 
-This automatic disposal will be configurable in a future version of the SDK, to make it easy to keep a PiP player alive. 
+* If the user leaves the app while PiP is active, exiting PiP will open the app and pop the player back into its original frame
+* If the user is on the same screen when exiting PiP mode, the player will automatically restore to its original frame.
+* If the app is no longer on the same screen when exiting PiP mode, the developer has to restore the player manuallu. 
 
-Until this feature is implemented, you could try holding on to the player or screen instance and manage the disposal and restoration manually. 
+In `SwiftUI`, a view can use the `pictureInPictureRestore { ... }` view modifier to listen for restore events.
+
+In `UIKit`, any class (view, view controller, service etc.) can call `registerPictureInPictureRestoreAction { ... }` to listen for restore events.
+
+There can only be a single active restore event listener. Registering a listener will replace any previously registered listener. 
+
 
 
 ## Demo apps
 
 The `Demo` folder contains a `SwiftUI` and a `UIKit` demo app. 
 
-Have a look at these apps for examples on how to add a live shopping player to your app.
+Have a look at these apps for examples on how to add a live shopping player to your app and configure it, handle PiP etc.
 
 
 
