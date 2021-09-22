@@ -5,6 +5,59 @@ This SDK is currently an experimental beta.
 It will follow semver only after the first major release. Until then, it may (and most probably will) have breaking changes between minor versions.
 
 
+## 0.5
+
+This version improves picture-in-picture (PiP) support.
+
+PiP players will now stay alive even if the user leaves the player screen. This makes in-app navigation possible while PiP is active.
+
+It is now also possible to restore a PiP player that has left its source screen.
+
+This release also renames and makes many nested player configuration types non-nested.  
+
+### ✨ New features
+  
+* `LiveVideoShoppingPlayer` has made `showId` and `configuration` public, to simplify PiP restoration.
+* `LiveVideoShoppingPlayerInterface` `invoke` replaces `PlayerUIPresenter` and the `showUI` and `hideUI` functions.
+* `PictureInPictureConfiguration` is a new configuration used by the `PlayerConfiguration`, to configure how PiP behaves.
+* `PictureInPictureRestoreComponent` can be implemented by any class that wants to listen to PiP restore events.
+* `PictureInPictureRestoreModifier` is a new SwiftUI view modifier that can be used to handle PiP restore events.
+* `pictureInPictureRestore` is a new SwiftUI view extension that applies a `PictureInPictureRestoreModifier` to the view.
+* `PlayerConfiguration` has a new `pipConfig` parameter and property.
+* `PlayerEvent.showProductView` is now emitted even if you haven't responded to the `.provideProductData` event.
+* `PlayerFunction` is a new enum that describes player-specific functionality.
+* `View` has a new `pictureInPictureRestore` modifier that can be used to listen to PiP restore events.
+* `UIView` and `UIViewController` has a new `registerPictureInPictureRestoreAction` function that can be used to register a PiP restore event listener.
+
+### 💡 Behavior changes
+
+* An active picture-in-picture player will no longer die when you leave the screen that started it.
+
+### 🗑 Deprecated
+
+* `LiveVideoShoppingPlayerInterface` `showUI` and `hideUI` are deprecated and will be removed in `0.6`.
+* `PlayerButtonConfiguration` is deprecated and will be removed in `0.6`.
+* `PlayerButtonConfiguration.LinkConfig` is deprecated and will be removed in `0.6`.
+* `PlayerConfiguration` `isViewerSubscribed` has been moved to a `PlayerViewerInfo` struct.
+* `PlayerConfiguration.ButtonConfiguration` has been renamed to `PlayerButtonConfiguration`.
+* `PlayerConfiguration.EnabledState` has been renamed to `PlayerEnabledState`.
+* `PlayerConfiguration.LocaleInfo` has been renamed to `PlayerLocaleInfo`.
+* `PlayerConfiguration.ShareConfiguration` has been renamed to `PlayerShareConfiguration`.
+* `PlayerConfiguration.StreamerInfo` has been renamed to `PlayerStreamerInfo`.
+* `PlayerConfiguration.UIConfiguration` has been renamed to `PlayerUIConfiguration`.
+* `PlayerConfiguration.UIState` has been renamed to `PlayerOverlayVisiblity`.
+* `PlayerUIPresenter` is deprecated and will be removed in `0.6`. 
+
+### 💥 Breaking changes
+
+* The demos now require Xcode 13.
+* `ButtonConfiguration` `dismissConfig` was not used and has been removed.
+* `LiveVideoShoppingPlayerViewController` is no longer public.
+* `PlayerButtonConfiguration.DismissConfig` was not used and has been removed.
+* `PlayerConfiguration` no longer has a `buttons` configuration option.
+
+
+
 ## 0.4
 
 This version adds native picture-in-picture support.
