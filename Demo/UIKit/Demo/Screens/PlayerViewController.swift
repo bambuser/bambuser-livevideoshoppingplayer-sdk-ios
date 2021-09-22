@@ -8,7 +8,16 @@
 import BambuserLiveVideoShoppingPlayer
 import UIKit
 
-class PlayerViewController: UIViewController {
+/**
+ This screen is responsible for creating a player view, with
+ support for both push, sheet and full modal navigation.
+ 
+ The player listens for player events, using a shared player
+ configuration that is provided by `DemoPlayerSettings`. The
+ screen implements `DemoPlayerEventHandler` to handle events,
+ like saving calendar events, sharing events etc.
+ */
+class PlayerViewController: UIViewController, DemoPlayerEventHandler {
     
     
     // MARK: - Initialization
@@ -16,23 +25,18 @@ class PlayerViewController: UIViewController {
     init(settings: DemoSettings) {
         super.init(nibName: nil, bundle: nil)
         self.settings = settings
+        view.backgroundColor = .systemBackground
     }
     
     required init?(coder: NSCoder) { nil }
-
+    
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
         if playerView == nil {
-            playerView = LiveVideoShoppingPlayerView(
-                showId: settings.showId,
-                configuration: settings.playerConfiguration {
-                    print("Event: \($0)")
-                })
-            playerView.loadShow(settings.showId)
+            playerView = createPlayerView()
             UIView.animate(withDuration: 0.3) {
                 self.view.layoutIfNeeded()
             }
@@ -93,12 +97,15 @@ class PlayerViewController: UIViewController {
     }
 }
 
+
+// MARK: - Actions
+
 @objc private extension PlayerViewController {
     
     func onTappedPipButton() {
         playerView.togglePictureInPicture()
     }
-
+    
     func onTappedShuffleButton() {
         playerView.loadShow(settings.loadNextShow())
     }
@@ -112,7 +119,54 @@ class PlayerViewController: UIViewController {
     }
 }
 
+
+// MARK: - Internal Functionality
+
 extension PlayerViewController {
+    
+    func dismiss() {}
+    
+    func saveCalendarEvent(in info: PlayerEventInfo) {
+        guard let event = info.calendarEvent else { return print("No calendar event in event info.") }
+        event.saveToCalendar { result in
+            switch result {
+            case .failure: print("Error: Failed to save calendar event.")
+            case .success: print("Success: Event was added to calendar at \(event.startDate).")
+            }
+        }
+    }
+    
+    func shareUrl(in info: PlayerEventInfo) {
+        guard let url = info.url(for: .url) else { return print("No url in event info.") }
+        print("Show share sheet for url: \(url)")
+    }
+}
+
+
+// MARK: - Private Functionality
+
+private extension PlayerViewController {
+    
+    func createPlayerView() -> LiveVideoShoppingPlayerView {
+        let player = LiveVideoShoppingPlayerView(
+            showId: settings.showId,
+            configuration: settings.playerConfiguration { [weak self] info in
+                switch info.event {
+                case .addShowToCalendar: self?.saveCalendarEvent(in: info)
+                case .playerDidClose: self?.dismiss()
+                case .shareShow: self?.shareUrl(in: info)
+                default: print("Unhandled Event: \(info.event), data: \(info.data)")
+                }
+            })
+        player.loadShow(settings.showId)
+        return player
+    }
+}
+
+
+// MARK: - Private View Setup
+
+private extension PlayerViewController {
     
     func setupViews() {
         stackView.addArrangedSubview(closeButton)

@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+/**
+ This view is used as a backdrop behind the demo player.
+ */
 struct BambuserLogoBackground: View {
     
     var body: some View {
@@ -18,10 +21,12 @@ struct BambuserLogoBackground: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 100)
+                    .colorInvert()
                 Spacer()
             }
             Spacer()
         }
+        .background(Color.black)
         .edgesIgnoringSafeArea(.all)
     }
 }

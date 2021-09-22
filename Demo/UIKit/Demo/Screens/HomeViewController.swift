@@ -8,6 +8,12 @@
 import SwiftUI
 import UIKit
 
+/**
+ This is the first main screen in the demo. It presents many
+ menu alternatives and registers a PiP restore listener that
+ is responsible for restoring PiP players that exit PiP when
+ the source player screen has been deallocated.
+ */
 class HomeViewController: UITableViewController {
     
     
@@ -38,6 +44,14 @@ class HomeViewController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
         tableView.backgroundColor = .systemGray6
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerPictureInPictureRestoreAction { [weak self] _ in
+            print("Restoring parentless PiP player...")
+            self?.showPlayerAsSheet()   // For now, we just present the player again
+        }
     }
     
     
@@ -144,11 +158,8 @@ class HomeViewController: UITableViewController {
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0: navigationController?.pushViewController(playerController, animated: true)
-            case 1: present(playerController, animated: true, completion: nil)
-            case 2:
-                let playerVC = playerController
-                playerVC.modalPresentationStyle = .fullScreen
-                present(playerVC, animated: true, completion: nil)
+            case 1: showPlayerAsSheet()
+            case 2: showPlayerAsFullscreenModal()
             default: break
             }
         }
@@ -174,9 +185,26 @@ class HomeViewController: UITableViewController {
     }
 }
 
+
+// MARK: - Private Functionality
+
 private extension HomeViewController {
     
     var playerController: PlayerViewController {
         PlayerViewController(settings: settings)
+    }
+    
+    func showPlayer() {
+        show(playerController, sender: nil)
+    }
+    
+    func showPlayerAsSheet() {
+        present(playerController, animated: true, completion: nil)
+    }
+    
+    func showPlayerAsFullscreenModal() {
+        let playerVC = playerController
+        playerVC.modalPresentationStyle = .fullScreen
+        present(playerVC, animated: true, completion: nil)
     }
 }

@@ -18,6 +18,7 @@ extension Image {
     static let cover = image("rectangle.inset.fill")
     static let link = image("link")
     static let next = image("shuffle.circle")
+    static let pip = image("pip")
     static let pipEnter = image("pip.enter")
     static let pipExit = image("pip.exit")
     static let player = image("iphone.badge.play")

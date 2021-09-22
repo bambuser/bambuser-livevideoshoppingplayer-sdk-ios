@@ -18,11 +18,15 @@ struct SettingsListSection: View {
     var body: some View {
         Group {
             Section(header: Text("Configuration")) {
-                text(.link, "Base URL", $settings.baseUrl)
-                text(.theme, "Custom Theme Name", $settings.themeName)
+                text(.link, "Share base URL", $settings.baseUrl)
+                text(.theme, "Player Engine", $settings.themeName)
             }
             Section(header: Text("Shows")) {
                 toggle(.calendar, "Load upcoming show", settings.loadUpcomingShow)
+            }
+            Section(header: Text("Picture-in-picture"), footer: Text("Picture-in-picture only works on real devices.")) {
+                toggle(.pip, "isEnabled", $settings.isPiPEnabled)
+                toggle(.pipEnter, "isAutomatic", $settings.isPiPAutomatic)
             }
             Section(header: Text("UI Overlays")) {
                 toggle(.cart, "Cart View", $settings.cartView)

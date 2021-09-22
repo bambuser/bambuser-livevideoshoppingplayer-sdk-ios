@@ -8,6 +8,11 @@
 import SwiftUI
 import BambuserLiveVideoShoppingPlayer
 
+/**
+ This screen is responsible for creating a player view, with
+ support for both push, sheet and full modal navigation. The
+ screen overlays the player with a demo-specific player menu.
+ */
 struct PlayerScreen: View {
     
     let showCloseButton: Bool
@@ -16,7 +21,6 @@ struct PlayerScreen: View {
     
     var body: some View {
         ZStack {
-            BambuserLogoBackground()
             ZStack(alignment: .topTrailing) {
                 player
                 menu
@@ -32,7 +36,7 @@ struct PlayerScreen: View {
 private extension PlayerScreen {
     
     var menu: some View {
-        PlayerMenu(
+        DemoPlayerMenu(
             playerContext: playerContext,
             showCloseButton: showCloseButton)
             .asOverlay()
@@ -40,7 +44,8 @@ private extension PlayerScreen {
     }
     
     var player: some View {
-        Player(playerContext: playerContext)
+        DemoPlayer(playerContext: playerContext)
+            .background(BambuserLogoBackground())
             .cornerRadius(7)
             .shadow(color: .black.opacity(0.3), radius: 3, x: 0, y: 2)
     }

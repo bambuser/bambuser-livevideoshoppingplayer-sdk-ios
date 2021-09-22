@@ -33,6 +33,9 @@ class DemoSettings: ObservableObject {
     @AppStorage("baseUrl") var baseUrl = "http://www.example.com/SHOWID"
     @AppStorage("themeName") var themeName = ""
     
+    @AppStorage("isPiPAutomatic") var isPiPAutomatic = true
+    @AppStorage("isPiPEnabled") var isPiPEnabled = true
+    
     @AppStorage("cartView") var cartView = true
     @AppStorage("cartButton") var cartButton = true
     @AppStorage("chatOverlay") var chatOverlay = true
@@ -79,24 +82,25 @@ class DemoSettings: ObservableObject {
     }
     
     /**
-     Create a player configuration, given the current config.
+     Create a player configuration for a certain demo screen.
      */
-    func playerConfiguration(for eventHandler: @escaping PlayerConfiguration.EventHandler) -> PlayerConfiguration {
+    func playerConfiguration(with eventHandler: @escaping (PlayerEventInfo) -> Void) -> PlayerConfiguration {
         PlayerConfiguration(
             engine: engine,
-            buttonConfig: .standard,
-            shareBaseUrl: baseUrl,
-            uiConfig: PlayerConfiguration.UIConfiguration(
+            pipConfig: PictureInPictureConfiguration(
+                isEnabled: isPiPEnabled,
+                isAutomatic: isPiPAutomatic),
+            shareConfig: PlayerShareConfiguration(
+                baseUrl: baseUrl),
+            uiConfig: PlayerUIConfiguration(
                 cartView: cartView.uiState,
                 cartButton: cartButton.uiState,
                 chatOverlay: chatOverlay.uiState,
                 productList: productList.uiState,
                 productView: productView.uiState,
                 shareButton: shareButton.uiState,
-                subscribeButton: subscribeButton.uiState
-            ),
-            eventHandler: eventHandler
-        )
+                subscribeButton: subscribeButton.uiState),
+            eventHandler: eventHandler)
     }
 }
 
@@ -105,7 +109,7 @@ private extension Bool {
     /**
      Get a `UIState` for the current bool value.
      */
-    var uiState: PlayerConfiguration.UIState {
+    var uiState: PlayerOverlayVisiblity {
         self ? .visible : .hidden
     }
 }

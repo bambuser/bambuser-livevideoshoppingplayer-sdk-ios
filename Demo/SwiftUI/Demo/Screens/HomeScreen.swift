@@ -6,11 +6,18 @@
 //
 
 import SwiftUI
+import BambuserLiveVideoShoppingPlayer
 
+/**
+ This is the first main screen in the demo. It presents many
+ menu alternatives and registers a PiP restore listener that
+ is responsible for restoring PiP players that exit PiP when
+ the source player screen has been deallocated.
+ */
 struct HomeScreen: View {
     
-    @State private var isCoverActive = false
-    @State private var isSheetActive = false
+    @StateObject private var cover = FullScreenCoverContext()
+    @StateObject private var sheet = SheetContext()
             
     var body: some View {
         NavigationView {
@@ -23,12 +30,12 @@ struct HomeScreen: View {
         }
         .navigationViewStyle(
             StackNavigationViewStyle())
-        .fullScreenCover(
-            isPresented: $isCoverActive,
-            content: playerScreenForModal)
-        .sheet(
-            isPresented: $isSheetActive,
-            content: playerScreenForModal)
+        .fullScreenCover(context: cover)
+        .sheet(context: sheet)
+        .pictureInPictureRestore { _ in
+            print("Restoring parentless PiP player...")
+            sheet.present(playerModal)  // For now, just restore in a sheet
+        }
     }
 }
 
@@ -39,7 +46,7 @@ private extension HomeScreen {
     
     var playerSection: some View {
         Section(header: Text("Player")) {
-            NavigationLink(destination: playerScreen()) {
+            NavigationLink(destination: playerScreen) {
                 ListItem(icon: .player, text: "Show player")
             }
             Button(action: showAsSheet) {
@@ -51,12 +58,12 @@ private extension HomeScreen {
         }
     }
     
-    func playerScreen() -> some View {
-        PlayerScreen(showCloseButton: false)
+    var playerModal: some View {
+        PlayerScreen(showCloseButton: true)
     }
     
-    func playerScreenForModal() -> some View {
-        PlayerScreen(showCloseButton: true)
+    var playerScreen: some View {
+        PlayerScreen(showCloseButton: false)
     }
 }
 
@@ -66,11 +73,11 @@ private extension HomeScreen {
 private extension HomeScreen {
     
     func showAsCover() {
-        isCoverActive = true
+        cover.present(playerModal)
     }
     
     func showAsSheet() {
-        isSheetActive = true
+        sheet.present(playerModal)
     }
 }
 
