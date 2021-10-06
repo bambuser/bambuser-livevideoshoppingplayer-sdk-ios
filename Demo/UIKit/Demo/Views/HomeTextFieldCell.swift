@@ -48,6 +48,7 @@ class HomeTextFieldCell: UITableViewCell {
         
         selectionStyle = .none
         iconImageView.tintColor = .label
+        backgroundColor = .systemBackground
     }
     
     func setup() {

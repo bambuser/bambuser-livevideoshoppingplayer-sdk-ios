@@ -52,6 +52,7 @@ class HomeToggleCell: UITableViewCell {
         setup()
         selectionStyle = .none
         iconImageView.tintColor = .label
+        backgroundColor = .systemBackground
     }
     
     func setup() {

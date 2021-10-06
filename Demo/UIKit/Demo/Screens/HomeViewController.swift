@@ -33,7 +33,10 @@ class HomeViewController: UITableViewController {
         
         staticCells = [
             [showPlayerCell, showPlayerAsSheetCell, fullScreenCoverCell],
-            [themeNameCell, cartViewCell, cartButtonCell, chatOverlayCell, productListCell, productViewCell, shareButtonCell, subscribeButtonCell]
+            [themeNameCell, playerEngineCell],
+            [upcomingShowCell],
+            [pipEnabledCell, pipAutomaticCell],
+            [cartViewCell, cartButtonCell, chatOverlayCell, productListCell, productViewCell, shareButtonCell, subscribeButtonCell]
         ]
         
         title = "Demo"
@@ -59,6 +62,7 @@ class HomeViewController: UITableViewController {
     
     var settings = DemoSettings()
     var staticCells: [[UITableViewCell]] = []
+    var headerTitles: [String] = ["Player", "Configuration", "Shows", "Picture-In-Picture", "UI Overlays"]
     
     
     // MARK: - Section 0
@@ -68,6 +72,7 @@ class HomeViewController: UITableViewController {
             title: "Show player",
             image: .player,
             value: nil,
+            accessoryType: .disclosureIndicator,
             onValueChanged: nil))
     
     private lazy var showPlayerAsSheetCell = HomeNormalCell(
@@ -75,6 +80,7 @@ class HomeViewController: UITableViewController {
             title: "Show player as sheet",
             image: .sheet,
             value: nil,
+            accessoryType: .disclosureIndicator,
             onValueChanged: nil))
     
     private lazy var fullScreenCoverCell = HomeNormalCell(
@@ -82,18 +88,56 @@ class HomeViewController: UITableViewController {
             title: "Show player as full screen cover",
             image: .cover,
             value: nil,
+            accessoryType: .disclosureIndicator,
             onValueChanged: nil))
-    
-    
-    // MARK: - Section 1
-    
+
+    //    // MARK: - Section 1
+
     private lazy var themeNameCell = HomeTextFieldCell(
         item: HomeCellViewModel(
             title: "Custom theme name",
+            image: .link,
+            value: settings.baseUrl) {
+            self.settings.baseUrl = $0
+        })
+
+    private lazy var playerEngineCell = HomeTextFieldCell(
+        item: HomeCellViewModel(
+            title: "Player Engine",
             image: .theme,
             value: settings.themeName) {
             self.settings.themeName = $0
         })
+
+//    // MARK: - Section 2
+
+    private lazy var upcomingShowCell = HomeToggleCell(
+        item: HomeCellViewModel(
+            title: "Load upcoming show",
+            image: .calendar,
+            value: settings.loadUpcomingShow.wrappedValue) {
+                self.settings.loadUpcomingShow.wrappedValue = $0
+        })
+
+    //    // MARK: - Section 3
+
+    private lazy var pipEnabledCell = HomeToggleCell(
+        item: HomeCellViewModel(
+            title: "isEnabled",
+            image: .pipEnter,
+            value: settings.isPiPEnabled) {
+                self.settings.isPiPEnabled = $0
+            })
+
+    private lazy var pipAutomaticCell = HomeToggleCell(
+        item: HomeCellViewModel(
+            title: "isAutomatic",
+            image: .pipExit,
+            value: settings.isPiPEnabled) {
+                self.settings.isPiPAutomatic = $0
+            })
+    
+    // MARK: - Section 4
     
     private lazy var cartViewCell = HomeToggleCell(
         item: HomeCellViewModel(
@@ -181,7 +225,7 @@ class HomeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        "Player"
+        headerTitles[section]
     }
 }
 

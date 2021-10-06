@@ -47,6 +47,8 @@ class HomeNormalCell: UITableViewCell {
         setup()
         selectionStyle = .none
         iconImageView.tintColor = .label
+        backgroundColor = .systemBackground
+        accessoryType = item?.accessoryType ?? .none
     }
     
     func setup() {

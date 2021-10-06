@@ -128,10 +128,17 @@ extension PlayerViewController {
     
     func saveCalendarEvent(in info: PlayerEventInfo) {
         guard let event = info.calendarEvent else { return print("No calendar event in event info.") }
-        event.saveToCalendar { result in
+        event.saveToCalendar {[weak self] result in
+            guard let self = self else { return }
             switch result {
-            case .failure: print("Error: Failed to save calendar event.")
-            case .success: print("Success: Event was added to calendar at \(event.startDate).")
+            case .failure: UIAlertController.show(
+                title: "Error",
+                message: "Failed to save calendar event.",
+                from: self)
+            case .success: UIAlertController.show(
+                title: "Success",
+                message: "Event was added to calendar at \(event.startDate).",
+                from: self)
             }
         }
     }
@@ -139,6 +146,8 @@ extension PlayerViewController {
     func shareUrl(in info: PlayerEventInfo) {
         guard let url = info.url(for: .url) else { return print("No url in event info.") }
         print("Show share sheet for url: \(url)")
+        let activitySheet = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        present(activitySheet, animated: true)
     }
 }
 

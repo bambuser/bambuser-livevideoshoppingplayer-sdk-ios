@@ -19,6 +19,7 @@
 		A922B1DB26FB6A5F00E235A1 /* DemoPlayerEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B1D726FB6A5F00E235A1 /* DemoPlayerEventHandler.swift */; };
 		A922B1DC26FB6A5F00E235A1 /* UIImage+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B1D826FB6A5F00E235A1 /* UIImage+Demo.swift */; };
 		A922B1DD26FB6A5F00E235A1 /* DemoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B1D926FB6A5F00E235A1 /* DemoSettings.swift */; };
+		A95D6750270DCEED0018A75B /* UIViewController+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D674F270DCEED0018A75B /* UIViewController+Demo.swift */; };
 		A9C2309D26F2139200961998 /* BambuserLiveVideoShoppingPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = A9C2309C26F2139200961998 /* BambuserLiveVideoShoppingPlayer */; };
 		A9C328622654105F003B356A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9C328612654105F003B356A /* Assets.xcassets */; };
 		A9C328652654105F003B356A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C328632654105F003B356A /* LaunchScreen.storyboard */; };
@@ -50,6 +51,7 @@
 		A922B1D726FB6A5F00E235A1 /* DemoPlayerEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoPlayerEventHandler.swift; sourceTree = "<group>"; };
 		A922B1D826FB6A5F00E235A1 /* UIImage+Demo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Demo.swift"; sourceTree = "<group>"; };
 		A922B1D926FB6A5F00E235A1 /* DemoSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoSettings.swift; sourceTree = "<group>"; };
+		A95D674F270DCEED0018A75B /* UIViewController+Demo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Demo.swift"; sourceTree = "<group>"; };
 		A9AB8E8926A95B89008C0B76 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		A9C328552654105E003B356A /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C328612654105F003B356A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				A922B1D926FB6A5F00E235A1 /* DemoSettings.swift */,
 				A922B1D626FB6A5F00E235A1 /* Image+Demo.swift */,
 				A922B1D826FB6A5F00E235A1 /* UIImage+Demo.swift */,
+				A95D674F270DCEED0018A75B /* UIViewController+Demo.swift */,
 			);
 			name = Shared;
 			path = ../../Shared;
@@ -268,6 +271,7 @@
 				A922B1D426FB6A5300E235A1 /* SceneDelegate.swift in Sources */,
 				A922B1DA26FB6A5F00E235A1 /* Image+Demo.swift in Sources */,
 				A922B1DD26FB6A5F00E235A1 /* DemoSettings.swift in Sources */,
+				A95D6750270DCEED0018A75B /* UIViewController+Demo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
