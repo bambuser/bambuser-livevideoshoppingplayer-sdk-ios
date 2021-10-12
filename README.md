@@ -16,9 +16,9 @@
 
 `BambuserLiveVideoShoppingPlayer` lets you add a Bambuser Live Video Shopping (LVS) Player to your app.
 
-The LVS player can be used to watch live and recorded shows, with UI overlays to let you interact with the show.
+The LVS player can be used to watch live and recorded shows, with UI overlays that lets users interact with the show.
 
-The LVS player can be configured to great extent. Once a player is loaded, you can listen for events that are emitted by the player and perform player-specific functions. 
+The LVS player can be configured to great extent and also lets you listen for player emitted events and perform player-specific functions. 
 
 `BambuserLiveVideoShoppingPlayer` supports iOS 13+ and can be used with `UIKit` and `SwiftUI`.
 
@@ -42,9 +42,20 @@ https://github.com/bambuser/bambuser-livevideoshoppingplayer-sdk-ios
 
 After installing the SDK, you must import `BambuserVideoLiveShoppingPlayer` in every file where you want to use it.
 
+### CocoaPods/Carthage
+
+This SDK does not support or Carthage.
+
 
 
 ## Getting started
+
+### Documentation
+
+You can download the latest DocC documentation [here][Documentation].
+
+Just extract the downloaded file and double-tap the `.doccarchive` file to view the documentation in Xcode. 
+
 
 ### UIKit
 
@@ -57,8 +68,6 @@ let player = LiveVideoShoppingPlayerView(
 ```
 
 You can then add the player anywhere in your app, resize it to fit your needs etc.
-
-Read more about configuration the player further down and have a look at the `UIKit` demo for examples.
 
 
 ### SwiftUI
@@ -73,119 +82,21 @@ let player = LiveVideoShoppingPlayer(
 
 You can then add the player anywhere in your app, resize it to fit your needs etc.
 
-You can provide a custom `context` if you want more players active at the same time. 
-
-Read more about configuration the player further down and have a look at the `SwiftUI` demo for examples.
-
 
 
 ## Player Configuration
 
 You can use a `PlayerConfiguration` to configure the player instance. 
 
-The player configuration specifies the following configuration parameters, most optional:
-
-* `engine` - The player engine to use, by default `.standard`.
-* `audioConfig` - The audio configuration to use, by default `.standard`.
-* `localeInfo` - The locale info to use, by default `.standard`.
-* `pipConfig` - The picture-in-picture configuration to use, by default `.standard`.
-* `shareConfig` - The share configuration info to use, by default `.standard`.
-* `streamerInfo` - Information about the streamer, by default `.standard`.
-* `uiConfig` - The UI configuration to use, by default `.standard`.
-* `viewerInfo` - Information about the viewer, by default `.standard`.
-* `eventHandler` - The event handler to use for listening to player events.
-
-
-### PlayerLocaleInfo
-
-This type specifies the following locale information:
-
-* `locale` - The local currency, by default `nil`.
-* `currency` - The locale identifier, by default `nil`. 
-* `trimPriceTrailingZeros` - Whether or not to trim trailing zeros in the price, by default `false`.
-
-
-### PictureInPictureConfiguration
-
-This type specifies the following PiP configurations:
-
-* `isEnabled` - Whether or not picture-in-picture is enabled, by default `true`.
-* `isAutomatic` - Whether or not picture-in-picture should autostart, by default `true`.
-
-`isAutomatic` is only supported from iOS 14.2 and later.
-
-
-### PlayerShareConfiguration
-
-This type specifies the following share configurations:
-
-* `autoplay` - Whether or not to use autoplay when sharing, by default `.enabled`.
-* `baseUrl` - The base URL, if any, to apply to share URLs, by default `nil`.
-
-
-### PlayerStreamerInfo
-
-This type specifies the following streamer information:
-
-* `name` - The streamer's name, by default `nil` 
-* `avatar` - The streamer's avatar, by default `nil`
-
-
-### PlayerUIConfiguration
-
-This type specifies the following UI configurations:
-
-* `cartView` - The visibility of the cart view, by default `.visible`. 
-* `cartButton` - The visibility of the cart button, by default `.visible`.
-* `chatOverlay` - The visibility of the chat overlay, by default `.visible`.
-* `productList` - The visibility of the product list, by default `.visible`.
-* `productView` - The visibility of the product view, by default `.visible`.
-* `shareButton` - The visibility of the share button, by default `.hidden`.
-* `subscribeButton` - The visibility of the subscribe button, by default `.hidden`.
-
-
-### PlayerViewerInfo
-
-This type specifies the following streamer information:
-
-* `isSubscribed` - Whether or not the viewer is subscribed, by default `false`.
+[Read more here][Configuration] to learn about how to configure the player, UI overlays, event listeners etc.
 
 
 
 ## Player Events
 
-The player emits `PlayerEventInfo` to the event handler you inject into the player configuration.
+The player will emit `PlayerEventInfo` values to the event handler that you inject into the player configuration.
 
-The event info contains a reference to the `player`, the triggered `event` as well as a raw, event-specific `data` dictionary. It also provides functions for accessing typed data from the raw data dictionary, such as `url`, `value` and `calendarEvent`.
-
-### Events
-
-The following player events are currently supported:
-
-* `addProductToCart`- Emitted when an item is added to the cart.
-* `addShowToCalendar`- Emitted when an add to calendar button is tapped.
-* `checkoutCart`- Emitted when the cart checkout button is tapped.
-* `hideCart`- Emitted when the cart should be hidden.
-* `hideChatOverlay`- Emitted when the chat overlay should be hidden.
-* `hideProductList`- Emitted when a product list should be hidden.
-* `playerDidBecomeReady`- Emitted when the player becomes ready for interaction.
-* `playerDidClose`- Emitted when the player closes and will be deallocated.
-* `playerDidLoad`- Emitted when the player completes loading the show.
-* `playerDidSwipeDown`- Emitted when the user swipes down on the player.
-* `playerDidSwipeLeft`- Emitted when the user swipes left on the player.
-* `playerDidSwipeRight`- Emitted when the user swipes right on the player.
-* `playerDidSwipeUp`- Emitted when the user swipes up on the player.
-* `provideProductData`- Emitted when the player requests you to provide product data.
-* `shareShow`- Emitted when the share button is tapped.
-* `showCart`- Emitted when the cart should be presented.
-* `showChatOverlay`- Emitted when the chat overlay should be presented.
-* `showProductList`- Emitted when a product list should be presented.
-* `showProductView`- Emitted when product information should be presented.
-* `subscribe`- Emitted when the user taps `subscribe`.
-* `syncCartState`- Emitted when the player needs information regarding the cart.
-* `unsubscribe`- Emitted when the user taps `unsubscribe`.
-* `updateItemInCart`- Emitted when the user changes the quantity of any items in the card.
-* `updateShowStatus`- Emitted whenever the show status updates (e.g. pending, ready).
+[Read more here][Events] to learn about listening for events, extracting data etc.
 
 
 
@@ -193,55 +104,7 @@ The following player events are currently supported:
 
 Bambuser Live Video Shopping Player supports native picture-in-picture (referred to as `PiP` in the text below).
 
-
-### Important information
-
-For PiP to work, your application must enable the `Background Modes` capability and check the `Audio, AirPlay, and Picture-in-picture` checkbox.
-
-PiP only works on real iPhone and iPad devices, not in iOS and iPadOS simulators.
-
-Automatic PiP (read more below) requires iOS 14.2 and later.
-
-
-### Manual PiP
-
-The `LiveVideoShoppingPlayerInterface` has functionality that can be called to enter and exit PiP mode manually. The interface can also tell you whether or not the player is currently in PiP mode.
-
-Manual PiP can be useful if you for instance want to enable PiP before navigating to another part of your app, e.g. a product screen.
-
-
-### Automatic PiP enabling
-
-`BambuserLiveVideoShoppingPlayer` will automatically enable PiP mode when the user leaves the app. This behavior is only supported in iOS 14.2 and later, and can be configured with the player configuration's `pipConfig`.
-
-
-### Automatic PiP restoration
-
-`BambuserLiveVideoShoppingPlayer` will keep a PiP mini player alive, even if the user leaves the video player screen, either by popping the screen off the navigation stack, pushing to a new screen in the navigation stack, present a sheet or fullscreen modal above the screen etc. 
-
-The SDK will also try to restore the original video player automatically, if possible.
-
-The behavior is as such: 
-
-* If the user leaves the app while PiP is active, exiting PiP by tapping on the exit button in the mini player will open the app and pop the player back into its original frame.
-* If the user is on the same screen when exiting PiP, either programatically or by tapping on the button in the mini player, the player will automatically pop back into its original frame.
-* If the app is no longer on the same screen when exiting PiP mode, the developer has to restore the player manually.
-
-Read on for information on how to perform manual PiP restoration.
-
-
-### Manual PiP restoration 
-
-Manual PiP restoration is required when the screen that started the PiP video is no longer available.
-
-The SDK will then give you a chance to restore the video player manually. This works differently in SwiftUI and UIKit:
-
-* In `SwiftUI`, any view can use the `pictureInPictureRestore { ... }` view modifier to listen for restore events. The last view that calls this function will be the active restore listener. You can use `onAppear` to keep this registration fresh.
-* In `UIKit`, any class (view, view controller, service etc.) can call `registerPictureInPictureRestoreAction { ... }` to listen for restore events.
-
-There can only be a single active restore event listener. Registering a listener will replace any previously registered listener.
-
-When the SDK requires a manual PiP restoration, the action you have provided will be called. This will give you the original player as well as information about the show. Use this to restore the player or create a new screen that presents the same show. 
+[Read more here][PictureInPicture] to learn about manual and automatic PiP enabling, PiP restoration etc. 
 
 
 
@@ -253,4 +116,9 @@ Have a look at these apps for examples on how to add a live shopping player to y
 
 
 
+[Documentation]: ./Docs/BambuserLiveVideoShoppingPlayer.doccarchive.zip
 [ReleaseNotes]: ./RELEASE_NOTES.md
+
+[Configuration]: ./Readmes/Configuration.md
+[Events]: ./Readmes/Events.md
+[PictureInPicture]: ./Readmes/PictureInPicture.md
