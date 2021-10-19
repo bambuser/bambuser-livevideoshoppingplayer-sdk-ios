@@ -28,7 +28,7 @@ Improved PiP restoration means that exiting PiP when the original screen has bee
 * All deprecated functionality has been removed.
 * `AddToCalendarError.missingEventData` can no longer occur and has been removed.
 * `LiveVideoShoppingPlayerContext` `interface` is renamed to `player`.
-* `LiveVideoShoppingPlayerInterface` has been replaced with just using `LiveVideoShoppingPlayerInterfaceView`.
+* `LiveVideoShoppingPlayerInterface` has been replaced with just using `LiveVideoShoppingPlayerView`.
 
 
 
