@@ -5,6 +5,33 @@ This SDK is currently an experimental beta.
 It will follow semver only after the first major release. Until then, it may (and most probably will) have breaking changes between minor versions.
 
 
+## 0.6
+
+This version improves PiP restoration and cleans up even more things in the library.
+
+Improved PiP restoration means that exiting PiP when the original screen has been disposed is now a much nicer experience, where the video will smoooothly pop back into place.
+
+### ✨ New features
+
+* More types implement `Equatable`.    
+* `PlayerConfiguration` has a new, static `standard` function that takes an event handler.
+* `PictureInPictureState` has a new `resetRestoreAction` function.
+
+### 💡 Behavior changes
+
+* The PiP restoration attempt takes place earlier, which makes it possible to get a more seamless experience.
+* The UIKit demo uses this new behavior to restore the player in a much nicer way.
+* The SwiftUI demo currently doesn't make use of this new behavior.
+
+### 💥 Breaking changes
+
+* All deprecated functionality has been removed.
+* `AddToCalendarError.missingEventData` can no longer occur and has been removed.
+* `LiveVideoShoppingPlayerContext` `interface` is renamed to `player`.
+* `LiveVideoShoppingPlayerInterface` has been replaced with just using `LiveVideoShoppingPlayerInterfaceView`.
+
+
+
 ## 0.5
 
 This version improves picture-in-picture (PiP) support.
