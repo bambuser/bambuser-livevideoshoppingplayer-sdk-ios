@@ -210,7 +210,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 @class NSCoder;
 
-/// This view can be used to present a live shopping show.
+/// This <code>UIKit</code> player presents a live shopping player for the
+/// provided <code>showId</code> and <code>configuration</code>.
 SWIFT_CLASS("_TtC31BambuserLiveVideoShoppingPlayer27LiveVideoShoppingPlayerView")
 @interface LiveVideoShoppingPlayerView : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
