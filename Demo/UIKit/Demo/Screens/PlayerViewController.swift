@@ -22,7 +22,8 @@ class PlayerViewController: UIViewController, DemoPlayerEventHandler {
     
     // MARK: - Initialization
     
-    init(settings: DemoSettings) {
+    init(settings: DemoSettings, playerView: LiveVideoShoppingPlayerView? = nil) {
+        self.playerView = playerView
         super.init(nibName: nil, bundle: nil)
         self.settings = settings
         view.backgroundColor = .systemBackground

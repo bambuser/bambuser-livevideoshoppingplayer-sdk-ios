@@ -9,10 +9,10 @@ import SwiftUI
 import BambuserLiveVideoShoppingPlayer
 
 /**
- This is the first main screen in the demo. It presents many
- menu alternatives and registers a PiP restore listener that
- is responsible for restoring PiP players that exit PiP when
- the source player screen has been deallocated.
+ This is the demo home screen. It presents many options that
+ can be used to configure the demo player and also registers
+ a PiP restore action that smoothly restores any LVS players
+ that exit PiP when their source screen has been deallocated.
  */
 struct HomeScreen: View {
     
@@ -32,9 +32,9 @@ struct HomeScreen: View {
             StackNavigationViewStyle())
         .fullScreenCover(context: cover)
         .sheet(context: sheet)
-        .pictureInPictureRestore { _ in
+        .pictureInPictureRestore { (player, completion) in
             print("Restoring parentless PiP player...")
-            sheet.present(playerModal)  // For now, just restore in a sheet
+            restorePlayer(player, completion: completion)
         }
     }
 }
@@ -72,6 +72,13 @@ private extension HomeScreen {
 
 private extension HomeScreen {
     
+    func restorePlayer(_ player: LiveVideoShoppingPlayer, completion: @escaping () -> Void) {
+        sheet.present(
+            PlayerScreen(showCloseButton: true, restoredPlayer: player)
+                .onAppear(perform: completion)
+        )
+    }
+    
     func showAsCover() {
         cover.present(playerModal)
     }
@@ -82,6 +89,7 @@ private extension HomeScreen {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
         HomeScreen()
     }

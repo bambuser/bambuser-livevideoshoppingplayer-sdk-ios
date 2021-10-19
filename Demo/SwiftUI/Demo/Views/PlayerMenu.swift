@@ -12,7 +12,7 @@ import BambuserLiveVideoShoppingPlayer
  This is a demo-specific menu, that can be used to control a
  demo-specific player. Only use it for inspiration.
  */
-struct DemoPlayerMenu: View {
+struct PlayerMenu: View {
     
     let playerContext: LiveVideoShoppingPlayerContext
     let showCloseButton: Bool
@@ -34,7 +34,7 @@ struct DemoPlayerMenu: View {
 
 // MARK: - Modifiers
 
-extension DemoPlayerMenu {
+extension PlayerMenu {
     
     /**
      Using this modifier embeds the menu in a dark container
@@ -53,18 +53,14 @@ extension DemoPlayerMenu {
 
 // MARK: - Private logic
 
-private extension DemoPlayerMenu {
+private extension PlayerMenu {
     
     var isPipEnabled: Bool {
-        playerContext.interface?.isPictureInPictureActive ?? false
+        playerContext.player?.isPictureInPictureActive ?? false
     }
     
     var pipImage: Image {
         isPipEnabled ? .pipExit : .pipEnter
-    }
-    
-    var playerInterface: LiveVideoShoppingPlayerInterface? {
-        playerContext.interface
     }
     
     func button(_ image: Image, action: @escaping () -> Void) -> some View {
@@ -77,12 +73,12 @@ private extension DemoPlayerMenu {
     
     func loadNextShow() {
         let showId = settings.loadNextShow()
-        playerInterface?.loadShow(showId)
+        playerContext.player?.loadShow(showId)
     }
     
     func togglePip() {
         withAnimation {
-            playerInterface?.togglePictureInPicture()
+            playerContext.player?.togglePictureInPicture()
         }
     }
 }
@@ -90,7 +86,7 @@ private extension DemoPlayerMenu {
 struct PlayerMenu_Previews: PreviewProvider {
     
     static var previews: some View {
-        DemoPlayerMenu(
+        PlayerMenu(
             playerContext: .shared,
             showCloseButton: true)
             .environmentObject(DemoSettings())

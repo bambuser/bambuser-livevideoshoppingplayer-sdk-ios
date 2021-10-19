@@ -5,6 +5,7 @@
 //  Copyright © 2021 Bambuser AB. All rights reserved.
 //
 
+import BambuserLiveVideoShoppingPlayer
 import SwiftUI
 import UIKit
 
@@ -51,9 +52,9 @@ class HomeViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        registerPictureInPictureRestoreAction { [weak self] _ in
+        registerPictureInPictureRestoreAction { [weak self] playerView, completion in
             print("Restoring parentless PiP player...")
-            self?.showPlayerAsSheet()   // For now, we just present the player again
+            self?.showPlayerAsSheet(playerView: playerView, completion: completion)
         }
     }
     
@@ -91,7 +92,7 @@ class HomeViewController: UITableViewController {
             accessoryType: .disclosureIndicator,
             onValueChanged: nil))
 
-    //    // MARK: - Section 1
+    // MARK: - Section 1
 
     private lazy var themeNameCell = HomeTextFieldCell(
         item: HomeCellViewModel(
@@ -109,7 +110,7 @@ class HomeViewController: UITableViewController {
             self.settings.themeName = $0
         })
 
-//    // MARK: - Section 2
+    // MARK: - Section 2
 
     private lazy var upcomingShowCell = HomeToggleCell(
         item: HomeCellViewModel(
@@ -119,7 +120,7 @@ class HomeViewController: UITableViewController {
                 self.settings.loadUpcomingShow.wrappedValue = $0
         })
 
-    //    // MARK: - Section 3
+    // MARK: - Section 3
 
     private lazy var pipEnabledCell = HomeToggleCell(
         item: HomeCellViewModel(
@@ -242,8 +243,10 @@ private extension HomeViewController {
         show(playerController, sender: nil)
     }
     
-    func showPlayerAsSheet() {
-        present(playerController, animated: true, completion: nil)
+    func showPlayerAsSheet(playerView: LiveVideoShoppingPlayerView? = nil, completion: (() -> Void)? = nil) {
+        present(PlayerViewController(settings: settings, playerView: playerView), animated: true) {
+            completion?()
+        }
     }
     
     func showPlayerAsFullscreenModal() {
