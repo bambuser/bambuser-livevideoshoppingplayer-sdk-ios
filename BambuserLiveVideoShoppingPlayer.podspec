@@ -2,5 +2,5 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BambuserLiveVideoShoppingPlayer'
-  s.version          = '0.5.0'
+  s.version          = '0.6.0'
 end
