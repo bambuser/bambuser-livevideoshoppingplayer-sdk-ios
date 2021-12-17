@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name BambuserLiveVideoShoppingPlayer
 import AVFoundation
 @_exported import BambuserLiveVideoShoppingPlayer
@@ -11,18 +11,19 @@ import Swift
 import SwiftUI
 import UIKit
 import WebKit
+import _Concurrency
 public class AudioSessionConfiguration {
   public init(configuration: @escaping BambuserLiveVideoShoppingPlayer.AudioSessionConfiguration.Configuration)
   public typealias Configuration = (AVFAudio.AVAudioSession) -> Swift.Void
   final public let configuration: BambuserLiveVideoShoppingPlayer.AudioSessionConfiguration.Configuration
   @objc deinit
 }
-extension AudioSessionConfiguration {
+extension BambuserLiveVideoShoppingPlayer.AudioSessionConfiguration {
   public static var standard: BambuserLiveVideoShoppingPlayer.AudioSessionConfiguration {
     get
   }
 }
-public enum PlayerOverlayVisiblity : Swift.String, Swift.CaseIterable, Swift.Codable {
+public enum PlayerOverlayVisiblity : Swift.String, Swift.CaseIterable, Swift.Codable, Swift.Equatable {
   case visible, hidden
   public init?(rawValue: Swift.String)
   public typealias AllCases = [BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity]
@@ -34,7 +35,7 @@ public enum PlayerOverlayVisiblity : Swift.String, Swift.CaseIterable, Swift.Cod
     get
   }
 }
-public struct CalendarEvent {
+public struct CalendarEvent : Swift.Codable, Swift.Equatable {
   public init(title: Swift.String, startDate: Foundation.Date, endDate: Foundation.Date, url: Foundation.URL)
   public let title: Swift.String
   public let startDate: Foundation.Date
@@ -50,12 +51,17 @@ public struct CalendarEvent {
     case error(Swift.Error)
   }
   public func saveToCalendar(_ calendar: @escaping BambuserLiveVideoShoppingPlayer.CalendarEvent.CalendarPicker = { $0.defaultCalendarForNewEvents }, in store: @escaping BambuserLiveVideoShoppingPlayer.CalendarEvent.StorePicker = { EKEventStore() }, completion: @escaping BambuserLiveVideoShoppingPlayer.CalendarEvent.AddToCalendarCompletion)
+  public static func == (a: BambuserLiveVideoShoppingPlayer.CalendarEvent, b: BambuserLiveVideoShoppingPlayer.CalendarEvent) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
-public enum PlayerFunction : Swift.Equatable {
+public enum PlayerFunction : Swift.Codable, Swift.Equatable {
   case hideUI
   case showUI
   case named(Swift.String, args: [Swift.String])
   public static func == (a: BambuserLiveVideoShoppingPlayer.PlayerFunction, b: BambuserLiveVideoShoppingPlayer.PlayerFunction) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public class LiveVideoShoppingPlayerContext : Combine.ObservableObject {
   public init()
@@ -66,7 +72,7 @@ public class LiveVideoShoppingPlayerContext : Combine.ObservableObject {
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
   @objc deinit
 }
-public struct PlayerUIConfiguration : Swift.Equatable {
+public struct PlayerUIConfiguration : Swift.Codable, Swift.Equatable {
   public init(cartView: BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity = .visible, cartButton: BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity = .visible, chatOverlay: BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity = .visible, productList: BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity = .visible, productView: BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity = .visible, shareButton: BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity = .hidden, subscribeButton: BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity = .hidden)
   public let cartView: BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity
   public let cartButton: BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity
@@ -76,18 +82,22 @@ public struct PlayerUIConfiguration : Swift.Equatable {
   public let shareButton: BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity
   public let subscribeButton: BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity
   public static func == (a: BambuserLiveVideoShoppingPlayer.PlayerUIConfiguration, b: BambuserLiveVideoShoppingPlayer.PlayerUIConfiguration) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
-extension PlayerUIConfiguration {
+extension BambuserLiveVideoShoppingPlayer.PlayerUIConfiguration {
   public static let standard: BambuserLiveVideoShoppingPlayer.PlayerUIConfiguration
 }
-public struct PlayerLocaleInfo : Swift.Equatable {
+public struct PlayerLocaleInfo : Swift.Codable, Swift.Equatable {
   public init(locale: Swift.String? = nil, currency: Swift.String? = nil, trimPriceTrailingZeros: Swift.Bool = false)
   public let currency: Swift.String?
   public let locale: Swift.String?
   public let trimPriceTrailingZeros: Swift.Bool
   public static func == (a: BambuserLiveVideoShoppingPlayer.PlayerLocaleInfo, b: BambuserLiveVideoShoppingPlayer.PlayerLocaleInfo) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
-extension PlayerLocaleInfo {
+extension BambuserLiveVideoShoppingPlayer.PlayerLocaleInfo {
   public static let standard: BambuserLiveVideoShoppingPlayer.PlayerLocaleInfo
 }
 public struct PlayerShareConfiguration : Swift.Codable, Swift.Equatable {
@@ -98,10 +108,10 @@ public struct PlayerShareConfiguration : Swift.Codable, Swift.Equatable {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
-extension PlayerShareConfiguration {
+extension BambuserLiveVideoShoppingPlayer.PlayerShareConfiguration {
   public static let standard: BambuserLiveVideoShoppingPlayer.PlayerShareConfiguration
 }
-public enum PlayerEnabledState : Swift.String, Swift.CaseIterable, Swift.Codable {
+public enum PlayerEnabledState : Swift.String, Swift.CaseIterable, Swift.Codable, Swift.Equatable {
   case enabled, disabled
   public init?(rawValue: Swift.String)
   public typealias AllCases = [BambuserLiveVideoShoppingPlayer.PlayerEnabledState]
@@ -113,74 +123,75 @@ public enum PlayerEnabledState : Swift.String, Swift.CaseIterable, Swift.Codable
     get
   }
 }
-public enum PlayerEngine : Swift.Equatable {
+public enum PlayerEngine : Swift.Equatable, Swift.Codable {
   case standard
   case client(Swift.String)
   case custom(url: Swift.String)
   public static func == (a: BambuserLiveVideoShoppingPlayer.PlayerEngine, b: BambuserLiveVideoShoppingPlayer.PlayerEngine) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public protocol ShowPresenter {
   var showId: Swift.String { get }
   func loadShow()
   func loadShow(_ showId: Swift.String)
 }
-@objc @_hasMissingDesignatedInitializers public class LiveVideoShoppingPlayerView : UIKit.UIView, BambuserLiveVideoShoppingPlayer.PictureInPictureController, BambuserLiveVideoShoppingPlayer.ShowPresenter {
-  convenience public init(showId: Swift.String, configuration: BambuserLiveVideoShoppingPlayer.PlayerConfiguration)
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class LiveVideoShoppingPlayerView : UIKit.UIView, BambuserLiveVideoShoppingPlayer.PictureInPictureController, BambuserLiveVideoShoppingPlayer.ShowPresenter {
+  @_Concurrency.MainActor(unsafe) convenience public init(showId: Swift.String, configuration: BambuserLiveVideoShoppingPlayer.PlayerConfiguration)
   @objc deinit
   public typealias PlayerFunctionCompletion = (Swift.Result<Any?, Swift.Error>) -> Swift.Void
-  final public let configuration: BambuserLiveVideoShoppingPlayer.PlayerConfiguration
-  public var showId: Swift.String {
+  @_Concurrency.MainActor(unsafe) final public let configuration: BambuserLiveVideoShoppingPlayer.PlayerConfiguration
+  @_Concurrency.MainActor(unsafe) public var showId: Swift.String {
     get
   }
-  public var showStatus: BambuserLiveVideoShoppingPlayer.ShowStatus {
+  @_Concurrency.MainActor(unsafe) public var showStatus: BambuserLiveVideoShoppingPlayer.ShowStatus {
     get
   }
-  public var playerState: BambuserLiveVideoShoppingPlayer.PlayerState {
+  @_Concurrency.MainActor(unsafe) public var playerState: BambuserLiveVideoShoppingPlayer.PlayerState {
     get
   }
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
 }
-extension LiveVideoShoppingPlayerView {
-  public func invoke(_ function: BambuserLiveVideoShoppingPlayer.PlayerFunction, completion: @escaping BambuserLiveVideoShoppingPlayer.LiveVideoShoppingPlayerView.PlayerFunctionCompletion)
+extension BambuserLiveVideoShoppingPlayer.LiveVideoShoppingPlayerView {
+  @_Concurrency.MainActor(unsafe) public func invoke(_ function: BambuserLiveVideoShoppingPlayer.PlayerFunction, completion: @escaping BambuserLiveVideoShoppingPlayer.LiveVideoShoppingPlayerView.PlayerFunctionCompletion)
 }
-extension LiveVideoShoppingPlayerView {
-  public var isPictureInPictureActive: Swift.Bool {
+extension BambuserLiveVideoShoppingPlayer.LiveVideoShoppingPlayerView {
+  @_Concurrency.MainActor(unsafe) public var isPictureInPictureActive: Swift.Bool {
     get
   }
-  public func enterPictureInPicture()
-  public func exitPictureInPicture()
+  @_Concurrency.MainActor(unsafe) public func enterPictureInPicture()
+  @_Concurrency.MainActor(unsafe) public func exitPictureInPicture()
 }
-extension LiveVideoShoppingPlayerView {
-  public func loadShow()
-  public func loadShow(_ showId: Swift.String)
+extension BambuserLiveVideoShoppingPlayer.LiveVideoShoppingPlayerView {
+  @_Concurrency.MainActor(unsafe) public func loadShow()
+  @_Concurrency.MainActor(unsafe) public func loadShow(_ showId: Swift.String)
 }
-extension LiveVideoShoppingPlayerView : WebKit.WKScriptMessageHandler {
-  @objc dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+extension BambuserLiveVideoShoppingPlayer.LiveVideoShoppingPlayerView : WebKit.WKScriptMessageHandler {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
 }
-extension LiveVideoShoppingPlayerView : WebKit.WKNavigationDelegate {
-  @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+extension BambuserLiveVideoShoppingPlayer.LiveVideoShoppingPlayerView : WebKit.WKNavigationDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
 }
 public protocol PictureInPictureRestoreComponent : AnyObject {
 }
-extension UIView : BambuserLiveVideoShoppingPlayer.PictureInPictureRestoreComponent {
+extension UIKit.UIView : BambuserLiveVideoShoppingPlayer.PictureInPictureRestoreComponent {
 }
-extension UIViewController : BambuserLiveVideoShoppingPlayer.PictureInPictureRestoreComponent {
+extension UIKit.UIViewController : BambuserLiveVideoShoppingPlayer.PictureInPictureRestoreComponent {
 }
-extension PictureInPictureRestoreComponent {
+extension BambuserLiveVideoShoppingPlayer.PictureInPictureRestoreComponent {
   public func registerPictureInPictureRestoreAction(_ action: @escaping BambuserLiveVideoShoppingPlayer.PictureInPictureState.RestoreAction)
 }
 public struct PictureInPictureRestoreModifier : SwiftUI.ViewModifier {
   public init(restoreAction: @escaping BambuserLiveVideoShoppingPlayer.PictureInPictureRestoreModifier.RestoreAction)
   public typealias RestoreAction = (BambuserLiveVideoShoppingPlayer.LiveVideoShoppingPlayer, @escaping () -> Swift.Void) -> Swift.Void
-  public func body(content: BambuserLiveVideoShoppingPlayer.PictureInPictureRestoreModifier.Content) -> some SwiftUI.View
+  @_Concurrency.MainActor(unsafe) public func body(content: BambuserLiveVideoShoppingPlayer.PictureInPictureRestoreModifier.Content) -> some SwiftUI.View
   
-  public typealias Body = @_opaqueReturnTypeOf("$s31BambuserLiveVideoShoppingPlayer09PictureInF15RestoreModifierV4body7contentQr7SwiftUI05_ViewI8_ContentVyACG_tF", 0) 🦸
+  public typealias Body = @_opaqueReturnTypeOf("$s31BambuserLiveVideoShoppingPlayer09PictureInF15RestoreModifierV4body7contentQr7SwiftUI05_ViewI8_ContentVyACG_tF", 0) __
 }
-extension View {
+extension SwiftUI.View {
   public func pictureInPictureRestore(action: @escaping BambuserLiveVideoShoppingPlayer.PictureInPictureRestoreModifier.RestoreAction) -> some SwiftUI.View
   
 }
-public enum PlayerEvent : Swift.String, Swift.CaseIterable, Swift.Codable {
+public enum PlayerEvent : Swift.String, Swift.CaseIterable, Swift.Codable, Swift.Equatable {
   case addProductToCart
   case addShowToCalendar
   case checkoutCart
@@ -215,13 +226,15 @@ public enum PlayerEvent : Swift.String, Swift.CaseIterable, Swift.Codable {
     get
   }
 }
-public struct PlayerStreamerInfo : Swift.Equatable {
+public struct PlayerStreamerInfo : Swift.Codable, Swift.Equatable {
   public init(name: Swift.String? = nil, avatar: Swift.String? = nil)
   public let name: Swift.String?
   public let avatar: Swift.String?
   public static func == (a: BambuserLiveVideoShoppingPlayer.PlayerStreamerInfo, b: BambuserLiveVideoShoppingPlayer.PlayerStreamerInfo) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
-extension PlayerStreamerInfo {
+extension BambuserLiveVideoShoppingPlayer.PlayerStreamerInfo {
   public static let standard: BambuserLiveVideoShoppingPlayer.PlayerStreamerInfo
 }
 public struct PlayerConfiguration {
@@ -237,15 +250,17 @@ public struct PlayerConfiguration {
   public let uiConfig: BambuserLiveVideoShoppingPlayer.PlayerUIConfiguration
   public let viewerInfo: BambuserLiveVideoShoppingPlayer.PlayerViewerInfo
 }
-extension PlayerConfiguration {
+extension BambuserLiveVideoShoppingPlayer.PlayerConfiguration {
   public static func standard(eventHandler: @escaping BambuserLiveVideoShoppingPlayer.PlayerConfiguration.EventHandler) -> BambuserLiveVideoShoppingPlayer.PlayerConfiguration
 }
-public struct PlayerViewerInfo : Swift.Equatable {
+public struct PlayerViewerInfo : Swift.Codable, Swift.Equatable {
   public init(isSubscribed: Swift.Bool = false)
   public let isSubscribed: Swift.Bool
   public static func == (a: BambuserLiveVideoShoppingPlayer.PlayerViewerInfo, b: BambuserLiveVideoShoppingPlayer.PlayerViewerInfo) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
-extension PlayerViewerInfo {
+extension BambuserLiveVideoShoppingPlayer.PlayerViewerInfo {
   public static let standard: BambuserLiveVideoShoppingPlayer.PlayerViewerInfo
 }
 public protocol PictureInPictureController {
@@ -253,19 +268,21 @@ public protocol PictureInPictureController {
   func enterPictureInPicture()
   func exitPictureInPicture()
 }
-extension PictureInPictureController {
+extension BambuserLiveVideoShoppingPlayer.PictureInPictureController {
   public func togglePictureInPicture()
 }
-public struct PictureInPictureConfiguration : Swift.Equatable {
+public struct PictureInPictureConfiguration : Swift.Codable, Swift.Equatable {
   public init(isEnabled: Swift.Bool = true, isAutomatic: Swift.Bool = true)
   public let isAutomatic: Swift.Bool
   public let isEnabled: Swift.Bool
   public static func == (a: BambuserLiveVideoShoppingPlayer.PictureInPictureConfiguration, b: BambuserLiveVideoShoppingPlayer.PictureInPictureConfiguration) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
-extension PictureInPictureConfiguration {
+extension BambuserLiveVideoShoppingPlayer.PictureInPictureConfiguration {
   public static let standard: BambuserLiveVideoShoppingPlayer.PictureInPictureConfiguration
 }
-extension PlayerEventInfo {
+extension BambuserLiveVideoShoppingPlayer.PlayerEventInfo {
   public var calendarDateFormat: Swift.String {
     get
   }
@@ -285,12 +302,12 @@ public struct PlayerEventInfo {
   public let event: BambuserLiveVideoShoppingPlayer.PlayerEvent
   public let data: BambuserLiveVideoShoppingPlayer.PlayerEventInfo.Data
 }
-extension PlayerEventInfo {
+extension BambuserLiveVideoShoppingPlayer.PlayerEventInfo {
   public func url(for key: BambuserLiveVideoShoppingPlayer.PlayerEventInfo.Key) -> Foundation.URL?
   public func value(for key: BambuserLiveVideoShoppingPlayer.PlayerEventInfo.Key) -> Any?
   public func value<Value>(for key: BambuserLiveVideoShoppingPlayer.PlayerEventInfo.Key) -> Value?
 }
-extension PlayerEventInfo {
+extension BambuserLiveVideoShoppingPlayer.PlayerEventInfo {
   public enum Key {
     case duration
     case id
@@ -300,7 +317,7 @@ extension PlayerEventInfo {
     case key(Swift.String)
   }
 }
-public enum ShowStatus : Swift.String, Swift.CaseIterable, Swift.Codable {
+public enum ShowStatus : Swift.String, Swift.CaseIterable, Swift.Codable, Swift.Equatable {
   case loading
   case startingSoon
   case playingRecorded
@@ -318,12 +335,12 @@ public enum ShowStatus : Swift.String, Swift.CaseIterable, Swift.Codable {
     get
   }
 }
-extension ShowStatus {
+extension BambuserLiveVideoShoppingPlayer.ShowStatus {
   public var isPlaying: Swift.Bool {
     get
   }
 }
-public enum PlayerState : Swift.String, Swift.CaseIterable, Swift.Codable {
+public enum PlayerState : Swift.String, Swift.CaseIterable, Swift.Codable, Swift.Equatable {
   case idle
   case loaded
   case ready
@@ -353,23 +370,18 @@ public struct LiveVideoShoppingPlayer : SwiftUI.View {
   public let showId: Swift.String
   public let configuration: BambuserLiveVideoShoppingPlayer.PlayerConfiguration
   public let context: BambuserLiveVideoShoppingPlayer.LiveVideoShoppingPlayerContext
-  public var body: some SwiftUI.View {
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
     get
   }
-  public typealias Body = @_opaqueReturnTypeOf("$s31BambuserLiveVideoShoppingPlayer0bcdE0V4bodyQrvp", 0) 🦸
+  public typealias Body = @_opaqueReturnTypeOf("$s31BambuserLiveVideoShoppingPlayer0bcdE0V4bodyQrvp", 0) __
 }
-extension BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity : Swift.Equatable {}
 extension BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity : Swift.Hashable {}
 extension BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity : Swift.RawRepresentable {}
-extension BambuserLiveVideoShoppingPlayer.PlayerEnabledState : Swift.Equatable {}
 extension BambuserLiveVideoShoppingPlayer.PlayerEnabledState : Swift.Hashable {}
 extension BambuserLiveVideoShoppingPlayer.PlayerEnabledState : Swift.RawRepresentable {}
-extension BambuserLiveVideoShoppingPlayer.PlayerEvent : Swift.Equatable {}
 extension BambuserLiveVideoShoppingPlayer.PlayerEvent : Swift.Hashable {}
 extension BambuserLiveVideoShoppingPlayer.PlayerEvent : Swift.RawRepresentable {}
-extension BambuserLiveVideoShoppingPlayer.ShowStatus : Swift.Equatable {}
 extension BambuserLiveVideoShoppingPlayer.ShowStatus : Swift.Hashable {}
 extension BambuserLiveVideoShoppingPlayer.ShowStatus : Swift.RawRepresentable {}
-extension BambuserLiveVideoShoppingPlayer.PlayerState : Swift.Equatable {}
 extension BambuserLiveVideoShoppingPlayer.PlayerState : Swift.Hashable {}
 extension BambuserLiveVideoShoppingPlayer.PlayerState : Swift.RawRepresentable {}
