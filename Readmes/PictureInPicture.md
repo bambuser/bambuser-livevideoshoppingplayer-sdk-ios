@@ -14,7 +14,7 @@ Automatic PiP (read more below) requires iOS 14.2 and later.
 
 ## Manual PiP
 
-The `LiveVideoShoppingPlayerInterface` has functionality that can be called to enter and exit PiP mode manually. The interface can also tell you whether or not the player is currently in PiP mode.
+The `LiveVideoShoppingPlayerView` has functionality that can be called to enter and exit PiP mode manually. The interface can also tell you whether or not the player is currently in PiP mode.
 
 Manual PiP can be useful if you for instance want to enable PiP before navigating to another part of your app, e.g. a product screen.
 
