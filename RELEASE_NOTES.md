@@ -4,13 +4,32 @@ This SDK is currently an experimental beta.
 
 It will follow semver only after the first major release. Until then, it may (and most probably will) have breaking changes between minor versions.
 
+
+
+## 0.7
+
+This version adds support for Swift 5.5 and DocC.
+
+This new version also makes it possible to use the player in fullscreen edge-to-edge mode.
+
+### ✨ New features
+
+* The player can now be used in fullscreen.
+* The DocC documentation has more information.
+* More types implement `Codable` and `Equatable`.
+
+
+
 ## 0.6.2
 
-Added missing required attributes to CocoaPods specification file.
+This version adds missing required attributes to the CocoaPods specification file.
+
+
 
 ## 0.6.1
 
 This version works with Xcode 12.5.0 and newer.
+
 
 
 ## 0.6
