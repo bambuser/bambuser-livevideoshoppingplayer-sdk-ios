@@ -34,6 +34,8 @@ See the [release notes][ReleaseNotes] for status and progress.
 
 ## Installation
 
+Requires Xcode 12.5.0 or newer.
+
 ### Swift Package Manager
 
 ```
@@ -42,9 +44,13 @@ https://github.com/bambuser/bambuser-livevideoshoppingplayer-sdk-ios
 
 After installing the SDK, you must import `BambuserVideoLiveShoppingPlayer` in every file where you want to use it.
 
-### CocoaPods/Carthage
+### CocoaPods
 
-This SDK does not support or Carthage.
+Add ```pod 'BambuserLiveVideoShoppingPlayer', :git => 'https://github.com/bambuser/bambuser-livevideoshoppingplayer-sdk-ios'``` to your Podfile.
+
+### Carthages
+
+This SDK does not support Carthage.
 
 
 

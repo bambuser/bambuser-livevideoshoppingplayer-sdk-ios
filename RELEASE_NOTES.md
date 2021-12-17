@@ -4,6 +4,14 @@ This SDK is currently an experimental beta.
 
 It will follow semver only after the first major release. Until then, it may (and most probably will) have breaking changes between minor versions.
 
+## 0.6.2
+
+Added missing required attributes to CocoaPods specification file.
+
+## 0.6.1
+
+This version works with Xcode 12.5.0 and newer.
+
 
 ## 0.6
 
