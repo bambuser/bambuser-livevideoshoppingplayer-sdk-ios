@@ -34,7 +34,7 @@ See the [release notes][ReleaseNotes] for status and progress.
 
 ## Installation
 
-Requires Xcode 12.5.0 or newer.
+Requires Xcode 13.0 or newer.
 
 ### Swift Package Manager
 
