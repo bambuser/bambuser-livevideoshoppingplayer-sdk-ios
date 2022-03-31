@@ -42,7 +42,7 @@ Requires Xcode 13.0 or newer.
 https://github.com/bambuser/bambuser-livevideoshoppingplayer-sdk-ios
 ```
 
-After installing the SDK, you must import `BambuserVideoLiveShoppingPlayer` in every file where you want to use it.
+After installing the SDK, you must import `BambuserLiveVideoShoppingPlayer` in every file where you want to use it.
 
 ### CocoaPods
 
