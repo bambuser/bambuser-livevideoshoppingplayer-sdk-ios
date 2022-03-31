@@ -25,6 +25,7 @@ The following player events are currently supported:
 * `shareShow`- Emitted when the share button is tapped.
 * `showCart`- Emitted when the cart should be presented.
 * `showChatOverlay`- Emitted when the chat overlay should be presented.
+* `showEmojiBatch` - Emitted when an Emoji batch should be displayed.
 * `showProductList`- Emitted when a product list should be presented.
 * `showProductView`- Emitted when product information should be presented.
 * `subscribe`- Emitted when the user taps `subscribe`.

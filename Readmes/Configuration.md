@@ -54,9 +54,11 @@ This type specifies the following streamer information:
 
 This type specifies the following UI configurations:
 
+* `actionBar` - The visibility of the action bar, by default `.visible`.
 * `cartView` - The visibility of the cart view, by default `.visible`. 
 * `cartButton` - The visibility of the cart button, by default `.visible`.
 * `chatOverlay` - The visibility of the chat overlay, by default `.visible`.
+* `emojiOverlay` - The visibility of the emoji overlay, by default `.visible`.
 * `productList` - The visibility of the product list, by default `.visible`.
 * `productView` - The visibility of the product view, by default `.visible`.
 * `shareButton` - The visibility of the share button, by default `.hidden`.

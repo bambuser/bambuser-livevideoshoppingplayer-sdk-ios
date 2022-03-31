@@ -20,7 +20,7 @@ The LVS player can be used to watch live and recorded shows, with UI overlays th
 
 The LVS player can be configured to great extent and also lets you listen for player emitted events and perform player-specific functions. 
 
-`BambuserLiveVideoShoppingPlayer` supports iOS 13+ and can be used with `UIKit` and `SwiftUI`.
+`BambuserLiveVideoShoppingPlayer` supports iOS 12+ and can be used with `UIKit` and `SwiftUI` (requires iOS13 or newer).
 
 
 

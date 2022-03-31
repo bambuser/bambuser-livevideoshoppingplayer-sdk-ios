@@ -4,7 +4,36 @@ This SDK is currently an experimental beta.
 
 It will follow semver only after the first major release. Until then, it may (and most probably will) have breaking changes between minor versions.
 
+## 0.8
 
+This version adds support for iOS 12.
+
+### ✨ New features
+
+* New `PlayerUIConfiguration` options `actionBar` and `emojiOverlay` for setting visibility of the action bar and and the emoji overlay.
+* New event `PlayerEvent.showEmojiBatch` emitted when a batch of emojis is to be animated.
+* New event `PlayerEvent.pictureInPictureRestoreToFullscreen` emitted when picture-in-picture restores back to fullscreen.
+* New event `PlayerEvent.pictureInPictureDidStop` when picture-in-picture is stopped.
+* `PictureInPictureClosedComponent` can be implemented by any class that wants to listen to picture-in-picture window closed events.
+* `PictureInPictureRestoreModifier` is a SwiftUI view modifier that can be used to handle picture-in-picture window closed events.
+* `View` has a new `pictureInPictureClose` modifier that can be used to listen to picture-in-picture window closed events.
+* `UIView` and `UIViewController` has a new `registerPictureInPictureCloseAction` function that can be used to register a picture-in-picture window closed event listener.
+* `PictureInPictureState` has a new `restorePlayer` function to restore back to fullscreen programatically.
+* `PictureInPictureState` has a new `isPictureInPictureActive` property.
+* `LiveVideoShoppingPlayerView` has a new `volume` property.
+* `PlayerFunction.hideUI` takes a `PlayerUISections` as value for hiding selected parts of the UI.
+
+### 💡 Behavior changes
+
+* Correct usage of safe insets.
+
+### 💥 Breaking changes
+
+* `PlayerFunction.hideUI` has been changed to a enum with a associated value.
+
+### 🐛 Known issues
+
+* Replay button on the end curtain does not work.
 
 ## 0.7
 
