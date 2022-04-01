@@ -25,13 +25,16 @@ struct SettingsListSection: View {
                 toggle(.calendar, "Load upcoming show", settings.loadUpcomingShow)
             }
             Section(header: Text("Picture-in-picture"), footer: Text("Picture-in-picture only works on real devices.")) {
-                toggle(.pip, "isEnabled", $settings.isPiPEnabled)
-                toggle(.pipEnter, "isAutomatic", $settings.isPiPAutomatic)
+                toggle(.pip, "Enabled", $settings.isPiPEnabled)
+                toggle(.pipEnter, "Automatic", $settings.isPiPAutomatic)
+                toggle(.pipRestore, "Restore", $settings.shouldRestorePiPAutomatically)
             }
             Section(header: Text("UI Overlays")) {
+                toggle(.rectangle, "Action Bar", $settings.actionBar)
                 toggle(.cart, "Cart View", $settings.cartView)
                 toggle(.cart, "Cart Button", $settings.cartButton)
                 toggle(.chat, "Chat Overlay", $settings.chatOverlay)
+                toggle(.heart, "Emoji Overlay", $settings.emojiOverlay)
                 toggle(.product, "Product List", $settings.productList)
                 toggle(.product, "Product View", $settings.productView)
                 toggle(.share, "Share Button", $settings.shareButton)

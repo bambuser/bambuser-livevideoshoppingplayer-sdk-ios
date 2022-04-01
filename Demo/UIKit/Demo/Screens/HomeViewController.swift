@@ -36,8 +36,8 @@ class HomeViewController: UITableViewController {
             [showPlayerCell, showPlayerAsSheetCell, fullScreenCoverCell],
             [themeNameCell, playerEngineCell],
             [upcomingShowCell],
-            [pipEnabledCell, pipAutomaticCell],
-            [cartViewCell, cartButtonCell, chatOverlayCell, productListCell, productViewCell, shareButtonCell, subscribeButtonCell]
+            [pipEnabledCell, pipAutomaticCell, pipRestoreAutomaticallyCell],
+            [actionBarCell, cartViewCell, cartButtonCell, chatOverlayCell, emojiOverlayCell, productListCell, productViewCell, shareButtonCell, subscribeButtonCell]
         ]
         
         title = "Demo"
@@ -48,6 +48,8 @@ class HomeViewController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
         tableView.backgroundColor = .systemGray6
+
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,6 +58,13 @@ class HomeViewController: UITableViewController {
             print("Restoring parentless PiP player...")
             self?.showPlayerAsSheet(playerView: playerView, completion: completion)
         }
+        registerPictureInPictureCloseAction {
+            print("Closing parentless PiP player...")
+        }
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     
@@ -124,7 +133,7 @@ class HomeViewController: UITableViewController {
 
     private lazy var pipEnabledCell = HomeToggleCell(
         item: HomeCellViewModel(
-            title: "isEnabled",
+            title: "Enabled",
             image: .pipEnter,
             value: settings.isPiPEnabled) {
                 self.settings.isPiPEnabled = $0
@@ -132,13 +141,29 @@ class HomeViewController: UITableViewController {
 
     private lazy var pipAutomaticCell = HomeToggleCell(
         item: HomeCellViewModel(
-            title: "isAutomatic",
+            title: "Automatic",
             image: .pipExit,
-            value: settings.isPiPEnabled) {
+            value: settings.isPiPAutomatic) {
                 self.settings.isPiPAutomatic = $0
+            })
+
+    private lazy var pipRestoreAutomaticallyCell = HomeToggleCell(
+        item: HomeCellViewModel(
+            title: "Restore automatically",
+            image: .pipRestore,
+            value: settings.shouldRestorePiPAutomatically) {
+                self.settings.shouldRestorePiPAutomatically = $0
             })
     
     // MARK: - Section 4
+    
+    private lazy var actionBarCell = HomeToggleCell(
+        item: HomeCellViewModel(
+            title: "Show action bar",
+            image: .rectangle,
+            value: settings.actionBar) {
+            self.settings.actionBar = $0
+        })
     
     private lazy var cartViewCell = HomeToggleCell(
         item: HomeCellViewModel(
@@ -162,6 +187,14 @@ class HomeViewController: UITableViewController {
             image: .chat,
             value: settings.chatOverlay) {
             self.settings.chatOverlay = $0
+        })
+    
+    private lazy var emojiOverlayCell = HomeToggleCell(
+        item: HomeCellViewModel(
+            title: "Show emoji overlay",
+            image: .heart,
+            value: settings.emojiOverlay) {
+            self.settings.emojiOverlay = $0
         })
     
     private lazy var productListCell = HomeToggleCell(
@@ -253,5 +286,16 @@ private extension HomeViewController {
         let playerVC = playerController
         playerVC.modalPresentationStyle = .fullScreen
         present(playerVC, animated: true, completion: nil)
+    }
+}
+
+// MARK: - Notifications
+
+@objc private extension HomeViewController {
+
+    func didBecomeActive() {
+        if settings.shouldRestorePiPAutomatically && PictureInPictureState.shared.isPictureInPictureActive {
+            PictureInPictureState.shared.restorePlayer()
+        }
     }
 }

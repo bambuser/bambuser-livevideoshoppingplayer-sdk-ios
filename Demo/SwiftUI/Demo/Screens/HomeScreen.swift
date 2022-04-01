@@ -15,7 +15,9 @@ import BambuserLiveVideoShoppingPlayer
  that exit PiP when their source screen has been deallocated.
  */
 struct HomeScreen: View {
-    
+
+    @EnvironmentObject private var settings: DemoSettings
+
     @StateObject private var cover = FullScreenCoverContext()
     @StateObject private var sheet = SheetContext()
             
@@ -35,6 +37,9 @@ struct HomeScreen: View {
         .pictureInPictureRestore { (player, completion) in
             print("Restoring parentless PiP player...")
             restorePlayer(player, completion: completion)
+        }
+        .pictureInPictureClose {
+            print("Closing parentless PiP player...")
         }
     }
 }

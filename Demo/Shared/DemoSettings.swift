@@ -35,10 +35,13 @@ class DemoSettings: ObservableObject {
     
     @AppStorage("isPiPAutomatic") var isPiPAutomatic = true
     @AppStorage("isPiPEnabled") var isPiPEnabled = true
+    @AppStorage("shouldRestorePiPAutomatically") var shouldRestorePiPAutomatically = true
     
+    @AppStorage("actionBar") var actionBar = true
     @AppStorage("cartView") var cartView = true
     @AppStorage("cartButton") var cartButton = true
     @AppStorage("chatOverlay") var chatOverlay = true
+    @AppStorage("emojiOverlay") var emojiOverlay = true
     @AppStorage("productList") var productList = true
     @AppStorage("productView") var productView = true
     @AppStorage("shareButton") var shareButton = true
@@ -93,9 +96,11 @@ class DemoSettings: ObservableObject {
             shareConfig: PlayerShareConfiguration(
                 baseUrl: baseUrl),
             uiConfig: PlayerUIConfiguration(
+                actionBar: actionBar.uiState,
                 cartView: cartView.uiState,
                 cartButton: cartButton.uiState,
                 chatOverlay: chatOverlay.uiState,
+                emojiOverlay: emojiOverlay.uiState,
                 productList: productList.uiState,
                 productView: productView.uiState,
                 shareButton: shareButton.uiState,
@@ -113,3 +118,4 @@ private extension Bool {
         self ? .visible : .hidden
     }
 }
+
