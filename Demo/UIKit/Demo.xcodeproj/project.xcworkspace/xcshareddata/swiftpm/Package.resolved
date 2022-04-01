@@ -1,16 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "BambuserLiveVideoShoppingPlayer",
-        "repositoryURL": "https://github.com/bambuser/bambuser-livevideoshoppingplayer-sdk-ios.git",
-        "state": {
-          "branch": null,
-          "revision": "db783b40cc23d9471b2f4588c3ab92f0d2b87551",
-          "version": "0.7.0"
-        }
+  "pins" : [
+    {
+      "identity" : "bambuser-livevideoshoppingplayer-sdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bambuser/bambuser-livevideoshoppingplayer-sdk-ios.git",
+      "state" : {
+        "revision" : "99054a269206d439ad1f561dfccf7f9e62fe80a3",
+        "version" : "0.8.0"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }
