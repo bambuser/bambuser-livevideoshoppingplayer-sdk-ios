@@ -161,15 +161,20 @@ private extension PlayerViewController {
         let player = LiveVideoShoppingPlayerView(
             showId: settings.showId,
             configuration: settings.playerConfiguration { [weak self] info in
-                switch info.event {
-                case .addShowToCalendar: self?.saveCalendarEvent(in: info)
-                case .playerDidClose: self?.dismiss()
-                case .shareShow: self?.shareUrl(in: info)
-                default: print("Unhandled Event: \(info.event), data: \(info.data)")
-                }
+                guard let weakSelf = self else { return }
+                weakSelf.playerEventHandler(info: info)
             })
         player.loadShow(settings.showId)
         return player
+    }
+    
+    func playerEventHandler(info: PlayerEventInfo) {
+        switch info.event {
+        case .addShowToCalendar: self.saveCalendarEvent(in: info)
+        case .playerDidClose: self.dismiss()
+        case .shareShow: self.shareUrl(in: info)
+        default: print("Unhandled Event: \(info.event), data: \(info.data)")
+        }
     }
 }
 
