@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage             = "https://github.com/bambuser/bambuser-livevideoshoppingplayer-sdk-ios"
   s.summary              = "Live video shopping player SDK for iOS"
   s.license              = { :type => "Commercial", :text => "Copyright 2021 Bambuser AB" }
-  s.platform             = :ios, "13.0"
+  s.platform             = :ios, "12.0"
   s.source               = { :git => "https://github.com/bambuser/bambuser-livevideoshoppingplayer-sdk-ios", :tag => s.version }
   s.vendored_frameworks  = "Sources/BambuserLiveVideoShoppingPlayer.xcframework"
 end
