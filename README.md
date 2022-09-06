@@ -28,7 +28,7 @@ The LVS player can be configured to great extent and also lets you listen for pl
 
 This project is currently in beta. Feel free to experiment with it, but refrain from using it in production.  
 
-See the [release notes][ReleaseNotes] for status and progress.
+Landscape video is not supported in the current beta version. See the [release notes][ReleaseNotes] for status and progress. 
 
 
 
