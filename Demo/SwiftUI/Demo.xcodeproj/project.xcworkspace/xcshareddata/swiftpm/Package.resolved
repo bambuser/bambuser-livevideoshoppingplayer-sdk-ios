@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/bambuser/bambuser-livevideoshoppingplayer-sdk-ios.git",
       "state" : {
-        "revision" : "99054a269206d439ad1f561dfccf7f9e62fe80a3",
-        "version" : "0.8.0"
+        "revision" : "03f790ac8df545ef10df280274dc0b57f61bbd37",
+        "version" : "0.8.1"
       }
     }
   ],

@@ -24,7 +24,6 @@
 		A922B1B226FB695500E235A1 /* BambuserLogoBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B19D26FB695500E235A1 /* BambuserLogoBackground.swift */; };
 		A922B1B326FB695500E235A1 /* SettingsListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B19E26FB695500E235A1 /* SettingsListSection.swift */; };
 		A922B1B426FB695500E235A1 /* ListIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B19F26FB695500E235A1 /* ListIcon.swift */; };
-		A922B1B526FB695500E235A1 /* DemoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B1A026FB695500E235A1 /* DemoPlayer.swift */; };
 		A922B1B626FB695500E235A1 /* PlayerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B1A126FB695500E235A1 /* PlayerMenu.swift */; };
 		A922B1B726FB695500E235A1 /* PlayerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B1A326FB695500E235A1 /* PlayerScreen.swift */; };
 		A922B1B826FB695500E235A1 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922B1A426FB695500E235A1 /* HomeScreen.swift */; };
@@ -67,7 +66,6 @@
 		A922B19D26FB695500E235A1 /* BambuserLogoBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BambuserLogoBackground.swift; sourceTree = "<group>"; };
 		A922B19E26FB695500E235A1 /* SettingsListSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsListSection.swift; sourceTree = "<group>"; };
 		A922B19F26FB695500E235A1 /* ListIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListIcon.swift; sourceTree = "<group>"; };
-		A922B1A026FB695500E235A1 /* DemoPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoPlayer.swift; sourceTree = "<group>"; };
 		A922B1A126FB695500E235A1 /* PlayerMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerMenu.swift; sourceTree = "<group>"; };
 		A922B1A326FB695500E235A1 /* PlayerScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerScreen.swift; sourceTree = "<group>"; };
 		A922B1A426FB695500E235A1 /* HomeScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				A922B19D26FB695500E235A1 /* BambuserLogoBackground.swift */,
-				A922B1A026FB695500E235A1 /* DemoPlayer.swift */,
 				A922B1A126FB695500E235A1 /* PlayerMenu.swift */,
 				A922B19F26FB695500E235A1 /* ListIcon.swift */,
 				A922B19C26FB695500E235A1 /* ListItem.swift */,
@@ -356,7 +353,6 @@
 				A922B1AB26FB695500E235A1 /* View+FullScreenCover.swift in Sources */,
 				A922B1B826FB695500E235A1 /* HomeScreen.swift in Sources */,
 				A922B1B426FB695500E235A1 /* ListIcon.swift in Sources */,
-				A922B1B526FB695500E235A1 /* DemoPlayer.swift in Sources */,
 				A922B1A726FB695500E235A1 /* AlertProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,7 +547,7 @@
 			repositoryURL = "https://github.com/bambuser/bambuser-livevideoshoppingplayer-sdk-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.8.0;
+				minimumVersion = 0.8.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

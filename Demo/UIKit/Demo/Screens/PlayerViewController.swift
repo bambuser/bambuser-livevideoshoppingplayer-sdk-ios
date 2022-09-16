@@ -150,6 +150,19 @@ extension PlayerViewController {
         let activitySheet = UIActivityViewController(activityItems: [url], applicationActivities: nil)
         present(activitySheet, animated: true)
     }
+
+    func openExternalUrl(_ url: URL?) {
+        guard let url = url else {
+            UIAlertController.show(
+                title: "Error",
+                message: "Invalid url while opening external link",
+                from: self)
+
+            return
+        }
+
+        UIApplication.shared.open(url)
+    }
 }
 
 
@@ -173,6 +186,7 @@ private extension PlayerViewController {
         case .addShowToCalendar: self.saveCalendarEvent(in: info)
         case .playerDidClose: self.dismiss()
         case .shareShow: self.shareUrl(in: info)
+        case .openExternalUrl: self.openExternalUrl(info.url(for: .url))
         default: print("Unhandled Event: \(info.event), data: \(info.data)")
         }
     }

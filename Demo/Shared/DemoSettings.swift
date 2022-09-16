@@ -118,4 +118,3 @@ private extension Bool {
         self ? .visible : .hidden
     }
 }
-

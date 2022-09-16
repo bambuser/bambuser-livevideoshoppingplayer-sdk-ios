@@ -77,6 +77,7 @@ private extension PlayerScreen {
                 case .addShowToCalendar: saveCalendarEvent(in: info)
                 case .playerDidClose: dismiss()
                 case .shareShow: shareUrl(in: info)
+                case .openExternalUrl: openExternalUrl(info.url(for: .url))
                 default: print("Unhandled Event: \(info.event), data: \(info.data)")
                 }
             },
@@ -106,6 +107,16 @@ extension PlayerScreen {
     func shareUrl(in info: PlayerEventInfo) {
         guard let url = info.url(for: .url) else { return print("No url in event info.") }
         sheet.present(ShareSheet(activityItems: [url]))
+    }
+
+    func openExternalUrl(_ url: URL?) {
+        guard let url = url else {
+            alert(title: "Error", message: "Invalid url while opening external link")
+
+            return
+        }
+        
+        UIApplication.shared.open(url)
     }
 }
 

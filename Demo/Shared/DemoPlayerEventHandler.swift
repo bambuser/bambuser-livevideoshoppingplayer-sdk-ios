@@ -1,12 +1,12 @@
 //
 //  DemoPlayerEventHandler.swift
-//  Demo
+//  LiveVideoShoppingPlayer
 //
-//  Created by Daniel Saidi on 2021-09-21.
 //  Copyright © 2021 Bambuser AB. All rights reserved.
 //
 
 import BambuserLiveVideoShoppingPlayer
+import Foundation
 
 /**
  This demo-specific protocol is used to harmonize how a demo
@@ -31,4 +31,10 @@ protocol DemoPlayerEventHandler {
      `.shareShow` event.
      */
     func shareUrl(in info: PlayerEventInfo)
+
+    /**
+     This will be called when the embedded player triggers a
+     `.openExternalUrl` event.
+     */
+    func openExternalUrl(_ url: URL?)
 }
