@@ -205,6 +205,9 @@ extension BambuserLiveVideoShoppingPlayer.LiveVideoShoppingPlayerView : WebKit.W
 extension BambuserLiveVideoShoppingPlayer.LiveVideoShoppingPlayerView : WebKit.WKNavigationDelegate {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
 }
+extension BambuserLiveVideoShoppingPlayer.LiveVideoShoppingPlayerView : WebKit.WKUIDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, createWebViewWith configuration: WebKit.WKWebViewConfiguration, for navigationAction: WebKit.WKNavigationAction, windowFeatures: WebKit.WKWindowFeatures) -> WebKit.WKWebView?
+}
 public protocol PictureInPictureRestoreComponent : AnyObject {
 }
 public protocol PictureInPictureCloseComponent : AnyObject {
@@ -274,6 +277,7 @@ public enum PlayerEvent : Swift.String, Swift.CaseIterable, Swift.Codable, Swift
   case unsubscribe
   case updateItemInCart
   case updateShowStatus
+  case openExternalUrl
   public init?(rawValue: Swift.String)
   public typealias AllCases = [BambuserLiveVideoShoppingPlayer.PlayerEvent]
   public typealias RawValue = Swift.String

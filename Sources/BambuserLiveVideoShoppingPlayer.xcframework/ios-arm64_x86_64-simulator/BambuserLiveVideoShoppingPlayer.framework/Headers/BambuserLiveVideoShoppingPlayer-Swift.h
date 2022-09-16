@@ -221,6 +221,13 @@ SWIFT_CLASS("_TtC31BambuserLiveVideoShoppingPlayer27LiveVideoShoppingPlayerView"
 @end
 
 
+@class WKWebView;
+@class WKNavigation;
+
+@interface LiveVideoShoppingPlayerView (SWIFT_EXTENSION(BambuserLiveVideoShoppingPlayer)) <WKNavigationDelegate>
+- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+@end
+
 @class WKUserContentController;
 @class WKScriptMessage;
 
@@ -228,11 +235,12 @@ SWIFT_CLASS("_TtC31BambuserLiveVideoShoppingPlayer27LiveVideoShoppingPlayerView"
 - (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 @end
 
-@class WKWebView;
-@class WKNavigation;
+@class WKWebViewConfiguration;
+@class WKNavigationAction;
+@class WKWindowFeatures;
 
-@interface LiveVideoShoppingPlayerView (SWIFT_EXTENSION(BambuserLiveVideoShoppingPlayer)) <WKNavigationDelegate>
-- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+@interface LiveVideoShoppingPlayerView (SWIFT_EXTENSION(BambuserLiveVideoShoppingPlayer)) <WKUIDelegate>
+- (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -472,6 +480,13 @@ SWIFT_CLASS("_TtC31BambuserLiveVideoShoppingPlayer27LiveVideoShoppingPlayerView"
 @end
 
 
+@class WKWebView;
+@class WKNavigation;
+
+@interface LiveVideoShoppingPlayerView (SWIFT_EXTENSION(BambuserLiveVideoShoppingPlayer)) <WKNavigationDelegate>
+- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+@end
+
 @class WKUserContentController;
 @class WKScriptMessage;
 
@@ -479,11 +494,12 @@ SWIFT_CLASS("_TtC31BambuserLiveVideoShoppingPlayer27LiveVideoShoppingPlayerView"
 - (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 @end
 
-@class WKWebView;
-@class WKNavigation;
+@class WKWebViewConfiguration;
+@class WKNavigationAction;
+@class WKWindowFeatures;
 
-@interface LiveVideoShoppingPlayerView (SWIFT_EXTENSION(BambuserLiveVideoShoppingPlayer)) <WKNavigationDelegate>
-- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+@interface LiveVideoShoppingPlayerView (SWIFT_EXTENSION(BambuserLiveVideoShoppingPlayer)) <WKUIDelegate>
+- (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
