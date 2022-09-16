@@ -4,6 +4,13 @@ This SDK is currently an experimental beta.
 
 It will follow semver only after the first major release. Until then, it may (and most probably will) have breaking changes between minor versions.
 
+## 0.8.1
+
+### ✨ New features
+
+* New event `openExternalUrl`- Emitted when user taps a link.
+
+
 ## 0.8
 
 This version adds support for iOS 12.

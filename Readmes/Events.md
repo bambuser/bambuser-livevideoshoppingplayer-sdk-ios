@@ -14,6 +14,7 @@ The following player events are currently supported:
 * `hideCart`- Emitted when the cart should be hidden.
 * `hideChatOverlay`- Emitted when the chat overlay should be hidden.
 * `hideProductList`- Emitted when a product list should be hidden.
+* `openExternalUrl`- Emitted when user taps a link.
 * `playerDidBecomeReady`- Emitted when the player becomes ready for interaction.
 * `playerDidClose`- Emitted when the player closes and will be deallocated.
 * `playerDidLoad`- Emitted when the player completes loading the show.
@@ -33,3 +34,4 @@ The following player events are currently supported:
 * `unsubscribe`- Emitted when the user taps `unsubscribe`.
 * `updateItemInCart`- Emitted when the user changes the quantity of any items in the card.
 * `updateShowStatus`- Emitted whenever the show status updates (e.g. pending, ready).
+
