@@ -4,6 +4,18 @@ This SDK is currently an experimental beta.
 
 It will follow semver only after the first major release. Until then, it may (and most probably will) have breaking changes between minor versions.
 
+## 0.9.0
+
+### ✨ New features
+
+* `updateShowStatus` event at `ShowStatus.ended` contains an array of products highlighted during the show.
+
+### 💥 Breaking changes
+
+* Event `openExternalUrl`- Is no longer emitted when tapping a product thumbnail.
+* Removed `PlayerViewerInfo` option from `PlayerConfiguration`.
+* Removed `subscribeButton` option from `PlayerUIConfiguration`.
+
 ## 0.8.1
 
 ### ✨ New features
