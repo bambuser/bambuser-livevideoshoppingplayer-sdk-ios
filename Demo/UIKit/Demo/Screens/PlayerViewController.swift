@@ -7,6 +7,7 @@
 
 import BambuserLiveVideoShoppingPlayer
 import UIKit
+import WebKit
 
 /**
  This screen is responsible for creating a player view, with
@@ -163,6 +164,28 @@ extension PlayerViewController {
 
         UIApplication.shared.open(url)
     }
+    
+    func handleHighlightedProducts(in info: PlayerEventInfo) {
+        let products = Product.getProducts(info)
+        print(products)
+    }
+
+    func openProductDetails(_ data: PlayerEventInfo.Data) {
+        guard
+            let urlString = data["url"] as? String,
+            let url = URL(string: urlString)
+        else {
+            return
+        }
+
+        let webView = WKWebView()
+        let webController = UIViewController()
+        webController.view = webView
+
+        webView.load(URLRequest(url: url))
+
+        self.navigationController?.pushViewController(webController, animated: true)
+    }
 }
 
 
@@ -174,21 +197,18 @@ private extension PlayerViewController {
         let player = LiveVideoShoppingPlayerView(
             showId: settings.showId,
             configuration: settings.playerConfiguration { [weak self] info in
-                guard let weakSelf = self else { return }
-                weakSelf.playerEventHandler(info: info)
+                switch info.event {
+                case .addShowToCalendar: self?.saveCalendarEvent(in: info)
+                case .playerDidClose: self?.dismiss()
+                case .shareShow: self?.shareUrl(in: info)
+                case .openExternalUrl: self?.openExternalUrl(info.url(for: .url))
+                case .updateShowStatus: self?.handleHighlightedProducts(in: info)
+                case .showProductView: self?.openProductDetails(info.data)
+                default: print("Unhandled Event: \(info.event), data: \(info.data)")
+                }
             })
         player.loadShow(settings.showId)
         return player
-    }
-    
-    func playerEventHandler(info: PlayerEventInfo) {
-        switch info.event {
-        case .addShowToCalendar: self.saveCalendarEvent(in: info)
-        case .playerDidClose: self.dismiss()
-        case .shareShow: self.shareUrl(in: info)
-        case .openExternalUrl: self.openExternalUrl(info.url(for: .url))
-        default: print("Unhandled Event: \(info.event), data: \(info.data)")
-        }
     }
 }
 

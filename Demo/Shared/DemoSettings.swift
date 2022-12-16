@@ -45,7 +45,6 @@ class DemoSettings: ObservableObject {
     @AppStorage("productList") var productList = true
     @AppStorage("productView") var productView = true
     @AppStorage("shareButton") var shareButton = true
-    @AppStorage("subscribeButton") var subscribeButton = true
 
     
     // MARK: - Demo settings
@@ -103,8 +102,7 @@ class DemoSettings: ObservableObject {
                 emojiOverlay: emojiOverlay.uiState,
                 productList: productList.uiState,
                 productView: productView.uiState,
-                shareButton: shareButton.uiState,
-                subscribeButton: subscribeButton.uiState),
+                shareButton: shareButton.uiState),
             eventHandler: eventHandler)
     }
 }
@@ -118,3 +116,4 @@ private extension Bool {
         self ? .visible : .hidden
     }
 }
+

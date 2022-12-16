@@ -38,7 +38,6 @@ struct SettingsListSection: View {
                 toggle(.product, "Product List", $settings.productList)
                 toggle(.product, "Product View", $settings.productView)
                 toggle(.share, "Share Button", $settings.shareButton)
-                toggle(.subscribe, "Subscribe Button", $settings.subscribeButton)
             }
         }
     }

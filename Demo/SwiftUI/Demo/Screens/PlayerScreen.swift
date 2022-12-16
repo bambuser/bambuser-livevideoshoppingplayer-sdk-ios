@@ -78,6 +78,7 @@ private extension PlayerScreen {
                 case .playerDidClose: dismiss()
                 case .shareShow: shareUrl(in: info)
                 case .openExternalUrl: openExternalUrl(info.url(for: .url))
+                case .updateShowStatus: handleHighlightedProducts(in: info)
                 default: print("Unhandled Event: \(info.event), data: \(info.data)")
                 }
             },
@@ -117,6 +118,11 @@ extension PlayerScreen {
         }
         
         UIApplication.shared.open(url)
+    }
+    
+    func handleHighlightedProducts(in info: PlayerEventInfo) {
+        let products = Product.getProducts(info)
+        print(products)
     }
 }
 

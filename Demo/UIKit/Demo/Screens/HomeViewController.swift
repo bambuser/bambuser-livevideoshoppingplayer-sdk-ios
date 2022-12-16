@@ -37,7 +37,7 @@ class HomeViewController: UITableViewController {
             [themeNameCell, playerEngineCell],
             [upcomingShowCell],
             [pipEnabledCell, pipAutomaticCell, pipRestoreAutomaticallyCell],
-            [actionBarCell, cartViewCell, cartButtonCell, chatOverlayCell, emojiOverlayCell, productListCell, productViewCell, shareButtonCell, subscribeButtonCell]
+            [actionBarCell, cartViewCell, cartButtonCell, chatOverlayCell, emojiOverlayCell, productListCell, productViewCell, shareButtonCell]
         ]
         
         title = "Demo"
@@ -219,14 +219,6 @@ class HomeViewController: UITableViewController {
             image: .share,
             value: settings.shareButton) {
             self.settings.shareButton = $0
-        })
-    
-    private lazy var subscribeButtonCell = HomeToggleCell(
-        item: HomeCellViewModel(
-            title: "Show Subscribe Button",
-            image: .subscribe,
-            value: settings.subscribeButton) {
-            self.settings.subscribeButton = $0
         })
     
     
