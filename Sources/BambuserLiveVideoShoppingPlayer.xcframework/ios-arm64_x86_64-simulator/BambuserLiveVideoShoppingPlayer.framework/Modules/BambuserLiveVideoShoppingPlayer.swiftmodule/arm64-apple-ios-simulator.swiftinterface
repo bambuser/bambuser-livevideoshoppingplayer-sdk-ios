@@ -83,7 +83,6 @@ public struct PlayerUIConfiguration : Swift.Codable, Swift.Equatable {
   public let productList: BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity
   public let productView: BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity
   public let shareButton: BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity
-  public let subscribeButton: BambuserLiveVideoShoppingPlayer.PlayerOverlayVisiblity
   public static func == (a: BambuserLiveVideoShoppingPlayer.PlayerUIConfiguration, b: BambuserLiveVideoShoppingPlayer.PlayerUIConfiguration) -> Swift.Bool
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -129,6 +128,13 @@ public struct PlayerUISections : Swift.Codable, Swift.Equatable {
 }
 extension BambuserLiveVideoShoppingPlayer.PlayerUISections {
   public static let allHidden: BambuserLiveVideoShoppingPlayer.PlayerUISections
+}
+public struct Product {
+  public var id: Swift.String
+  public var productReference: Swift.String
+  public var url: Foundation.URL
+  public init?(info: [Swift.String : Any]?)
+  public static func getProducts(_ info: BambuserLiveVideoShoppingPlayer.PlayerEventInfo) -> [BambuserLiveVideoShoppingPlayer.Product]
 }
 public struct PlayerShareConfiguration : Swift.Codable, Swift.Equatable {
   public init(autoplay: BambuserLiveVideoShoppingPlayer.PlayerEnabledState = .enabled, baseUrl: Swift.String? = nil)
@@ -300,7 +306,7 @@ extension BambuserLiveVideoShoppingPlayer.PlayerStreamerInfo {
   public static let standard: BambuserLiveVideoShoppingPlayer.PlayerStreamerInfo
 }
 public struct PlayerConfiguration {
-  public init(engine: BambuserLiveVideoShoppingPlayer.PlayerEngine = .standard, audioConfig: BambuserLiveVideoShoppingPlayer.AudioSessionConfiguration = .standard, localeInfo: BambuserLiveVideoShoppingPlayer.PlayerLocaleInfo = .standard, pipConfig: BambuserLiveVideoShoppingPlayer.PictureInPictureConfiguration = .standard, shareConfig: BambuserLiveVideoShoppingPlayer.PlayerShareConfiguration = .standard, streamerInfo: BambuserLiveVideoShoppingPlayer.PlayerStreamerInfo = .standard, uiConfig: BambuserLiveVideoShoppingPlayer.PlayerUIConfiguration = .standard, viewerInfo: BambuserLiveVideoShoppingPlayer.PlayerViewerInfo = .standard, eventHandler: @escaping BambuserLiveVideoShoppingPlayer.PlayerConfiguration.EventHandler)
+  public init(engine: BambuserLiveVideoShoppingPlayer.PlayerEngine = .standard, audioConfig: BambuserLiveVideoShoppingPlayer.AudioSessionConfiguration = .standard, localeInfo: BambuserLiveVideoShoppingPlayer.PlayerLocaleInfo = .standard, pipConfig: BambuserLiveVideoShoppingPlayer.PictureInPictureConfiguration = .standard, shareConfig: BambuserLiveVideoShoppingPlayer.PlayerShareConfiguration = .standard, streamerInfo: BambuserLiveVideoShoppingPlayer.PlayerStreamerInfo = .standard, uiConfig: BambuserLiveVideoShoppingPlayer.PlayerUIConfiguration = .standard, eventHandler: @escaping BambuserLiveVideoShoppingPlayer.PlayerConfiguration.EventHandler)
   public typealias EventHandler = (BambuserLiveVideoShoppingPlayer.PlayerEventInfo) -> Swift.Void
   public let audioConfig: BambuserLiveVideoShoppingPlayer.AudioSessionConfiguration
   public let engine: BambuserLiveVideoShoppingPlayer.PlayerEngine
@@ -310,20 +316,9 @@ public struct PlayerConfiguration {
   public let shareConfig: BambuserLiveVideoShoppingPlayer.PlayerShareConfiguration
   public let streamerInfo: BambuserLiveVideoShoppingPlayer.PlayerStreamerInfo
   public let uiConfig: BambuserLiveVideoShoppingPlayer.PlayerUIConfiguration
-  public let viewerInfo: BambuserLiveVideoShoppingPlayer.PlayerViewerInfo
 }
 extension BambuserLiveVideoShoppingPlayer.PlayerConfiguration {
   public static func standard(eventHandler: @escaping BambuserLiveVideoShoppingPlayer.PlayerConfiguration.EventHandler) -> BambuserLiveVideoShoppingPlayer.PlayerConfiguration
-}
-public struct PlayerViewerInfo : Swift.Codable, Swift.Equatable {
-  public init(isSubscribed: Swift.Bool = false)
-  public let isSubscribed: Swift.Bool
-  public static func == (a: BambuserLiveVideoShoppingPlayer.PlayerViewerInfo, b: BambuserLiveVideoShoppingPlayer.PlayerViewerInfo) -> Swift.Bool
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-extension BambuserLiveVideoShoppingPlayer.PlayerViewerInfo {
-  public static let standard: BambuserLiveVideoShoppingPlayer.PlayerViewerInfo
 }
 public protocol PictureInPictureController {
   var isPictureInPictureActive: Swift.Bool { get }
