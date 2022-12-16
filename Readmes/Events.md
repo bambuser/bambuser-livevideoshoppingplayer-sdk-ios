@@ -34,4 +34,4 @@ The following player events are currently supported:
 * `unsubscribe`- Emitted when the user taps `unsubscribe`.
 * `updateItemInCart`- Emitted when the user changes the quantity of any items in the card.
 * `updateShowStatus`- Emitted whenever the show status updates (e.g. pending, ready).
-
+* `openExternalUrl` - Emitted when a link is tapped. Note! Is not emitted when a product thumbnail is tapped.

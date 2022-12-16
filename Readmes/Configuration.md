@@ -11,7 +11,6 @@ The player configuration specifies the following configuration parameters, most 
 * `shareConfig` - The share configuration info to use, by default `.standard`.
 * `streamerInfo` - Information about the streamer, by default `.standard`.
 * `uiConfig` - The UI configuration to use, by default `.standard`.
-* `viewerInfo` - Information about the viewer, by default `.standard`.
 * `eventHandler` - A mandatory event handler to use for listening to player events.
 
 
@@ -62,11 +61,3 @@ This type specifies the following UI configurations:
 * `productList` - The visibility of the product list, by default `.visible`.
 * `productView` - The visibility of the product view, by default `.visible`.
 * `shareButton` - The visibility of the share button, by default `.hidden`.
-* `subscribeButton` - The visibility of the subscribe button, by default `.hidden`.
-
-
-## PlayerViewerInfo
-
-This type specifies the following streamer information:
-
-* `isSubscribed` - Whether or not the viewer is subscribed, by default `false`.
