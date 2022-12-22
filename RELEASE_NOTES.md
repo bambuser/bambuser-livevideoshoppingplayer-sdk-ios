@@ -16,11 +16,21 @@ It will follow semver only after the first major release. Until then, it may (an
 * Removed `PlayerViewerInfo` option from `PlayerConfiguration`.
 * Removed `subscribeButton` option from `PlayerUIConfiguration`.
 
+### 🐛 Known issues
+
+* Replay button on the end curtain does not work.
+* Landscape video is currently not supported.
+
 ## 0.8.1
 
 ### ✨ New features
 
 * New event `openExternalUrl`- Emitted when user taps a link.
+
+### 🐛 Known issues
+
+* Replay button on the end curtain does not work.
+* Landscape video is currently not supported.
 
 
 ## 0.8
@@ -53,6 +63,7 @@ This version adds support for iOS 12.
 ### 🐛 Known issues
 
 * Replay button on the end curtain does not work.
+* Landscape video is currently not supported.
 
 ## 0.7
 
