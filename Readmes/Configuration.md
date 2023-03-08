@@ -18,8 +18,8 @@ The player configuration specifies the following configuration parameters, most 
 
 This type specifies the following locale information:
 
-* `locale` - The local currency, by default `nil`.
-* `currency` - The locale identifier, by default `nil`. 
+* `locale` - The locale identifier, by default `nil`.
+* `currency` - The local currency, by default `nil`.
 * `trimPriceTrailingZeros` - Whether or not to trim trailing zeros in the price, by default `false`.
 
 
