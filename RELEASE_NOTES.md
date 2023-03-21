@@ -4,6 +4,22 @@ This SDK is currently an experimental beta.
 
 It will follow semver only after the first major release. Until then, it may (and most probably will) have breaking changes between minor versions.
 
+## 0.9.1
+
+### ✨ New features
+
+* Support swift 5.8
+
+### 💥 Breaking changes
+
+* Drop support for iOS12
+
+### 🐛 Known issues
+
+* Replay button on the end curtain does not work.
+* Landscape video is currently not supported.
+
+
 ## 0.9.0
 
 ### ✨ New features
