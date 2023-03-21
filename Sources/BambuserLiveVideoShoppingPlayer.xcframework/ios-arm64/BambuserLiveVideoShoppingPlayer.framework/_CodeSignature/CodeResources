@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/BambuserLiveVideoShoppingPlayer-Swift.h</key>
 		<data>
-		MxHCA7kEeCJ1mdlTOM/QDUILdts=
+		Ee98j7RwfhXJnT8Aa56EX9ZyBOY=
 		</data>
 		<key>Headers/BambuserLiveVideoShoppingPlayer.h</key>
 		<data>
@@ -14,31 +14,19 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		J4PHnB+ARUb2jbzATEwZST5da6E=
+		Z7GPgOspmX39Fkg5OAligW1Q3ZE=
 		</data>
 		<key>Modules/BambuserLiveVideoShoppingPlayer.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		3z7m28Qeaumd3646bVY/NhQLVzc=
+		G8FZucvYrpww2MBY9F1u0nfxvCI=
 		</data>
 		<key>Modules/BambuserLiveVideoShoppingPlayer.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		bGJmOWK3XDLbto8hV9NptJM19zA=
+		m9lNO31fd593MQBY1RQ+QmxzzhI=
 		</data>
 		<key>Modules/BambuserLiveVideoShoppingPlayer.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		PXxm7LYoUew2NciP3UZ0TUjH2Uo=
-		</data>
-		<key>Modules/BambuserLiveVideoShoppingPlayer.swiftmodule/arm64.swiftdoc</key>
-		<data>
-		3z7m28Qeaumd3646bVY/NhQLVzc=
-		</data>
-		<key>Modules/BambuserLiveVideoShoppingPlayer.swiftmodule/arm64.swiftinterface</key>
-		<data>
-		bGJmOWK3XDLbto8hV9NptJM19zA=
-		</data>
-		<key>Modules/BambuserLiveVideoShoppingPlayer.swiftmodule/arm64.swiftmodule</key>
-		<data>
-		PXxm7LYoUew2NciP3UZ0TUjH2Uo=
+		0fJujBQIiQL4BUhuat6npXgOVMo=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -51,7 +39,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			m4jREWQK9HcxplmRWXuud1xGiWuHmxCpoHZX1YfMR0w=
+			ROKONYOUgR95m0AUsV2+pH+zAGSLO0kNm/QnTIgsfG0=
 			</data>
 		</dict>
 		<key>Headers/BambuserLiveVideoShoppingPlayer.h</key>
@@ -65,42 +53,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uv1DjIRWgi9+SD9yN1NjkySCTg0tEYYw8Xmpd4mRt4Y=
+			RM+1SwgTAnqV63G/2TSGIl4CP1koYYobnQlI6t9Fb2U=
 			</data>
 		</dict>
 		<key>Modules/BambuserLiveVideoShoppingPlayer.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2FQlg86Lw0a4ix270T1JYUcUFN4yzE3/uLyOgPFt8yQ=
+			9wZVUwVBIO+dorNNsL3q/khcCjd9Vmhpbm1Xj6/K87E=
 			</data>
 		</dict>
 		<key>Modules/BambuserLiveVideoShoppingPlayer.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ngrglN9FWX99zesyEe1N5SGO3HqNg5xARVhuqw9DK/M=
-			</data>
-		</dict>
-		<key>Modules/BambuserLiveVideoShoppingPlayer.swiftmodule/arm64.swiftdoc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			uv1DjIRWgi9+SD9yN1NjkySCTg0tEYYw8Xmpd4mRt4Y=
-			</data>
-		</dict>
-		<key>Modules/BambuserLiveVideoShoppingPlayer.swiftmodule/arm64.swiftinterface</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			2FQlg86Lw0a4ix270T1JYUcUFN4yzE3/uLyOgPFt8yQ=
-			</data>
-		</dict>
-		<key>Modules/BambuserLiveVideoShoppingPlayer.swiftmodule/arm64.swiftmodule</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			ngrglN9FWX99zesyEe1N5SGO3HqNg5xARVhuqw9DK/M=
+			2NYoYP24b/iREX5TVxEtgiK6GbeezkFHtBjIuotxP0w=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
