@@ -6,6 +6,6 @@ framework module BambuserLiveVideoShoppingPlayer {
 }
 
 module BambuserLiveVideoShoppingPlayer.Swift {
-    header "BambuserLiveVideoShoppingPlayer-Swift.h"
-    requires objc
+  header "BambuserLiveVideoShoppingPlayer-Swift.h"
+  requires objc
 }
